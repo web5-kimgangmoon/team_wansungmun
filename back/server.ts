@@ -48,20 +48,61 @@ const upload = (imgs: string) =>
 
 app.use("/api", router);
 
-(async () => {
-  await sequelize.sync();
-  const newUser = await db.User.create({
-    name: "Jonny",
-  });
-  console.log(newUser.id, newUser.name);
-
-  const Board = await newUser.createBoard({
-    title: "first",
-    content: "Hello World!",
-    writer: newUser.name,
-  });
-})();
-
 server.listen(app.get("port"), () => {
   console.log("server opens ", app.get("port"));
 });
+
+(async () => {
+  await sequelize.sync({ force: true });
+  const newOne = await db.User.create({
+    email: "djkas",
+    phoneNum: "dkljasl",
+  });
+  await db.User.create({
+    email: "djkarqws",
+    phoneNum: "dkljascxzl",
+  });
+  const newTwo = await db.Category.create({
+    category: "dsad",
+    cateImg: "dasd",
+  });
+  await newTwo.addProduct(
+    await db.Product.create({
+      productName: "dsad",
+      tradeLocation: "dsad",
+      titleImg: "dsad",
+      price: 34,
+    })
+  );
+  const newThree = await db.Product.findOne();
+  await sequelize.transaction(async (t) => {
+    await newOne.createReviewer(
+      { score: 3, imgs: "dsad", sellerId: 2, productId: 1 },
+      { transaction: t }
+    );
+    // await newOne.createSeller({}, {transaction:t})
+    // await newOne.createLocation({ location: "dsacxzcd" }, { transaction: t });
+    newThree?.createReview({
+      score: 4,
+      imgs: "dasdxz",
+      sellerId: 2,
+      reviewerId: 1,
+    });
+  });
+  console.log(await newOne.createReport({ content: "dsad" }));
+  console.log(await newOne.createTradeReceipt({}));
+  console.log(await newThree?.createReport({ content: "dsad" }));
+  console.log(await newThree?.createTradeReceipt({}));
+  // db.User.findOne({ where: { id: 1 } }).then((data) => {
+  //   console.log(data);
+  //   console.log(data?.location);
+  //   console.log(data?.locationList);
+  // });
+  // db.Category.findOne({ where: { id: 1 } }).then((data) => {
+  //   console.log(data?.addProduct);
+  // });
+  // db.Location.findOne({ where: { userId: 1 } }).then((data) => {
+  //   console.log(data);
+  //   console.log(data?.user);
+  // });
+})();

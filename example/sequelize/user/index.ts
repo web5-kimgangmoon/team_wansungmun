@@ -35,7 +35,7 @@ class User extends Model<
   getBoards!: HasManyGetAssociationsMixin<Board>;
   addBoard!: HasManyAddAssociationMixin<Board, number>;
   addBoards!: HasManyAddAssociationsMixin<Board, number>;
-  setBOards!: HasManySetAssociationsMixin<Board, number>;
+  setBoards!: HasManySetAssociationsMixin<Board, number>;
   removeBoard!: HasManyRemoveAssociationMixin<Board, number>;
   removeBoards!: HasManyRemoveAssociationsMixin<Board, number>;
   hasBoard!: HasManyHasAssociationMixin<Board, number>;
@@ -43,7 +43,7 @@ class User extends Model<
   countBoards!: HasManyCountAssociationsMixin;
   createBoard!: HasManyCreateAssociationMixin<Board, "ownerId">;
 
-  boards?: NonAttribute<User[]>;
+  boards?: NonAttribute<Board[]>;
 
   getfullName(): NonAttribute<string> {
     return this.name;
