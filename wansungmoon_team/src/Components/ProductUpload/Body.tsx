@@ -31,7 +31,7 @@ const Body = () => {
       />
       <BoldLine>직거래 가능 여부</BoldLine>
       <div className="pb-1">
-        <Button textColor="black" bgColor="blue" isRounded={false}>
+        <Button textColor="black" bgColor="blue">
           직거래 가능
         </Button>
       </div>

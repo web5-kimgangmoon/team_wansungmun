@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import SvgWrapper from "./SvgWrapper";
 import { Link } from "react-router-dom";
 
@@ -7,7 +6,7 @@ interface IProps {
   fontClassName?: string;
   isInActive?: boolean;
   text: string;
-  svg: ReactNode;
+  svg: string;
   path?: string;
 }
 
