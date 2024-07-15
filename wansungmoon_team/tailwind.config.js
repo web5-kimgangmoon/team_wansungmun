@@ -7,6 +7,12 @@ module.exports = {
         center: true,
       },
     },
+    width: {
+      sm: "320px",
+      md: "768px",
+      lg: "1400px",
+      xl: "1920px",
+    },
     screens: {
       sm: "0px",
       md: "321px",
