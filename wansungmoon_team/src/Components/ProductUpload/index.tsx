@@ -10,7 +10,7 @@ const ProductUpload = (): JSX.Element => {
       </div>
       <Body />
       <div className="Footer">
-        <MenuBar inactiveElement={3} />
+        <MenuBar />
       </div>
     </div>
   );

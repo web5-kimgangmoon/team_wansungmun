@@ -4,7 +4,6 @@ interface IProps {
   textColor: "white" | "black";
   bgColor: "blue" | "gray" | "red" | "green" | "orange";
   children: string;
-  isRounded?: boolean;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => {};
 }
 const Button = ({
@@ -12,7 +11,6 @@ const Button = ({
   bgColor,
   children,
   onClick,
-  isRounded,
 }: IProps): JSX.Element => {
   const textColorStorage = {
     black: " text-black",
@@ -28,10 +26,9 @@ const Button = ({
   return (
     <button
       className={
-        "w-16 text-xs font-bold p-1" +
+        "w-16 text-xs font-bold p-1 rounded-lg" +
         textColorStorage[textColor] +
-        bgColorStorage[bgColor] +
-        `${isRounded ? " rounded-xl" : " rounded-md"}`
+        bgColorStorage[bgColor]
       }
       onClick={onClick}
     >
