@@ -153,9 +153,9 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
           allowNull: false,
           defaultValue: 1,
         },
-        createdAt: DataTypes.DATE,
-        updatedAt: DataTypes.DATE,
-        deletedAt: DataTypes.DATE,
+        // createdAt: DataTypes.DATE,
+        // updatedAt: DataTypes.DATE,
+        // deletedAt: DataTypes.DATE,
       },
       {
         sequelize,
