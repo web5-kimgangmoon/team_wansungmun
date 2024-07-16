@@ -24,7 +24,7 @@ const Body = () => {
       <CheckNLabel>가격 제안 받기</CheckNLabel>
       <InputText placeholder="Point를 입력해주세요" />
       <div>
-        <LongButton isBorder={true} textColor="black" bgColor="white">
+        <LongButton isBorder={true} textColor="white" bgColor="blue">
           확인
         </LongButton>
       </div>
