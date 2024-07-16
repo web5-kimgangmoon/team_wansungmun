@@ -5,11 +5,12 @@ import Dropdown from "../Public/Body/Dropdown";
 import InputTextBox from "../Public/Body/InputBox";
 import InputText from "../Public/Body/InputBox/InputText";
 import LongButton from "../Public/Body/LongButton";
+import TextArea from "../Public/Body/TextArea";
 
 const Body = () => {
   return (
-    <CenterBody>
-      <InputTextBox sort="제목" />
+    <div className="container">
+      <InputTextBox sort="제목" placeholder="제목" />
       <Dropdown
         name="category"
         defaultStr="카테고리"
@@ -17,18 +18,21 @@ const Body = () => {
       />
       <div className="py-1 text-sm font-bold">직거래 가능여부</div>
       <div className="pb-1">
-        <Button textColor="black" bgColor="blue">
+        <Button textColor="black" bgColor="blue" isRounded={false}>
           직거래 가능
         </Button>
       </div>
-      <CheckNLabel>가격 제안 받기</CheckNLabel>
-      <InputText placeholder="Point를 입력해주세요" />
+      <CheckNLabel laTitle="가격 제안 받기" />
+      <InputText placeholder="Point를 입력해주세요" value="" />
       <div>
-        <LongButton isBorder={true} textColor="white" bgColor="blue">
+        <LongButton textColor="white" bgColor="blue">
           확인
         </LongButton>
       </div>
-    </CenterBody>
+      <div>
+        <TextArea />
+      </div>
+    </div>
   );
 };
 

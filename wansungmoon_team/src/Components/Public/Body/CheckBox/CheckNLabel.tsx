@@ -5,7 +5,7 @@ interface IProps {
   id?: string;
   name?: string;
   value?: boolean;
-  children: string;
+  laTitle: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => {};
 }
 
@@ -13,13 +13,15 @@ const CheckNLabel = ({
   id,
   name,
   value,
-  children,
+  laTitle,
   onChange,
 }: IProps): JSX.Element => {
   return (
     <div className="py-1 text-sm font-bold flex gap-1">
       <CheckBox id={id} name={name} value={value} onChange={onChange} />
-      <div>{children}</div>
+      <div>
+        <label htmlFor={id}>{laTitle}</label>
+      </div>
     </div>
   );
 };

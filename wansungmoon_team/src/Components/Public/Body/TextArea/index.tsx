@@ -1,7 +1,7 @@
 interface IProps {}
 
 const TextArea = (): JSX.Element => {
-  return <textarea></textarea>;
+  return <textarea>ㅇㅇㅇㅇㅇㅇㅇ</textarea>;
 };
 
 export default TextArea;

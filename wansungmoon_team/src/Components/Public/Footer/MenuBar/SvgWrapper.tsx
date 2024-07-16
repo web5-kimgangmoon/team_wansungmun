@@ -1,8 +1,10 @@
+import { ReactNode } from "react";
+
 interface IProps {
   className?: string;
   positionClass?: string; // absolute를 박은 svg
   isInActive?: boolean;
-  svg: string;
+  svg: JSX.Element;
 }
 
 const SvgWrapper = ({
@@ -14,10 +16,10 @@ const SvgWrapper = ({
   return (
     <div
       className={
-        className + " " + positionClass + `${isInActive ? "text-gray-500" : ""}`
+        className + " " + positionClass + `${isInActive ? "!text-cusGray" : ""}`
       }
     >
-      <img src={svg} className="w-full" />
+      {svg}
     </div>
   );
 };
