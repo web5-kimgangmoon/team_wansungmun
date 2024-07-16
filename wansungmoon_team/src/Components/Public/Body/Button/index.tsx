@@ -4,7 +4,8 @@ interface IProps {
   textColor: "white" | "black";
   bgColor: "blue" | "gray" | "red" | "green" | "orange" | "yellow";
   children: string;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => {};
+  isRounded?: boolean;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 const Button = ({
   textColor,

@@ -16,8 +16,8 @@ const Dropdown = ({
 }: IProps): JSX.Element => {
   return (
     <div className="relative p-1">
-      <div className="absolute w-5 h-5 right-3 top-3">
-        <img src={arrow} className="w-full" />
+      <div className="absolute w-5 h-5 right-2 top-2">
+        <img src={arrow} className="w-full" alt="" />
       </div>
       <select
         name={name}

@@ -4,10 +4,11 @@ interface IProps {
   title: string;
   value?: string;
   name?: string;
-  onInput?: (e: ChangeEvent<HTMLInputElement>) => {};
+  placeholder?: string;
+  onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputBox = ({
+const InputTextBox = ({
   title,
   value,
   name = "",
