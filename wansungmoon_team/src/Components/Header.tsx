@@ -1,10 +1,12 @@
-import Logo from "../img/Complete Moon1.png";
+import { ReactComponent as Logo } from "../svgs/Complete Moon (1).svg";
+import { ReactComponent as Name } from "../svgs/Complete Moon Market.svg";
 
 function Header() {
   return (
     <div className="flex justify-between m-3">
       <div>
-        <img src={Logo} alt="" />
+        <Logo></Logo>
+        <Name></Name>
       </div>
       <div className="mt-3">
         <button className="font-bold text-xs ">로그인</button>
