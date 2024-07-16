@@ -7,7 +7,7 @@ interface IProps {
   fontClassName?: string;
   isInActive?: boolean;
   text: string;
-  svg: JSX.Element;
+  svg: ReactNode;
   path?: string;
 }
 

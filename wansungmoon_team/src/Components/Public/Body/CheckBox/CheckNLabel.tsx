@@ -6,7 +6,7 @@ interface IProps {
   name?: string;
   value?: boolean;
   laTitle: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => {};
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const CheckNLabel = ({

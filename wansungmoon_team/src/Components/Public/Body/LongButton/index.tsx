@@ -5,7 +5,7 @@ interface IProps {
   bgColor: "blue" | "gray" | "red" | "green" | "white";
   isBorder?: boolean;
   children: string;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => {};
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const LongButton = ({

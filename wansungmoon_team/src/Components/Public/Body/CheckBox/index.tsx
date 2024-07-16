@@ -4,7 +4,7 @@ interface IProps {
   id?: string;
   name?: string;
   value?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => {};
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const CheckBox = ({ name = "", value, id, onChange }: IProps): JSX.Element => {
