@@ -1,8 +1,8 @@
 import { FC } from "react";
-import Comp from "./Comp";
+// import Comp from "./Comp";
 
 const Login_email: FC = () => {
-  return <Comp />;
+  return <div></div>;
 };
 
 export default Login_email;
