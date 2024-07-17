@@ -10,9 +10,9 @@ import SearchVoca from "./Components/Public/Body/SearchVoca/SearchVoca";
 function App() {
   return (
     <div>
-      {/* <Header></Header> */}
-      {/* <ProductUpload></ProductUpload> */}
-      <ProductList></ProductList>
+      <Header></Header>
+      <ProductUpload></ProductUpload>
+      {/* <ProductList></ProductList> */}
       {/* <MediumBtn textColor="white" bgColor="blue">
         포인트 충전
       </MediumBtn> */}
