@@ -8,8 +8,10 @@ import LongButton from "../Public/Body/LongButton";
 import PictureBox from "../Public/Body/PictureBox";
 import TextArea from "../Public/Body/TextArea";
 import Svg from "../../svgs/camere";
+import useImgUpload from "../Public/Body/PictureBox/hooks/useImgUpload";
 
 const Body = () => {
+  const { uploadedImg, setUploadedImgState, onChangeImg } = useImgUpload();
   return (
     <CenterBody>
       <InputTextBox title="제목" placeholder="제목" />
@@ -18,7 +20,9 @@ const Body = () => {
         defaultStr="카테고리"
         options={[["ss", "ㅇㅇ"]]}
       />
-      <div className="py-1 text-sm font-bold">직거래 가능여부</div>
+      <div className="py-1 text-sm font-bold sm:bg-black md:bg-red">
+        직거래 가능여부
+      </div>
       <div className="pb-1">
         <Button textColor="black" bgColor="blue" isRounded={false}>
           직거래 가능
@@ -41,7 +45,7 @@ const Body = () => {
         />
       </div>
       <div>
-        <PictureBox idStr="1" />
+        <PictureBox idStr="1" onChangeImg={onChangeImg} data={uploadedImg} />
       </div>
     </CenterBody>
   );

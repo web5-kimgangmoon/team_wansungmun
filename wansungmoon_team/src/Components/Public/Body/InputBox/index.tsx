@@ -16,7 +16,7 @@ const InputTextBox = ({
   onInput,
 }: IProps): JSX.Element => {
   return (
-    <div>
+    <div className="w-full">
       <div className="p-1 pb-0 text-sm font-bold">{title}</div>
       <div>
         <InputText

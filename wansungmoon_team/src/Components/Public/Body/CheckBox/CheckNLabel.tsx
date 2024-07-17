@@ -17,7 +17,7 @@ const CheckNLabel = ({
   onChange,
 }: IProps): JSX.Element => {
   return (
-    <div className="py-1 text-sm font-bold flex gap-1">
+    <div className="w-full py-1 text-sm font-bold flex gap-1">
       <CheckBox id={id} name={name} value={value} onChange={onChange} />
       <div>
         <label htmlFor={id}>{laTitle}</label>

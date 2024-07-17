@@ -8,7 +8,7 @@ interface IProps {
 
 const Dropdown = ({ name = "", options, defaultStr }: IProps): JSX.Element => {
   return (
-    <div className="relative p-1">
+    <div className="relative p-1 w-full">
       <div className="absolute w-5 h-5 right-2 top-2">
         <img src={arrow} className="w-full" alt="" />
       </div>

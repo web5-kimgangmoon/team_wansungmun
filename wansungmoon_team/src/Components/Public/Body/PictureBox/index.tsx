@@ -1,44 +1,24 @@
-import { useMutation } from "@tanstack/react-query";
 import Comp from "./comp";
-import axios from "axios";
 import { ChangeEvent } from "react";
 
 interface IProps {
   idStr: string;
+  data: FormData | undefined; //hook 써주세요
+  onChangeImg: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const PictureBox = ({ idStr }: IProps): JSX.Element => {
-  const { data, mutate } = useMutation({
-    mutationKey: ["img", "upload"],
-    mutationFn: async (formData: FormData) => {
-      try {
-        const data = await axios({
-          method: "post",
-          url: "http://localhost:3080/upload",
-          headers: {
-            "Content-type": "multipart/form-data",
-          },
-          data: formData,
-        });
-        return data;
-      } catch (err) {
-        console.error(err);
-        return undefined;
-      }
-    },
-  });
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const formData = new FormData();
-    if (e.target && e.target.files) {
-      for (let i = 0; i < e.target.files.length; i++) {
-        console.log(e.target.files.item(i));
-        formData.append(`imgs`, e.target.files.item(i) as File);
-      }
-      console.log(formData.getAll("imgs"));
-      mutate(formData);
+const PictureBox = ({ idStr, data, onChangeImg }: IProps): JSX.Element => {
+  let pictureArr: ArrayBuffer[] = [];
+  if (data) {
+    for (let item of data.getAll("imgs")) {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        pictureArr.push(e.target?.result as ArrayBuffer);
+      };
+      reader.readAsDataURL(item as Blob);
     }
-  };
-  return <Comp id={`${idStr}Uploader`} onChange={onChange} data={data} />;
+  }
+  return <Comp idStr={`${idStr}`} onChange={onChangeImg} data={pictureArr} />;
 };
 
 // document.getElementById("insertChannel_icon").onchange = (e) => {

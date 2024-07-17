@@ -14,10 +14,15 @@ const CheckBox = ({ name = "", value, id, onChange }: IProps): JSX.Element => {
       id={`${id !== undefined ? id : ""}`}
       name={name}
       onChange={onChange}
-      className=""
+      value={value}
     />
   ) : (
-    <input type="checkbox" name={name} onChange={onChange} />
+    <input
+      id={`${id !== undefined ? id : ""}`}
+      type="checkbox"
+      name={name}
+      onChange={onChange}
+    />
   );
 };
 

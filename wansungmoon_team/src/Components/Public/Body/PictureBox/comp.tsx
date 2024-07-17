@@ -2,18 +2,18 @@ import { ChangeEvent } from "react";
 import Svg from "../../../../svgs/camere";
 
 interface IProps {
-  id: string;
+  idStr: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   data: any;
 }
 
-const PictureBox = ({ id, onChange, data }: IProps): JSX.Element => {
+const PictureBox = ({ idStr, onChange, data }: IProps): JSX.Element => {
   console.log(data);
   return (
     <div>
       <div className="w-full flex flex-col items-center">
         <input
-          id={id}
+          id={`${idStr}Uploader`}
           type="file"
           name="imgs"
           accept="image/*"
@@ -23,7 +23,7 @@ const PictureBox = ({ id, onChange, data }: IProps): JSX.Element => {
         />
         <label
           className="sm:w-6 md:w-12 lg:w-20 xl:w-24 cursor-pointer"
-          htmlFor={id}
+          htmlFor={`${idStr}Uploader`}
         >
           {Svg}
         </label>
