@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import multer from "multer";
 import path from "path";
 
-const upload = (imgs: string) =>
+const uploadMulter = (imgs: string) =>
   multer({
     storage: multer.diskStorage({
       destination: (req, file, callback) => {
@@ -14,7 +14,9 @@ const upload = (imgs: string) =>
     }),
   }).array(imgs);
 
-const uploadImg = (req: Request, res: Response) => {
+const upload = (req: Request, res: Response) => {
+  console.log(req.query);
+  console.log(req.files);
   if (!req.files) {
     res.send({ files: undefined });
   }
@@ -27,5 +29,4 @@ const uploadImg = (req: Request, res: Response) => {
   res.send({ files });
 };
 
-export { upload };
-export default uploadImg;
+export { uploadMulter, upload };

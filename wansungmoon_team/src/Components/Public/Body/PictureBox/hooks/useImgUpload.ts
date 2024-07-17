@@ -1,22 +1,23 @@
-import axios from "axios";
 import { ChangeEvent, useState } from "react";
 
 const useImgUpload = () => {
-  const [uploadedImg, setUploadedImgState] = useState<FormData[] | undefined>(
+  const [uploadedImg, setUploadedImg] = useState<FormData | undefined>(
     undefined
   );
 
   const onChangeImg = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 5) {
+      return;
+    }
     const formData = new FormData();
     if (e.target && e.target.files) {
       for (let i = 0; i < e.target.files.length; i++) {
-        // formData.set(`imgs`, e.target.files.item(i) as File);
         formData.append(`imgs`, e.target.files.item(i) as File);
       }
-      setUploadedImgState();
+      setUploadedImg(formData);
     }
   };
-  return { uploadedImg, setUploadedImgState, onChangeImg };
+  return { uploadedImg, setUploadedImg, onChangeImg };
 };
 
 export default useImgUpload;

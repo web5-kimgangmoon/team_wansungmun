@@ -33,6 +33,7 @@ module.exports = {
       orangeButton: "#FFA500",
       redButton: "#EE98A7",
       greenButton: "#35D835",
+      yellow: "#fcd34d",
     },
     container: {
       center: true,

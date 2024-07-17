@@ -2,7 +2,7 @@ import { MouseEvent } from "react";
 
 interface IProps {
   textColor: "white" | "black";
-  bgColor: "blue" | "gray" | "red" | "green" | "orange";
+  bgColor: "blue" | "gray" | "red" | "green" | "orange" | "yellow";
   children: string;
   isRounded?: boolean;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
@@ -24,6 +24,7 @@ const Button = ({
     red: " bg-redButton",
     green: " bg-greenButton",
     orange: " bg-orangeButton",
+    yellow: " bg-yellow",
   };
   return (
     <button

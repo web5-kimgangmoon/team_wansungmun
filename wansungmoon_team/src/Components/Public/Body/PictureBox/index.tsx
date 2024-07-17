@@ -8,14 +8,18 @@ interface IProps {
 }
 
 const PictureBox = ({ idStr, data, onChangeImg }: IProps): JSX.Element => {
-  let pictureArr: ArrayBuffer[] = [];
+  let pictureArr: string[] = [];
   if (data) {
     for (let item of data.getAll("imgs")) {
-      let reader = new FileReader();
-      reader.onload = (e) => {
-        pictureArr.push(e.target?.result as ArrayBuffer);
-      };
-      reader.readAsDataURL(item as Blob);
+      // console.log(item);
+      // let reader = new FileReader();
+      // reader.onload = (e) => {
+      //   pictureArr.push(e.target?.result as ArrayBuffer);
+      // };
+      // reader.readAsDataURL(item as Blob);
+      // 크기가 너무 커서 react에서 변수를 저장해서 이전값과 확인하는 과정을 거치지 않는다.
+      pictureArr.push(URL.createObjectURL(item as Blob));
+      // 그냥 주소 위치로 저장, nginx 환경에서도 돌아가는지 확인이 필요
     }
   }
   return <Comp idStr={`${idStr}`} onChange={onChangeImg} data={pictureArr} />;

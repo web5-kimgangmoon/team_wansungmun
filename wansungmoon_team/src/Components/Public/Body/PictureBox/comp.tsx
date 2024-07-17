@@ -4,11 +4,10 @@ import Svg from "../../../../svgs/camere";
 interface IProps {
   idStr: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  data: any;
+  data: any[];
 }
 
 const PictureBox = ({ idStr, onChange, data }: IProps): JSX.Element => {
-  console.log(data);
   return (
     <div>
       <div className="w-full flex flex-col items-center">
@@ -27,9 +26,15 @@ const PictureBox = ({ idStr, onChange, data }: IProps): JSX.Element => {
         >
           {Svg}
         </label>
-        <div className="sm:text-xs text-sm">사진 0/5</div>
+        <div className="sm:text-xs text-sm">{`사진 ${data.length}/5`}</div>
       </div>
-      <div></div>
+      <div className="flex gap-1 justify-center">
+        {data.map((item, index) => (
+          <div key={index} className="sm:w-12 w-24">
+            <img src={item.toString()} className="w-full" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -8,7 +8,7 @@ interface IProps {
   onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputTextBox = ({
+const InputBox = ({
   title,
   value,
   name = "",
@@ -30,4 +30,4 @@ const InputTextBox = ({
   );
 };
 
-export default InputTextBox;
+export default InputBox;
