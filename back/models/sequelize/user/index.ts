@@ -23,12 +23,12 @@ import TradeReceipt from "../tradeReceipt";
 
 class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   id!: CreationOptional<number>;
-
   email!: string;
   phoneNum!: string;
   point!: CreationOptional<number>;
   averageScore!: CreationOptional<number>;
-  priority!: CreationOptional<number>;
+  authority!: CreationOptional<number>;
+  password!: CreationOptional<number>;
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
   deletedAt!: CreationOptional<Date>;
@@ -123,9 +123,14 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
           autoIncrement: true,
           primaryKey: true,
         },
+
         email: {
           type: new DataTypes.STRING(50),
           unique: true,
+          allowNull: false,
+        },
+        password: {
+          type: new DataTypes.STRING(50),
           allowNull: false,
         },
         phoneNum: {
@@ -143,7 +148,7 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
           allowNull: false,
           defaultValue: 0,
         },
-        priority: {
+        authority: {
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: false,
           defaultValue: 1,

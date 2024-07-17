@@ -5,10 +5,12 @@ import cors from "cors";
 // import cookieParser from "cookie-parser";
 import multer from "multer";
 import useSocket from "./socket/useSocket";
-
 import router from "./controllers/index";
 import db, { sequelize } from "./models/sequelize/index";
 import create_table_category from "./lib/create-table-category";
+import session from "express-session";
+import fileStore from "session-file-store";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -24,7 +26,7 @@ app.use((req, res, next) => {
 app.use(
   cors({
     origin: [/http:\/\/localhost:*/, /https:\/\/127.0.0.1:*/],
-    // credentials: true, // 쿠키가 있다면
+    credentials: true, // 쿠키가 있다면
   })
 );
 app.use(express.urlencoded({ extended: false }));
@@ -46,12 +48,6 @@ const upload = (imgs: string) =>
 // app.post("/upload", upload("imgs"), (req,res) =>{
 //   res.send("ok");
 // } )
-
-app.use("/api", router);
-
-server.listen(app.get("port"), () => {
-  console.log("server opens ", app.get("port"));
-});
 
 // (async () => {
 //   await sequelize.sync({ force: true });
@@ -108,7 +104,40 @@ server.listen(app.get("port"), () => {
 //   // });
 // })();
 
+const FileStore = fileStore(session);
+
+declare module "express-session" {
+  interface SessionData {
+    cookie: Cookie;
+    user: string;
+    isLogined: boolean;
+    nickName: string;
+  }
+}
+
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: "project",
+    name: "user",
+    store: new FileStore({
+      reapInterval: 1000,
+      path: "./user_session",
+    }),
+    cookie: {
+      maxAge: 20 * 60 * 1000,
+    },
+  })
+);
+
 (async () => {
-  await sequelize.sync({ force: true });
-  create_table_category();
+  await sequelize.sync({ force: false });
+  // create_table_category();
 })();
+
+app.use("/api", router);
+
+server.listen(app.get("port"), () => {
+  console.log("server opens ", app.get("port"));
+});
