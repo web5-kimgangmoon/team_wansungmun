@@ -21,7 +21,8 @@ const Dropdown = ({
       </div>
       <select
         name={name}
-        className="p-1 pr-6 border outline-none w-full appearance-none font-bold"
+        className="p-1 pr-5 border outline-none w-full appearance-none font-bold text-sm"
+        onChange={onChange}
       >
         <option value={""} key={0}>
           {defaultStr}

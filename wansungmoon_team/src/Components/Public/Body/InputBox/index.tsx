@@ -8,7 +8,7 @@ interface IProps {
   onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputTextBox = ({
+const InputBox = ({
   title,
   value,
   name = "",
