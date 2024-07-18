@@ -24,7 +24,7 @@ const LongButton = ({
     gray: " bg-cusGray",
     red: " bg-redButton",
     green: " bg-greenButton",
-    white: "bg-white",
+    white: " bg-white",
     yellow: " bg-yellow",
   };
   return (

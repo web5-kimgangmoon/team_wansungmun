@@ -6,6 +6,11 @@ import MediumBtn from "./Components/Public/Body/MediumButton/MediumBtn";
 import SmallButton from "./Components/Public/Body/SmallButton/SmallButton";
 import OrderListPage from "./Components/OrderListPage";
 import SearchVoca from "./Components/Public/Body/SearchVoca/SearchVoca";
+import { Route, Routes } from "react-router-dom";
+import Email from "./Components/Temp/Email";
+import KakaoBtn from "./Components/Temp/KakaoBtn";
+import Login from "./Components/Login";
+import Email_login from "./Components/Login/Login_Email/Comp";
 
 function App() {
   return (
@@ -23,6 +28,10 @@ function App() {
       {/* <SearchVoca textColor="black" bgColor="white">
         세탁기
       </SearchVoca> */}
+      <Routes>
+        <Route path="/login" Component={Login}></Route>
+        <Route path="/login/email" Component={Email_login}></Route>
+      </Routes>
     </div>
   );
 }

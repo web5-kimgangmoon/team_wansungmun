@@ -5,22 +5,28 @@ export const Login = async (req: Request, res: Response) => {
   try {
     const { userInput } = req.body;
     console.log(req.body.email);
-    // const userInfo = await User.findOne({
-    //   where: { email: req.body.email as string },
-    // });
-    // if (!userInfo) {
-    //   res.json({ error: "유저를 찾을 수 없습니다" });
-    //   return;
-    // } else if (userInfo.password == req.body.password) {
-    //   req.session;
-    //   res.send(`${req.body.email}`);
-    //   return;
-    // }
+    const userInfo = await User.findOne({
+      where: { email: req.body.email as string },
+    });
+    if (!userInfo) {
+      res.json({ error: "유저를 찾을 수 없습니다" });
+      return;
+    } else if (userInfo.password == req.body.password) {
+      req.session;
+      res.send({
+        user: req.body.email,
+        isLogined: true,
+        nickname: userInfo.nickname,
+      });
+      return;
+    } else {
+      res.send({ error: "비밀번호를 확인해주세요" });
+    }
     // res.cookie("user", { signed: true });
     // req.session.user = "string";
-    let cookie = req.session;
-    cookie.user = req.body.email;
-    res.send({ user: cookie.user, isLogined: true, nickname: "JOJO" });
+    // let cookie = req.session;
+    // cookie.user = req.body.email;
+    // res.send({ user: cookie.user, isLogined: true, nickname: "JOJO" });
     // res.send(`${req.body.email}`);
   } catch (err) {
     console.error(err);

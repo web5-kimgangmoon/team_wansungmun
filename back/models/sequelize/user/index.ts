@@ -23,6 +23,7 @@ import TradeReceipt from "../tradeReceipt";
 
 class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   id!: CreationOptional<number>;
+  nickname!: string;
   email!: string;
   phoneNum!: string;
   point!: CreationOptional<number>;
@@ -129,6 +130,11 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
           unique: true,
           allowNull: false,
         },
+        nickname: {
+          type: new DataTypes.STRING(20),
+          allowNull: false,
+        },
+
         password: {
           type: new DataTypes.STRING(50),
           allowNull: false,

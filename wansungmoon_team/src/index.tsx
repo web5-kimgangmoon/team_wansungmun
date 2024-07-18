@@ -6,6 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:3080";
+axios.defaults.validateStatus = (status) => {
+  return status == 200 ? true : false;
+};
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
