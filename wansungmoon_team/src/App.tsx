@@ -12,12 +12,18 @@ import KakaoBtn from "./Components/Temp/KakaoBtn";
 import Login from "./Components/Login";
 import Email_login from "./Components/Login/Login_Email/Comp";
 import Regist from "./Components/regist";
+import Main from "./Components/Main/Main";
+import MenuBar from "./Components/Public/Footer/MenuBar";
+import List from "./Components/ProductList/Body";
 
 function App() {
   return (
     <div>
       <Header></Header>
-      <ProductUpload></ProductUpload>
+      <Main></Main>
+      <ProductList></ProductList>
+      <MenuBar></MenuBar>
+      {/* <ProductUpload></ProductUpload> */}
       {/* <ProductList></ProductList> */}
       {/* <MediumBtn textColor="white" bgColor="blue">
         포인트 충전
