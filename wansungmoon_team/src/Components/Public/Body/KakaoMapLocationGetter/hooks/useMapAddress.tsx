@@ -1,18 +1,11 @@
 import { useEffect, useState } from "react";
 
 const useMapAddress = () => {
-  const [mapAddress, setMapAddress] = useState<{
-    address: string;
-    detailAddress: string;
-  }>({
-    address: "",
-    detailAddress: "",
-  });
+  const [mapAddress, setMapAddress] = useState<string>("");
 
   return {
     mapAddress,
     setMapAddress,
-    // initMapLocation,
   };
 };
 

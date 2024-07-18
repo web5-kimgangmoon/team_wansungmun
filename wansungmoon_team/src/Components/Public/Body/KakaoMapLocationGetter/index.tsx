@@ -6,13 +6,8 @@ import Comp from "./Comp";
 interface IProps {
   mapLocation: { lat: number; lng: number };
   setMapLocation: ({ lat, lng }: { lat: number; lng: number }) => void;
-  mapAddress: { address: string; detailAddress: string };
-  setMapAddress: React.Dispatch<
-    React.SetStateAction<{
-      address: string;
-      detailAddress: string;
-    }>
-  >;
+  mapAddress: string;
+  setMapAddress: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const KakaoMapLocationGetter = ({
@@ -36,23 +31,12 @@ const KakaoMapLocationGetter = ({
       e.latLng.getLng(),
       e.latLng.getLat(),
       (result, status) => {
-        console.log(result);
-        console.log(status);
         if (result) {
-          if (status.includes("200")) {
-            setMapAddress((value) => ({
-              ...value,
-              address: result[0].address?.address_name,
-            }));
-            console.log(result);
+          if (status === "OK") {
+            setMapAddress(result[0].address?.address_name);
           }
         }
       }
-    );
-    geocoder.coord2RegionCode(
-      e.latLng.getLat(),
-      e.latLng.getLng(),
-      (result, status) => {}
     );
     setMapLocation({ lat: e.latLng.getLat(), lng: e.latLng.getLng() });
   };

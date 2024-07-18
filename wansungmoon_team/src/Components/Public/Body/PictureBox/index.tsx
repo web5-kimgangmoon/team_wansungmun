@@ -5,9 +5,15 @@ interface IProps {
   idStr: string;
   data: FormData | undefined; //hook 써주세요
   onChangeImg: (e: ChangeEvent<HTMLInputElement>) => void;
+  limit: number;
 }
 
-const PictureBox = ({ idStr, data, onChangeImg }: IProps): JSX.Element => {
+const PictureBox = ({
+  idStr,
+  data,
+  limit,
+  onChangeImg,
+}: IProps): JSX.Element => {
   let pictureArr: string[] = [];
   if (data) {
     for (let item of data.getAll("imgs")) {
@@ -22,7 +28,14 @@ const PictureBox = ({ idStr, data, onChangeImg }: IProps): JSX.Element => {
       // 그냥 주소 위치로 저장, nginx 환경에서도 돌아가는지 확인이 필요
     }
   }
-  return <Comp idStr={`${idStr}`} onChange={onChangeImg} data={pictureArr} />;
+  return (
+    <Comp
+      idStr={`${idStr}`}
+      onChange={onChangeImg}
+      data={pictureArr}
+      limit={limit}
+    />
+  );
 };
 
 // document.getElementById("insertChannel_icon").onchange = (e) => {

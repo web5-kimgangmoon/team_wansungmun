@@ -19,8 +19,8 @@ const KakaoMapLocationGetter = ({
   clickMarking,
 }: IProps) => {
   return (
-    <div className="w-full">
-      <div>
+    <div className="w-ful">
+      <div className="py-1">
         <Button
           textColor="white"
           bgColor={isEnableMarking ? "red" : "blue"}

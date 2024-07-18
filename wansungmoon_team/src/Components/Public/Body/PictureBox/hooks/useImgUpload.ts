@@ -1,12 +1,12 @@
 import { ChangeEvent, useState } from "react";
 
-const useImgUpload = () => {
+const useImgUpload = (limit: number) => {
   const [uploadedImg, setUploadedImg] = useState<FormData | undefined>(
     undefined
   );
 
   const onChangeImg = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 5) {
+    if (e.target.files && e.target.files.length > limit) {
       return;
     }
     const formData = new FormData();

@@ -17,11 +17,10 @@ import useMapAddress from "../Public/Body/KakaoMapLocationGetter/hooks/useMapAdd
 
 const Body = () => {
   const test = { test: "" };
-  const { uploadedImg, setUploadedImg, onChangeImg } = useImgUpload();
+  const { uploadedImg, setUploadedImg, onChangeImg } = useImgUpload(5);
   const { swapClick, isSwapped } = useSwap();
   const { mapLocation, setMapLocation } = useMapLocation();
   const { mapAddress, setMapAddress } = useMapAddress();
-  console.log(mapLocation);
   return (
     <CenterBody>
       <InputTextBox title="제목" placeholder="제목" />
@@ -48,7 +47,12 @@ const Body = () => {
         />
       </div>
       <div>
-        <PictureBox idStr="1" onChangeImg={onChangeImg} data={uploadedImg} />
+        <PictureBox
+          idStr="1"
+          limit={5}
+          onChangeImg={onChangeImg}
+          data={uploadedImg}
+        />
       </div>
       <BoldLine>택배거래</BoldLine>
       <SwapButton
