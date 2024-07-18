@@ -15,13 +15,22 @@ import Regist from "./Components/regist";
 import Main from "./Components/Main/Main";
 import MenuBar from "./Components/Public/Footer/MenuBar";
 import List from "./Components/ProductList/Body";
+import SimpleSlider from "./Components/Mains/SimpleSlider";
+import TopTab from "./Components/TopTab/TopTab";
+import AllTab from "./Components/TopTab/Index";
 
 function App() {
   return (
     <div>
       <Header></Header>
-      <Main></Main>
-      <ProductList></ProductList>
+      <AllTab></AllTab>
+      {/* <SimpleSlider></SimpleSlider> */}
+      {/* <Main></Main> */}
+      {/* <ProductList></ProductList> */}
+      <List></List>
+      <List></List>
+      <List></List>
+
       <MenuBar></MenuBar>
       {/* <ProductUpload></ProductUpload> */}
       {/* <ProductList></ProductList> */}

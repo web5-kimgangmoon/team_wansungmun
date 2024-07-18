@@ -34,7 +34,11 @@ const MainBox = ({}: IProps) => {
   const MainListArr = [];
   for (let i = 1; i < 4; i++) {
     MainListArr.push(
-      <MainList titleArr={pageTitleArr.filter((_, index) => (i - 1) * 5 - 1 < index && index < i * 5)} />
+      <MainList
+        titleArr={pageTitleArr.filter(
+          (_, index) => (i - 1) * 5 - 1 < index && index < i * 5
+        )}
+      />
     );
   }
   return (
