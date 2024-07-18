@@ -11,6 +11,7 @@ import Email from "./Components/Temp/Email";
 import KakaoBtn from "./Components/Temp/KakaoBtn";
 import Login from "./Components/Login";
 import Email_login from "./Components/Login/Login_Email/Comp";
+import Regist from "./Components/regist";
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
       <Routes>
         <Route path="/login" Component={Login}></Route>
         <Route path="/login/email" Component={Email_login}></Route>
+        <Route path="/regist" Component={Regist}></Route>
+        {/* <Route path="/regist/email" Component={}></Route> */}
       </Routes>
     </div>
   );
