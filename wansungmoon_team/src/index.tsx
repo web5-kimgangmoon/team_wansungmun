@@ -10,7 +10,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3080";
 axios.defaults.validateStatus = (status) => {
-  return status == 200 ? true : false;
+  return status === 200 ? true : false;
 };
 
 const root = ReactDOM.createRoot(

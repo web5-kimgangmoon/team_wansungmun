@@ -22,7 +22,7 @@ const PictureBox = ({ idStr, onChange, data, limit }: IProps): JSX.Element => {
           hidden={true}
         />
         <label
-          className="sm:w-6 md:w-12 lg:w-20 xl:w-24 cursor-pointer"
+          className="sm:w-12 w-24 xl:w-24 cursor-pointer"
           htmlFor={`${idStr}Uploader`}
         >
           {Svg}

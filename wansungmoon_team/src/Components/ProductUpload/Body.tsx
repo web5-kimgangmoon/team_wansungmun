@@ -9,14 +9,18 @@ import PictureBox from "../Public/Body/PictureBox";
 import TextArea from "../Public/Body/TextArea";
 import useImgUpload from "../Public/Body/PictureBox/hooks/useImgUpload";
 import SwapButton from "../Public/Body/LongButton/SwapButton";
-import useSwap from "../Public/Body/LongButton/SwapButton/hooks/useSwrap";
+import useSwap from "../Public/Body/LongButton/SwapButton/hooks/useSwap";
 import BoldLine from "../Public/Body/BoldLine";
 import KakaoMapLocation from "../Public/Body/KakaoMapLocationGetter";
 import useMapLocation from "../Public/Body/KakaoMapLocationGetter/hooks/useMapLocation";
 import useMapAddress from "../Public/Body/KakaoMapLocationGetter/hooks/useMapAddress";
+import { useState } from "react";
 
 const Body = () => {
-  const test = { test: "" };
+  // const [currentAddress, setCurrentAddress] = useState<{
+  //   address: string;
+  //   isHiddenMap: boolean;
+  // }>({ address: "", isHiddenMap: true });
   const { uploadedImg, setUploadedImg, onChangeImg } = useImgUpload(5);
   const { swapClick, isSwapped } = useSwap();
   const { mapLocation, setMapLocation } = useMapLocation();
@@ -61,21 +65,72 @@ const Body = () => {
         btnA="배송비 포함"
         btnB="배송비 별도"
       />
-      <BoldLine>거래희망장소(직거래시)</BoldLine>
-      <KakaoMapLocation
-        mapLocation={mapLocation}
-        setMapLocation={setMapLocation}
-        mapAddress={mapAddress}
-        setMapAddress={setMapAddress}
-      />
+      {/* <div
+        onClick={() => {
+          setCurrentAddress((item) => ({
+            ...item,
+            isHiddenMap: !item.isHiddenMap,
+          }));
+        }}
+      > */}
+      {/* <InputText
+          id="locationInput"
+          placeholder="거래희망장소"
+          value={currentAddress.address}
+          onInput={(e) => {
+            e.target.value = currentAddress.address;
+          }}
+        /> */}
+      {/* <LongButton bgColor="green" textColor="black">
+          {currentAddress.address}
+        </LongButton>
+      </div> */}
+      <div>
+        <BoldLine>거래희망장소(직거래시)</BoldLine>
+        <KakaoMapLocation
+          mapLocation={mapLocation}
+          setMapLocation={setMapLocation}
+          mapAddress={mapAddress}
+          setMapAddress={setMapAddress}
+        />
+        <div className="py-2">
+          <div className="p-1 flex border border-cusGray rounded-xl">
+            <div className="flex items-center p-1">
+              <Button bgColor="blue" textColor="black">
+                선택된 위치
+              </Button>
+            </div>
+            <div className="flex items-center text-sm">{mapAddress}</div>
+          </div>
+        </div>
+        {/* <div className="py-1">
+          <LongButton
+            bgColor="blue"
+            textColor="white"
+            onClick={(e) => {
+              setCurrentAddress({
+                ...currentAddress,
+                address: mapAddress,
+                isHiddenMap: true,
+              });
+            }}
+          >
+            위치선택
+          </LongButton>
+        </div> */}
+      </div>
+      <div className="py-2">
+        <LongButton bgColor="blue" textColor="white">
+          거래할 물건 올리기
+        </LongButton>
+      </div>
     </CenterBody>
   );
 };
 
 export default Body;
 
-{
-  /* <button
+/* <button
 onClick={async (e) => {
   try {
     let data = await axios({
@@ -114,7 +169,7 @@ onClick={async (e) => {
 >
 ㅇㅇ
 </button> */
-}
+
 // 한번에 formdata와 json 형식의 데이터를 보낼 수는 없습니다. 그러니까
 // formdata와 쿼리로 보내거나 요청을 두번으로 나누어 보내거나
 // 쿼리문을 이용합시다

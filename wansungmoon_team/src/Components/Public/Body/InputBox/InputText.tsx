@@ -4,18 +4,21 @@ interface IProps {
   placeholder?: string;
   value?: string;
   name?: string;
+  id?: string;
   onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputText = ({
   placeholder = "",
   value,
+  id = "",
   name = "",
   onInput,
 }: IProps): JSX.Element => {
   return value !== undefined ? (
     <div className="py-1">
       <input
+        id={id}
         name={name}
         type="text"
         placeholder={placeholder}
@@ -26,6 +29,7 @@ const InputText = ({
   ) : (
     <div className="py-1">
       <input
+        id={id}
         name={name}
         type="text"
         placeholder={placeholder}

@@ -14,15 +14,14 @@ import Email_login from "./Components/Login/Login_Email/Comp";
 import Regist from "./Components/regist";
 import Main from "./Components/Main/Main";
 import MenuBar from "./Components/Public/Footer/MenuBar";
+
 import List from "./Components/ProductList/Body";
+import ReviewWrite from "./Components/ReviewNreportWrite/ReviewWrite";
+import ReportWrite from "./Components/ReviewNreportWrite/ReportWrite";
 
 function App() {
   return (
     <div>
-      <Header></Header>
-      <Main></Main>
-      <ProductList></ProductList>
-      <MenuBar></MenuBar>
       {/* <ProductUpload></ProductUpload> */}
       {/* <ProductList></ProductList> */}
       {/* <MediumBtn textColor="white" bgColor="blue">
@@ -36,6 +35,20 @@ function App() {
         세탁기
       </SearchVoca> */}
       <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              <Header></Header>
+              <Main></Main>
+              <ProductList></ProductList>
+              <MenuBar></MenuBar>
+            </div>
+          }
+        ></Route>
+        <Route path="/reviewWrite" Component={ReviewWrite} />
+        <Route path="/reportWrite" Component={ReportWrite} />
+        <Route path="/upload" Component={ProductUpload}></Route>
         <Route path="/login" Component={Login}></Route>
         <Route path="/login/email" Component={Email_login}></Route>
         <Route path="/regist" Component={Regist}></Route>

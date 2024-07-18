@@ -8,8 +8,10 @@ interface IProps {
 }
 
 const CheckBox = ({ name = "", value, id, onChange }: IProps): JSX.Element => {
+  const className = "p-4";
   return value === undefined ? (
     <input
+      className={className}
       type="checkbox"
       id={`${id !== undefined ? id : ""}`}
       name={name}
@@ -18,6 +20,7 @@ const CheckBox = ({ name = "", value, id, onChange }: IProps): JSX.Element => {
     />
   ) : (
     <input
+      className={className}
       id={`${id !== undefined ? id : ""}`}
       type="checkbox"
       name={name}

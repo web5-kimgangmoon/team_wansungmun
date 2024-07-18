@@ -15,7 +15,6 @@ const TextArea = ({
   rows = 1,
   onChange,
 }: IProps): JSX.Element => {
-  console.log(placeholder);
   return (
     <textarea
       value={value}

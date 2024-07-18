@@ -1,13 +1,13 @@
-import { MouseEvent } from "react";
+import { MouseEvent, ReactNode } from "react";
 
 interface IProps {
   textColor: "white" | "black";
   bgColor: "blue" | "gray" | "red" | "green" | "orange" | "yellow";
-  children: string;
+  children: string | ReactNode;
   isRounded?: boolean;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
-const Button = ({
+const ClickButton = ({
   textColor,
   bgColor,
   children,
@@ -28,7 +28,7 @@ const Button = ({
   return (
     <button
       className={
-        "min-w-16 text-xs font-bold p-1 rounded-lg" +
+        "min-w-24 text-sm font-bold px-1 py-2 rounded-lg" +
         textColorStorage[textColor] +
         bgColorStorage[bgColor]
       }
@@ -39,4 +39,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default ClickButton;

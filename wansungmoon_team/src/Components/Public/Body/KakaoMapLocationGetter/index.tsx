@@ -1,5 +1,5 @@
 import useKakaoLoader from "./hooks/useKakaoLoader";
-import { MouseEvent } from "react";
+import { MouseEvent, useRef } from "react";
 import { useState } from "react";
 import Comp from "./Comp";
 
@@ -21,6 +21,7 @@ const KakaoMapLocationGetter = ({
   const changeIsEnableMarking = (e: MouseEvent<HTMLButtonElement>) => {
     setIsEnableMarking(!isEnableMarking);
   };
+  const mapRef = useRef<kakao.maps.Map>(null);
   const clickMarking = (
     target: kakao.maps.Map,
     e: kakao.maps.event.MouseEvent
@@ -38,6 +39,7 @@ const KakaoMapLocationGetter = ({
         }
       }
     );
+
     setMapLocation({ lat: e.latLng.getLat(), lng: e.latLng.getLng() });
   };
   return (
@@ -46,6 +48,7 @@ const KakaoMapLocationGetter = ({
       changeIsEnableMarking={changeIsEnableMarking}
       isEnableMarking={isEnableMarking}
       clickMarking={clickMarking}
+      mapRef={mapRef}
     />
   );
 };
