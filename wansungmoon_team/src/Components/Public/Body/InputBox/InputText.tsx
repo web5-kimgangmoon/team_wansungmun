@@ -4,7 +4,7 @@ interface IProps {
   placeholder?: string;
   value?: string;
   name?: string;
-  onInput?: (e: ChangeEvent<HTMLInputElement>) => {};
+  onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputText = ({

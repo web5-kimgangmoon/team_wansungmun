@@ -66,4 +66,5 @@ Product.hasMany(TradeReceipt, {
   foreignKey: "productId",
 });
 
+// export {db["Category" as keyof] as Category}
 export default db;

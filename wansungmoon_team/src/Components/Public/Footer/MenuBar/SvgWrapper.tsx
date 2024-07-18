@@ -4,7 +4,7 @@ interface IProps {
   className?: string;
   positionClass?: string; // absolute를 박은 svg
   isInActive?: boolean;
-  svg: JSX.Element;
+  svg: ReactNode;
 }
 
 const SvgWrapper = ({

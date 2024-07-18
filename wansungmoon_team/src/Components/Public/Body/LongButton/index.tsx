@@ -2,10 +2,10 @@ import { MouseEvent } from "react";
 
 interface IProps {
   textColor: "white" | "black";
-  bgColor: "blue" | "gray" | "red" | "green" | "white";
+  bgColor: "blue" | "gray" | "red" | "green" | "white" | "yellow";
   isBorder?: boolean;
   children: string;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => {};
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const LongButton = ({
@@ -25,6 +25,7 @@ const LongButton = ({
     red: " bg-redButton",
     green: " bg-greenButton",
     white: "bg-white",
+    yellow: " bg-yellow",
   };
   return (
     <button
