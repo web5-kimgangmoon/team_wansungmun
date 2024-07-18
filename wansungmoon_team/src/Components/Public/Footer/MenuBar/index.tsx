@@ -1,7 +1,7 @@
-import heart from "../../../../imgs/Heart.svg";
-import home from "../../../../imgs/Home.svg";
-import person from "../../../../imgs/person.svg";
-import search from "../../../../imgs/search.svg";
+import heart from "../../../../svgs/Heart";
+import home from "../../../../svgs/Home";
+import person from "../../../../svgs/person";
+import search from "../../../../svgs/search";
 import OrderList from "./OrderList";
 import MenuWrapper from "./MenuWrapper";
 
@@ -34,8 +34,8 @@ const MenuBar = ({ inactiveElement = -1 }: IProps): JSX.Element => {
                 fontClassName={fontClassName}
                 isInActive={inactiveElement === index ? true : false}
                 svg={item[0]}
-                text={item[1]}
-                path={item[2]}
+                text={item[1] as string}
+                path={item[2] as string}
               />
             ) : (
               <OrderList

@@ -1,5 +1,5 @@
-import board from "../../../../imgs/clipboard-outline.svg";
-import check from "../../../../imgs/checkmark-outline.svg";
+import board from "../../../../svgs/clipboard-outline";
+import check from "../../../../svgs/checkmark-outline";
 import SvgWrapper from "./SvgWrapper";
 import { Link } from "react-router-dom";
 

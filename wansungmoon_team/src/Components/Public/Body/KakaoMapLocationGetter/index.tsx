@@ -38,11 +38,6 @@ const KakaoMapLocationGetter = ({
         }
       }
     );
-    geocoder.coord2RegionCode(
-      e.latLng.getLat(),
-      e.latLng.getLng(),
-      (result, status) => {}
-    );
     setMapLocation({ lat: e.latLng.getLat(), lng: e.latLng.getLng() });
   };
   return (

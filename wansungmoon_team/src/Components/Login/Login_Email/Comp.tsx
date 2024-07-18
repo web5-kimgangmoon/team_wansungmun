@@ -9,9 +9,9 @@ export interface LoginForm {
   password: string;
 }
 
-// const Email_login = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
+const Email_login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -41,13 +41,13 @@ export interface LoginForm {
         // onSubmit={onSubmit}
       >
         <InputTextBox
-          sort="이메일 주소"
+          title="이메일 주소"
           placeholder="이메일 주소 입력"
           value={email}
           onInput={(e) => setEmail(e.target.value)}
         />
         <InputTextBox
-          sort="비밀번호"
+          title="비밀번호"
           placeholder="영문, 숫자 포함 최소 8자리 이상"
           value={password}
           onInput={(e) => setPassword(e.target.value)}
@@ -67,5 +67,5 @@ export interface LoginForm {
   );
 };
 
-// export default Email_login;
-export default {};
+export default Email_login;
+// export default {};

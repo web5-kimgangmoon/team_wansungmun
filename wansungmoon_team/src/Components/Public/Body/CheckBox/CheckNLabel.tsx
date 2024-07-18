@@ -13,13 +13,13 @@ const CheckNLabel = ({
   id,
   name,
   value,
-  children,
+  laTitle,
   onChange,
 }: IProps): JSX.Element => {
   return (
     <div className="w-full py-1 text-sm font-bold flex gap-1">
       <CheckBox id={id} name={name} value={value} onChange={onChange} />
-      <div>{children}</div>
+      <div>{laTitle}</div>
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 interface IProps {
   className?: string;
   positionClass?: string; // absolute를 박은 svg
@@ -17,7 +19,7 @@ const SvgWrapper = ({
         className + " " + positionClass + `${isInActive ? "text-gray-500" : ""}`
       }
     >
-      <img src={svg} className="w-full" />
+      {svg}
     </div>
   );
 };

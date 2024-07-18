@@ -20,7 +20,7 @@ const InputBox = ({
       <div>
         <InputText
           name={name}
-          placeholder={sort}
+          placeholder={title}
           onInput={onInput}
           value={value}
         />
