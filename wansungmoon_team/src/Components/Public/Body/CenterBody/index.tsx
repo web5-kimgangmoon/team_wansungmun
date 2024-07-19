@@ -7,7 +7,7 @@ interface IProps {
 const CenterBody = ({ children }: IProps): JSX.Element => {
   return (
     <div className="container">
-      <div className="px-6">{children}</div>
+      <div className="">{children}</div>
     </div>
   );
 };

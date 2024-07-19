@@ -34,6 +34,7 @@ module.exports = {
       redButton: "#EE98A7",
       greenButton: "#35D835",
       yellow: "#fcd34d",
+      red: "#dc2626",
     },
     container: {
       center: true,

@@ -2,15 +2,16 @@ import { MouseEvent, ReactNode } from "react";
 
 interface IProps {
   textColor: "white" | "black";
-  bgColor: "blue" | "gray" | "red" | "green" | "orange" | "yellow";
+  bgColor: "white" | "blue" | "gray" | "red" | "green" | "orange" | "yellow";
   children: string | ReactNode;
-  isRounded?: boolean;
+  isBorder?: boolean;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 const ClickButton = ({
   textColor,
   bgColor,
   children,
+  isBorder,
   onClick,
 }: IProps): JSX.Element => {
   const textColorStorage = {
@@ -18,6 +19,7 @@ const ClickButton = ({
     white: " text-white",
   };
   const bgColorStorage = {
+    white: " bg-white",
     blue: " bg-blueButton-default",
     gray: " bg-cusGray",
     red: " bg-redButton",
@@ -30,7 +32,8 @@ const ClickButton = ({
       className={
         "min-w-24 text-sm font-bold px-1 py-2 rounded-lg" +
         textColorStorage[textColor] +
-        bgColorStorage[bgColor]
+        bgColorStorage[bgColor] +
+        `${isBorder ? " border border-cusGray" : ""}`
       }
       onClick={onClick}
     >

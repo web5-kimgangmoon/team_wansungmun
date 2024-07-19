@@ -19,7 +19,7 @@ const SingleTextBox = ({
 }: IProps): JSX.Element => {
   return (
     <div className="container py-3 flex justify-center">
-      <div className="px-8 w-full justify-center flex">
+      <div className="px-2 w-full justify-center flex">
         <div
           className="py-3 w-full text-center border-b border-black font-bold sm:text-xl text-2xl border-b border-black relative flex justify-center"
           onClick={onClick}
