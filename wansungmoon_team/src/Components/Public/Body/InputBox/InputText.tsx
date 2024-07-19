@@ -5,6 +5,7 @@ interface IProps {
   value?: string;
   name?: string;
   id?: string;
+  type?: string;
   onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -13,6 +14,7 @@ const InputText = ({
   value,
   id = "",
   name = "",
+  type = "text",
   onInput,
 }: IProps): JSX.Element => {
   return value !== undefined ? (
@@ -20,7 +22,7 @@ const InputText = ({
       <input
         id={id}
         name={name}
-        type="text"
+        type={`${type}`}
         placeholder={placeholder}
         onInput={onInput}
         className="placeholder:text-sm placeholder:font-bold text-sm p-1 w-full border border-cusGray rounded-md outline-none"

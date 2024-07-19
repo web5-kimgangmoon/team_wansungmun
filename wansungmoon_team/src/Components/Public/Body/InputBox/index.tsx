@@ -6,6 +6,7 @@ interface IProps {
   name?: string;
   id?: string;
   placeholder?: string;
+  type?: string;
   onInput?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -14,6 +15,7 @@ const InputBox = ({
   value,
   name = "",
   id,
+  type,
   onInput,
 }: IProps): JSX.Element => {
   return (
@@ -26,6 +28,7 @@ const InputBox = ({
           placeholder={title}
           onInput={onInput}
           value={value}
+          type={type}
         />
       </div>
     </div>
