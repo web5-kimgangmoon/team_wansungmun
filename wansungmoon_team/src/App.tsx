@@ -11,14 +11,14 @@ import Email from "./Components/Temp/Email";
 import KakaoBtn from "./Components/Temp/KakaoBtn";
 import Login from "./Components/Login";
 import Email_login from "./Components/Login/Login_Email/Comp";
-import Regist from "./Components/regist";
+import Regist from "./Components/Regist";
 import Main from "./Components/Main/Main";
 import MenuBar from "./Components/Public/Footer/MenuBar";
 
 import List from "./Components/ProductList/Body";
 import ReviewWrite from "./Components/ReviewNreportWrite/ReviewWrite";
 import ReportWrite from "./Components/ReviewNreportWrite/ReportWrite";
-import Regist_email from "./Components/regist/regist_email/Comp";
+import Regist_email from "./Components/Regist/Regist_Email/Comp";
 
 function App() {
   return (
