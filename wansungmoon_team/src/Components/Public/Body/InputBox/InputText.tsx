@@ -33,7 +33,7 @@ const InputText = ({
       <input
         id={id}
         name={name}
-        type="text"
+        type={`${type}`}
         placeholder={placeholder}
         onInput={onInput}
         className="placeholder:text-sm placeholder:font-bold text-sm p-1 w-full border border-cusGray rounded-md outline-none"

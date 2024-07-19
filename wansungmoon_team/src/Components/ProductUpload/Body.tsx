@@ -15,23 +15,41 @@ import KakaoMapLocation from "../Public/Body/KakaoMapLocationGetter";
 import useMapLocation from "../Public/Body/KakaoMapLocationGetter/hooks/useMapLocation";
 import useMapAddress from "../Public/Body/KakaoMapLocationGetter/hooks/useMapAddress";
 import { useState } from "react";
+import ReactModal from "react-modal";
 
 const Body = () => {
-  // const [currentAddress, setCurrentAddress] = useState<{
-  //   address: string;
-  //   isHiddenMap: boolean;
-  // }>({ address: "", isHiddenMap: true });
+  const [currentAddress, setCurrentAddress] = useState<{
+    address: string;
+    isOpenModal: boolean;
+  }>({ address: "거래희망장소", isOpenModal: false });
   const { uploadedImg, setUploadedImg, onChangeImg } = useImgUpload(5);
-  const { swapClick, isSwapped } = useSwap();
+  const deliveryFee = useSwap();
   const { mapLocation, setMapLocation } = useMapLocation();
   const { mapAddress, setMapAddress } = useMapAddress();
+  const [etcData, setEtcData] = useState<{
+    category: string;
+    isPropose: boolean;
+    point: number;
+    content: string;
+    title: string;
+  }>({ category: "", isPropose: false, point: 0, content: "", title: "" });
+  console.log(etcData);
   return (
     <CenterBody>
-      <InputTextBox title="제목" placeholder="제목" />
+      <InputTextBox
+        title="제목"
+        placeholder="제목"
+        onInput={(e) => {
+          setEtcData({ ...etcData, title: e.target.value });
+        }}
+      />
       <Dropdown
         name="category"
         defaultStr="카테고리"
         options={[["ss", "ㅇㅇ"]]}
+        onChange={(e) => {
+          setEtcData({ ...etcData, category: e.target.value });
+        }}
       />
       <BoldLine>직거래 가능 여부</BoldLine>
       <div className="pb-1">
@@ -39,8 +57,19 @@ const Body = () => {
           직거래 가능
         </Button>
       </div>
-      <CheckNLabel laTitle="가격 제안 받기" />
-      <InputText placeholder="Point를 입력해주세요" />
+      <CheckNLabel
+        laTitle="가격 제안 받기"
+        onChange={(e) => {
+          setEtcData({ ...etcData, isPropose: !etcData.isPropose });
+        }}
+      />
+      <InputText
+        placeholder="Point를 입력해주세요"
+        type="number"
+        onInput={(e) => {
+          setEtcData({ ...etcData, point: Number(e.target.value) });
+        }}
+      />
       <div className="py-1">
         <TextArea
           placeholder={`풍납1동에 올릴 게시글 내용을 작성해 주세요. (판매 금지 물품은 게시가 제한될 수 있어요.)
@@ -48,6 +77,9 @@ const Body = () => {
 신뢰할 수 있는 거래를 위해 자세히 적어주세요.
 과학기술정보통신부, 한국 인터넷진흥원과 함께 해요.`}
           rows={10}
+          onChange={(e) => {
+            setEtcData({ ...etcData, content: e.target.value });
+          }}
         />
       </div>
       <div>
@@ -60,32 +92,30 @@ const Body = () => {
       </div>
       <BoldLine>택배거래</BoldLine>
       <SwapButton
-        swapClick={swapClick}
-        isSwapped={isSwapped}
+        swapClick={deliveryFee.swapClick}
+        isSwapped={deliveryFee.isSwapped}
         btnA="배송비 포함"
         btnB="배송비 별도"
       />
-      {/* <div
+      <div
+        className="py-2"
         onClick={() => {
           setCurrentAddress((item) => ({
             ...item,
-            isHiddenMap: !item.isHiddenMap,
+            isOpenModal: !item.isOpenModal,
           }));
         }}
-      > */}
-      {/* <InputText
-          id="locationInput"
-          placeholder="거래희망장소"
-          value={currentAddress.address}
-          onInput={(e) => {
-            e.target.value = currentAddress.address;
-          }}
-        /> */}
-      {/* <LongButton bgColor="green" textColor="black">
+      >
+        <LongButton bgColor="green" textColor="black">
           {currentAddress.address}
         </LongButton>
-      </div> */}
-      <div>
+      </div>
+      <ReactModal
+        isOpen={currentAddress.isOpenModal}
+        onRequestClose={() =>
+          setCurrentAddress({ ...currentAddress, isOpenModal: false })
+        }
+      >
         <BoldLine>거래희망장소(직거래시)</BoldLine>
         <KakaoMapLocation
           mapLocation={mapLocation}
@@ -103,7 +133,7 @@ const Body = () => {
             <div className="flex items-center text-sm">{mapAddress}</div>
           </div>
         </div>
-        {/* <div className="py-1">
+        <div className="py-1">
           <LongButton
             bgColor="blue"
             textColor="white"
@@ -111,14 +141,14 @@ const Body = () => {
               setCurrentAddress({
                 ...currentAddress,
                 address: mapAddress,
-                isHiddenMap: true,
+                isOpenModal: false,
               });
             }}
           >
             위치선택
           </LongButton>
-        </div> */}
-      </div>
+        </div>
+      </ReactModal>
       <div className="py-2">
         <LongButton bgColor="blue" textColor="white">
           거래할 물건 올리기
