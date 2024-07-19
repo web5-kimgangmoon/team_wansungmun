@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
+import Button from "../../Public/Body/Button";
+import { ModalComp } from "./loca_modal/Comp";
+import axios from "axios";
 
-const Regist = () => {
+const Regist_email = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
@@ -10,12 +13,32 @@ const Regist = () => {
   const [detailloca, setDetailloca] = useState("");
 
   const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    console.log(email + "+" + password + "+" + phoneNum + "+" + nickname);
+    try {
+      event.preventDefault();
+      console.log(email + "+" + password + "+" + phoneNum + "+" + nickname);
+      const data = await axios.post("/api/regist", {
+        email: email,
+        password: password,
+        nickname: nickname,
+        phoneNum: phoneNum,
+        location: "서울시 어디구 무지개너머로",
+        detailloca: detailloca,
+      });
+      console.log(data.status);
+      if (data.status == 301) {
+        alert("이메일 중복");
+      } else if (data.status == 302) {
+        alert("휴대폰중복");
+      } else if (data.status == 303) {
+        alert("어쩌구저쩌꾸");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
   return (
     <div className="container">
-      <form className="container flex flex-col gap-[1rem] items-center">
+      <form className="container flex flex-col gap-[0.5rem] items-center">
         <InputTextBox
           title="이메일 주소"
           placeholder="이메일 주소 입력"
@@ -40,15 +63,26 @@ const Regist = () => {
           value={phoneNum}
           onInput={(e) => setPhoneNum(e.target.value)}
         />
+        <ModalComp />
+
         <InputTextBox
-          title=""
+          title="상세주소"
           placeholder="상세주소"
           value={detailloca}
           onInput={(e) => setDetailloca(e.target.value)}
         />
+        <Button
+          textColor="black"
+          bgColor="gray"
+          onClick={(e) => {
+            onSubmit(e);
+          }}
+        >
+          회원 가입
+        </Button>
       </form>
     </div>
   );
 };
 
-export default Regist;
+export default Regist_email;

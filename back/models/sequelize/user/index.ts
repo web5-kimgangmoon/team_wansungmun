@@ -29,7 +29,7 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   point!: CreationOptional<number>;
   averageScore!: CreationOptional<number>;
   authority!: CreationOptional<number>;
-  password!: CreationOptional<number>;
+  password!: CreationOptional<string>;
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
   deletedAt!: CreationOptional<Date>;

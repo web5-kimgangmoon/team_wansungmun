@@ -6,7 +6,7 @@ import MediumBtn from "./Components/Public/Body/MediumButton/MediumBtn";
 import SmallButton from "./Components/Public/Body/SmallButton/SmallButton";
 import OrderListPage from "./Components/OrderListPage";
 import SearchVoca from "./Components/Public/Body/SearchVoca/SearchVoca";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Email from "./Components/Temp/Email";
 import KakaoBtn from "./Components/Temp/KakaoBtn";
 import Login from "./Components/Login";
@@ -18,6 +18,7 @@ import MenuBar from "./Components/Public/Footer/MenuBar";
 import List from "./Components/ProductList/Body";
 import ReviewWrite from "./Components/ReviewNreportWrite/ReviewWrite";
 import ReportWrite from "./Components/ReviewNreportWrite/ReportWrite";
+import Regist_email from "./Components/regist/regist_email/Comp";
 
 function App() {
   return (
@@ -52,7 +53,7 @@ function App() {
         <Route path="/login" Component={Login}></Route>
         <Route path="/login/email" Component={Email_login}></Route>
         <Route path="/regist" Component={Regist}></Route>
-        {/* <Route path="/regist/email" Component={}></Route> */}
+        <Route path="/regist/email" Component={Regist_email}></Route>
       </Routes>
     </div>
   );

@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { FC, useState } from "react";
-import InputText from "../../Public/Body/InputBox/InputText";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
 import MenuBar from "../../Public/Footer/MenuBar";

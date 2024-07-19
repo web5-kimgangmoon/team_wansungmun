@@ -132,8 +132,14 @@ app.use(
 );
 
 (async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: false });
   // create_table_category();
+  // await db.User.create({
+  //   email: "1234@naver.com",
+  //   password: "1234",
+  //   nickname: "1234",
+  //   phoneNum: "1234",
+  // });
 })();
 
 app.use("/api", router);

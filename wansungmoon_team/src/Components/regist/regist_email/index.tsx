@@ -1,5 +1,5 @@
 import Comp from "./Comp";
 
-const Regist = () => {
+const Regist_email = () => {
   return <Comp />;
 };
