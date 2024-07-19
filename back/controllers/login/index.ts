@@ -6,21 +6,21 @@ export const Login = async (req: Request, res: Response) => {
     const { userInput } = req.body;
     console.log(req.body.email);
     const userInfo = await User.findOne({
-      where: { email: req.body.email as string },
+      where: { email: req.body.email },
     });
     if (!userInfo) {
-      res.json({ error: "유저를 찾을 수 없습니다" });
+      res.status(301).json({ error: "아이디 또는 비밀번호를 확인해주세요" });
       return;
     } else if (userInfo.password == req.body.password) {
       req.session;
-      res.send({
+      res.status(201).send({
         user: req.body.email,
         isLogined: true,
         nickname: userInfo.nickname,
       });
       return;
     } else {
-      res.send({ error: "비밀번호를 확인해주세요" });
+      res.status(301).json({ error: "유저를 찾을 수 없습니다" });
     }
     // res.cookie("user", { signed: true });
     // req.session.user = "string";

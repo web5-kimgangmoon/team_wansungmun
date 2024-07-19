@@ -16,14 +16,18 @@ const Regist_email = () => {
     try {
       event.preventDefault();
       console.log(email + "+" + password + "+" + phoneNum + "+" + nickname);
-      const data = await axios.post("/api/regist", {
-        email: email,
-        password: password,
-        nickname: nickname,
-        phoneNum: phoneNum,
-        location: "서울시 어디구 무지개너머로",
-        detailloca: detailloca,
-      });
+      const data = await axios.post(
+        "/api/regist",
+        {
+          email: email,
+          password: password,
+          nickname: nickname,
+          phoneNum: phoneNum,
+          location: "서울시 어디구 무지개너머로",
+          detailloca: detailloca,
+        },
+        { withCredentials: true }
+      );
       console.log(data.status);
       if (data.status == 301) {
         alert("이메일 중복");

@@ -13,7 +13,7 @@ axios.defaults.validateStatus = (status) => {
   if (status == 301) return true;
   else if (status == 302) return true;
   else if (status == 303) return true;
-  return status == 200 ? true : false;
+  return status > 199 && status < 300 ? true : false;
 };
 
 const root = ReactDOM.createRoot(

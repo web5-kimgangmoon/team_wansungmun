@@ -3,6 +3,7 @@ import React, { FC, useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
 import MenuBar from "../../Public/Footer/MenuBar";
+import { useLocation } from "react-router-dom";
 export interface LoginForm {
   email: string;
   password: string;
@@ -13,10 +14,10 @@ const Email_login = () => {
   const [password, setPassword] = useState("");
 
   const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    console.log(email + password);
-    await axios
-      .post(
+    try {
+      event.preventDefault();
+      console.log(email + password);
+      const data = await axios.post(
         "/api/login",
         {
           email: email,
@@ -25,13 +26,15 @@ const Email_login = () => {
         {
           withCredentials: true,
         }
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      );
+      if (data.status == 201) {
+        console.log(data.status);
+
+        // axios.get("api/logCheck", { withCredentials: true });
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
   return (
     <div>
@@ -61,7 +64,6 @@ const Email_login = () => {
           로그인
         </Button>
       </form>
-      <MenuBar />
     </div>
   );
 };
