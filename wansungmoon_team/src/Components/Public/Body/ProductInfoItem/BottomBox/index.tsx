@@ -87,7 +87,7 @@ const BottomBox = ({
       </div>
       <div className="flex flex-col">
         <div className="w-8 px-1" onClick={onClickClose}>
-          {isHasTop && onClickClose === undefined ? "" : XShape}
+          {isHasTop || onClickClose === undefined ? "" : XShape}
         </div>
         <div className="grow flex justify-center items-end">
           <div
