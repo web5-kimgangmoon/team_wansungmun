@@ -8,7 +8,7 @@ import useSocket from "./socket/useSocket";
 import router from "./controllers/index";
 import db, { sequelize } from "./models/sequelize/index";
 import create_table_category from "./lib/create-table-category";
-import session from "express-session";
+import session, { Session } from "express-session";
 import fileStore from "session-file-store";
 import cookieParser from "cookie-parser";
 
@@ -112,6 +112,12 @@ declare module "express-session" {
     user: string;
     isLogined: boolean;
     nickName: string;
+  }
+}
+
+declare module "express" {
+  interface Request {
+    session?: Session;
   }
 }
 
