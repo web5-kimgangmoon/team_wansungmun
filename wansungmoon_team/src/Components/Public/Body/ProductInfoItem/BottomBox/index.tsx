@@ -49,7 +49,11 @@ const BottomBox = ({
         <img src={src} alt="사진" className="w-full h-full" />
       </div>
       <div className="flex flex-col pl-2 grow max-h-full gap-y-2.5">
-        <div className="text-base font-bold">{title}</div>
+        <div className="relative h-8">
+          <div className="absolute text-base font-bold truncate w-full">
+            {title}
+          </div>
+        </div>
         <div className="flex items-center">
           <div className="text-yellow w-4">
             <Star isNoBorder={true} />
@@ -58,7 +62,13 @@ const BottomBox = ({
             <span className="text-sm">{`${score}`}</span>
             <span className="text-sm text-etcWord">{`(${reviewCount})`}</span>
           </div>
-          <div className="pl-1 text-base font-bold">{writer}</div>
+          <div className="h-8 grow relative">
+            <div className="absolute w-full h-full flex items-center">
+              <div className="pl-1 text-base font-bold w-full truncate">
+                {writer}
+              </div>
+            </div>
+          </div>
         </div>
         <div className="grow flex items-end">
           {pressBtnInfo ? (
