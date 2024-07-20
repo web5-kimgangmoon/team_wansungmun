@@ -4,7 +4,6 @@ import ProductList from "./Components/ProductList";
 import ProductUpload from "./Components/ProductUpload";
 import MediumBtn from "./Components/Public/Body/MediumButton/MediumBtn";
 import SmallButton from "./Components/Public/Body/SmallButton/SmallButton";
-import OrderListPage from "./Components/OrderListPage";
 import SearchVoca from "./Components/Public/Body/SearchVoca/SearchVoca";
 import { Link, Route, Routes } from "react-router-dom";
 import Email from "./Components/Temp/Email";
@@ -18,6 +17,11 @@ import MenuBar from "./Components/Public/Footer/MenuBar";
 import List from "./Components/ProductList/Body";
 import ReviewWrite from "./Components/ReviewNreportWrite/ReviewWrite";
 import ReportWrite from "./Components/ReviewNreportWrite/ReportWrite";
+
+import OrderListPage from "./Components/OrderListTwo";
+import OrderListPageSelled from "./Components/OrderListTwo/UserOrderList/SelledList";
+import OrderListPageSelling from "./Components/OrderListTwo/UserOrderList/SellingList";
+import Dib from "./Components/OrderListTwo/Dib";
 import Regist_email from "./Components/Regist/Regist_Email/Comp";
 
 function App() {
@@ -53,6 +57,13 @@ function App() {
         <Route path="/login" Component={Login}></Route>
         <Route path="/login/email" Component={Email_login}></Route>
         <Route path="/regist" Component={Regist}></Route>
+        <Route path="/orderList" Component={OrderListPage}></Route>
+        <Route path="/orderListSelled" Component={OrderListPageSelled}></Route>
+        <Route
+          path="/orderListSelling"
+          Component={OrderListPageSelling}
+        ></Route>
+        <Route path="/Dib" Component={Dib}></Route>
         <Route path="/regist/email" Component={Regist_email}></Route>
       </Routes>
     </div>
