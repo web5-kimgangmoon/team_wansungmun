@@ -4,35 +4,43 @@ import Svg from "../../../../imgs/Chevron-down.svg";
 import { MouseEvent } from "react";
 import { Link } from "react-router-dom";
 
-interface IPressButton {
-  tradeListPath: string;
-  move?: "tradeCancel" | "tradeChange" | "reviewComplete" | "locationCheck";
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
-}
+import { ITopData } from "./TopBox";
+import { IBottomData } from "./BottomBox/index";
 
-interface IStateButton {
-  isDirectTrade?: boolean;
-  state?: "trading" | "traded" | "selling";
-}
+// export interface IPressButton {
+//   tradeListPath: string;
+//   move?:
+//     | "tradeCancel"
+//     | "tradeChange"
+//     | "reviewComplete"
+//     | "locationCheck"
+//     | "reviewWrite";
+//   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+// }
 
-interface IBottomData {
-  title: string;
-  score: number;
-  reviewCount: number;
-  writer: string;
-  src: string;
-  isHeartFull?: boolean;
-  pressBtnInfo?: IPressButton;
-  stateBtnInfo?: IStateButton;
-  onClickHeart?: (e: MouseEvent<HTMLDivElement>) => void;
-}
+// export interface IStateButton {
+//   isDirectTrade?: boolean;
+//   state?: "trading" | "traded" | "selling";
+// }
 
-interface ITopData {
-  state?: "trading" | "traded" | "selling" | "reviewed";
-  date?: Date;
-}
+// export interface IBottomData {
+//   title: string;
+//   score: number;
+//   reviewCount: number;
+//   writer: string;
+//   src: string;
+//   isHeartFull?: boolean;
+//   pressBtnInfo?: IPressButton;
+//   stateBtnInfo?: IStateButton;
+//   onClickHeart?: (e: MouseEvent<HTMLDivElement>) => void;
+// }
 
-interface IProps {
+// export interface ITopData {
+//   state?: "trading" | "traded" | "selling" | "reviewed";
+//   date?: Date;
+// }
+
+export interface IProps {
   topData?: ITopData;
   bottomData: IBottomData;
   path?: string;
@@ -71,12 +79,14 @@ const Item = ({
       isHasTop={topBox ? true : false}
     />
   );
-  const className = "pb-2 border-b";
+  const className = "py-2 border-b";
   return path ? (
-    <Link to={path} className={className}>
-      {topBox}
-      {bottomBox}
-    </Link>
+    <div className={className}>
+      <Link to={path}>
+        {topBox}
+        {bottomBox}
+      </Link>
+    </div>
   ) : (
     <div onClick={onClickAll} className={className}>
       {topBox}

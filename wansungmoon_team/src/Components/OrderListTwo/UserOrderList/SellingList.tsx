@@ -1,27 +1,28 @@
-import Header from "../Header";
-import CenterBody from "../Public/Body/CenterBody";
-import Item, { IProps as IItem } from "../Public/Body/ProductInfoItem";
-import MenuBar from "../Public/Footer/MenuBar";
-import SingleTextBox from "../Public/Header/singleTextBox";
-import bycle from "../../imgs/Kakao_logo.jpg";
+import Header from "../../Header";
+import CenterBody from "../../Public/Body/CenterBody";
+import Item, { IProps as IItem } from "../../Public/Body/ProductInfoItem";
+import MenuBar from "../../Public/Footer/MenuBar";
+import SingleTextBox from "../../Public/Header/singleTextBox";
+import bycle from "../../../imgs/Kakao_logo.jpg";
+import { useState } from "react";
 
 const OrderListPage = () => {
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const productList: IItem[] = [
     {
       bottomData: {
         title: "중고자전거-싸게 파는중!!!",
         score: 5,
         reviewCount: 10,
-        writer: "나는야작성자",
+        writer: "아아아",
         src: bycle,
         pressBtnInfo: {
           tradeListPath: "/",
-          move: "locationCheck",
+          move: "tradeCancel",
           onClick: undefined,
         },
-        isHeartFull: false,
       },
-      topData: { state: "selling" },
+      topData: { state: "trading" },
       path: undefined,
       onClickAll: undefined,
       onClickClose: undefined,
@@ -30,17 +31,16 @@ const OrderListPage = () => {
       bottomData: {
         title: "자전거 한 번만 쓰던겁니다~~~ 지금만",
         score: 5,
-        reviewCount: 22,
+        reviewCount: 10,
         writer: "아아아",
         src: bycle,
         pressBtnInfo: {
           tradeListPath: "/",
-          move: "reviewWrite",
+          move: "tradeCancel",
           onClick: undefined,
         },
-        isHeartFull: false,
       },
-      topData: { state: "reviewed", date: new Date() },
+      topData: { state: "trading" },
       path: undefined,
       onClickAll: undefined,
       onClickClose: undefined,
@@ -50,16 +50,15 @@ const OrderListPage = () => {
         title: "지금 놓치면 기회없어요!!!",
         score: 3,
         reviewCount: 26,
-        writer: "게살버거킹",
+        writer: "아아아",
         src: bycle,
         pressBtnInfo: {
           tradeListPath: "/",
-          move: "chating",
+          move: "tradeChange",
           onClick: undefined,
         },
-        isHeartFull: true,
       },
-      topData: { state: "trading", date: new Date() },
+      topData: { state: "selling" },
       path: undefined,
       onClickAll: undefined,
       onClickClose: undefined,
@@ -69,16 +68,15 @@ const OrderListPage = () => {
         title: "지금 놓치면 기회없어요!!!",
         score: 3,
         reviewCount: 26,
-        writer: "게살버거킹",
+        writer: "아아아",
         src: bycle,
         pressBtnInfo: {
           tradeListPath: "/",
-          move: "chating",
+          move: "tradeCancel",
           onClick: undefined,
         },
-        isHeartFull: false,
       },
-      topData: { state: "traded", date: new Date() },
+      topData: { state: "trading" },
       path: undefined,
       onClickAll: undefined,
       onClickClose: undefined,
@@ -87,7 +85,20 @@ const OrderListPage = () => {
   return (
     <div>
       <Header />
-      <SingleTextBox>주문내역</SingleTextBox>
+      <SingleTextBox
+        closeOnClick={(e) => {
+          e.stopPropagation();
+          setIsOpenModal(false);
+        }}
+        isOpenModal={isOpenModal}
+        onClick={() => setIsOpenModal(true)}
+        titleNPath={[
+          ["거래중인 상품", "/orderListSelling"],
+          ["거래완료한 상품", "/orderListSelled"],
+        ]}
+      >
+        거래중인 상품
+      </SingleTextBox>
       <CenterBody>
         {productList.map((item, idx) => (
           <Item

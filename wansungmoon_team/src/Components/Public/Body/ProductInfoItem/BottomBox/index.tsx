@@ -4,30 +4,39 @@ import XShape from "../../../../../svgs/XShape";
 import DinamicHeart from "../../../../../svgs/DinamicHeart";
 import PressButtonLine from "./PressButtonLine";
 import StateButtonLine from "./StateButtonLine";
+import { IProps as IPressButton } from "./PressButtonLine";
+import { IProps as IStateButton } from "./StateButtonLine";
+// export interface IPressButton {
+//   tradeListPath: string;
+//   move?:
+//     | "tradeCancel"
+//     | "tradeChange"
+//     | "reviewComplete"
+//     | "locationCheck"
+//     | "reviewWrite";
+//   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+// }
 
-interface IPressButton {
-  tradeListPath: string;
-  move?: "tradeCancel" | "tradeChange" | "reviewComplete" | "locationCheck";
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
-}
+// export interface IStateButton {
+//   isDirectTrade?: boolean;
+//   state?: "trading" | "traded" | "selling";
+// }
 
-interface IStateButton {
-  isDirectTrade?: boolean;
-  state?: "trading" | "traded" | "selling";
-}
-
-interface IProps {
+export interface IBottomData {
   title: string;
   score: number;
   reviewCount: number;
   writer: string;
   src: string;
-  isHasTop?: boolean;
   isHeartFull?: boolean;
   pressBtnInfo?: IPressButton;
   stateBtnInfo?: IStateButton;
-  onClickClose?: (e: MouseEvent<HTMLDivElement>) => void;
   onClickHeart?: (e: MouseEvent<HTMLDivElement>) => void;
+}
+
+export interface IProps extends IBottomData {
+  isHasTop?: boolean;
+  onClickClose?: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
 const BottomBox = ({
@@ -48,7 +57,7 @@ const BottomBox = ({
       <div className="w-24 h-24 border">
         <img src={src} alt="사진" className="w-full h-full" />
       </div>
-      <div className="flex flex-col pl-2 grow max-h-full gap-y-2.5">
+      <div className="flex flex-col pl-2 grow max-h-full">
         <div className="relative h-8">
           <div className="absolute text-base font-bold truncate w-full">
             {title}

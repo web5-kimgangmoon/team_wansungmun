@@ -2,9 +2,12 @@ import { MouseEvent } from "react";
 import Svg from "../../../../svgs/XShape";
 import Button from "../Button";
 
-interface IProps {
+export interface ITopData {
   state?: "trading" | "traded" | "selling" | "reviewed";
   date?: Date;
+}
+
+export interface IProps extends ITopData {
   onClickClose?: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
@@ -26,7 +29,7 @@ const TopBox = ({ date, state = "trading", onClickClose }: IProps) => {
       </Button>
     ),
     reviewed: (
-      <Button bgColor="orange" textColor="black" isLong={true}>
+      <Button bgColor="green" textColor="black" isLong={true}>
         후기받음
       </Button>
     ),

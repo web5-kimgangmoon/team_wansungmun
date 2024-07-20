@@ -1,6 +1,6 @@
 import Button from "../../Button";
 
-interface IProps {
+export interface IProps {
   isDirectTrade?: boolean;
   state?: "trading" | "traded" | "selling";
 }
@@ -42,8 +42,8 @@ const StateButtonLine = ({
   };
   return (
     <div className="flex gap-1">
-      {directTradeBtn}
       {stateBtnStorage[state]}
+      {directTradeBtn}
     </div>
   );
 };
