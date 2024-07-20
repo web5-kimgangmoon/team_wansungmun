@@ -14,6 +14,6 @@ router.use("/regist", Regist);
 
 router.use("/test", test);
 router.use("/upload", upload);
-// router.use("/logCheck", logCheck);
+// router.use("logCheck", logCheck);s
 
 export default router;
