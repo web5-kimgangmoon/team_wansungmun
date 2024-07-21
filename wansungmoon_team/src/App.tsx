@@ -10,7 +10,7 @@ import Email from "./Components/Temp/Email";
 import KakaoBtn from "./Components/Temp/KakaoBtn";
 import Login from "./Components/Login";
 import Email_login from "./Components/Login/Login_Email/Comp";
-import Regist from "./Components/Regist";
+import Regist from "./Components/regist";
 import Main from "./Components/Main/Main";
 import MenuBar from "./Components/Public/Footer/MenuBar";
 
@@ -22,7 +22,8 @@ import OrderListPage from "./Components/OrderListTwo";
 import OrderListPageSelled from "./Components/OrderListTwo/UserOrderList/SelledList";
 import OrderListPageSelling from "./Components/OrderListTwo/UserOrderList/SellingList";
 import Dib from "./Components/OrderListTwo/Dib";
-import Regist_email from "./Components/Regist/Regist_Email/Comp";
+import Regist_email from "./Components/regist/regist_email/Comp";
+import ProductPage from "./Components/ProductPage/ProductPage";
 
 function App() {
   return (
@@ -45,8 +46,7 @@ function App() {
           element={
             <div>
               <Header></Header>
-              <Main></Main>
-              <ProductList></ProductList>
+              <ProductPage></ProductPage>
               <MenuBar></MenuBar>
             </div>
           }
