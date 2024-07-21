@@ -24,6 +24,9 @@ import OrderListPageSelling from "./Components/OrderListTwo/UserOrderList/Sellin
 import Dib from "./Components/OrderListTwo/Dib";
 import Regist_email from "./Components/regist/regist_email/Comp";
 import ProductPage from "./Components/ProductPage/ProductPage";
+import ReviewHistory from "./Components/ReviewHistory";
+import ProductDetail from "./Components/ProductDetail/test";
+import LocationCheck from "./Components/LocationCheck";
 
 function App() {
   return (
@@ -63,8 +66,11 @@ function App() {
           path="/orderListSelling"
           Component={OrderListPageSelling}
         ></Route>
+        <Route path="/reviewHistory" Component={ReviewHistory}></Route>
         <Route path="/Dib" Component={Dib}></Route>
+        <Route path="/productDetail" Component={ProductDetail}></Route>
         <Route path="/regist/email" Component={Regist_email}></Route>
+        <Route path="/locationCheck" Component={LocationCheck} />
       </Routes>
     </div>
   );
