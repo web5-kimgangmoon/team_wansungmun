@@ -6,8 +6,9 @@ import Comp from "./Comp";
 interface IProps {
   mapLocation: { lat: number; lng: number };
   setMapLocation: ({ lat, lng }: { lat: number; lng: number }) => void;
-  mapAddress: string;
+  mapAddress?: string;
   setMapAddress: React.Dispatch<React.SetStateAction<string>>;
+  isCenterMove?: boolean;
 }
 
 const KakaoMapLocationGetter = ({
@@ -21,7 +22,6 @@ const KakaoMapLocationGetter = ({
   const changeIsEnableMarking = (e: MouseEvent<HTMLButtonElement>) => {
     setIsEnableMarking(!isEnableMarking);
   };
-  const mapRef = useRef<kakao.maps.Map>(null);
   const clickMarking = (
     target: kakao.maps.Map,
     e: kakao.maps.event.MouseEvent
@@ -48,7 +48,6 @@ const KakaoMapLocationGetter = ({
       changeIsEnableMarking={changeIsEnableMarking}
       isEnableMarking={isEnableMarking}
       clickMarking={clickMarking}
-      mapRef={mapRef}
     />
   );
 };
