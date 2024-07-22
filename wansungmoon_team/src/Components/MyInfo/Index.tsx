@@ -7,12 +7,7 @@ const InfoPage = () => {
   return (
     <div>
       <MyInfo></MyInfo>
-      <InfoTab></InfoTab>
-      <InfoTab></InfoTab>
-      <InfoTab></InfoTab>
-      <InfoTab></InfoTab>
-      <InfoTab></InfoTab>
-      <InfoTab></InfoTab>
+
       <InfoTab></InfoTab>
     </div>
   );

@@ -1,26 +1,36 @@
 import Profile from "./img/gom.png";
-import Siren from "./img/siren.png";
+import Siren from "./img/siren1.png";
 
-interface IProps {}
+interface IProps {
+  writer: string[];
+  title: string[];
+  location: string[];
+  price: number;
+}
 
-const ProductPageTitleLine = () => {
+const ProductPageTitleLine = ({ title, writer, location, price }: IProps) => {
+  const priceArr = price.toString().split("");
+  let priceStr = priceArr.map((item, index) => ((priceArr.length - index) % 3 === 0 ? "," + item : item)).join("");
+  if (priceStr.charAt(0) === ",") priceStr = priceStr.replace(",", "");
   return (
-    <div className="flex my-3 ml-3 border-b">
+    <div className="flex my-3 ml-2 border-b">
       <div className="w-[4rem]">
-        <img src={Profile} alt="" className="rounded-full border h-[3.5rem]" />
-        <div className="text-[0.62rem] font-bold mt-2">나는야 작성자</div>
+        <div className="flex justify-center">
+          <img src={Profile} alt="" className="rounded-full border h-[3rem]" />
+        </div>
+        <div className="text-[0.62rem] font-bold mt-2 text-center">{writer}</div>
       </div>
-      <div className="flex-1 leading-[1.7rem] pl-2">
-        <div className="font-bold text-xl">QWER 앨범 팔아요</div>
-        <div className="text-sm">[천호동]</div>
-        <div className="font-bold">150,000원</div>
+      <div className="flex-1 leading-1 pl-2">
+        <div className="font-bold text-xl">{title}</div>
+        <div className="text-sm">{location}</div>
+        <div className="font-bold">{priceStr}원</div>
       </div>
       <div className="text-sm">
         <div className="mb-2">⭐ 4.4(15)</div>
-        <div className="mb-2">판매자후기</div>
+        <button className="mb-2">판매자후기</button>
         <div className="flex mb-2">
           <img src={Siren} alt="" className="w-5" />
-          <div>신고하기</div>
+          <button>신고하기</button>
         </div>
       </div>
     </div>

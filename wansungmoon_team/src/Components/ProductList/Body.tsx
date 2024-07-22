@@ -6,7 +6,7 @@ interface IProps {}
 const List = () => {
   return (
     <div className="border-t mt-2">
-      <div className="flex m-3">
+      <div className="flex mx-5 mt-3">
         <div className="w-[7.5rem] h-[7.5rem] border">사진</div>
         <div className="m-1">
           <div className="h-[2.5rem] items-center">중고자전거- 싸게파는중!!!</div>

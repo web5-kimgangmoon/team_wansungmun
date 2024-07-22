@@ -22,11 +22,19 @@ import OrderListPageSelling from "./Components/OrderListTwo/UserOrderList/Sellin
 import Dib from "./Components/OrderListTwo/Dib";
 import Regist_email from "./Components/Regist/Regist_Email/Comp";
 import ProductPage from "./Components/ProductPage/ProductPage";
+<<<<<<< HEAD
 import ReviewHistory from "./Components/ReviewHistory";
 import ProductDetail from "./Components/ProductDetail/test";
 import LocationCheck from "./Components/LocationCheck";
 import KakaoCallback from "./Components/Login/Login_kakao/KakaoCallback";
 import Kakao_regist from "./Components/Regist/regist_kakao/Comp";
+=======
+import MultipleItems from "./Components/Main/Slide";
+import MultipleRows from "./Components/Main/Slide";
+import MainBox from "./Components/Main/Main";
+import InfoPage from "./Components/MyInfo/Index";
+import Buy from "./Components/ProductBuy";
+>>>>>>> e52022b (feat:slider,Buy Page)
 
 function App() {
   return (
@@ -49,7 +57,10 @@ function App() {
           element={
             <div>
               <Header></Header>
-              <ProductPage></ProductPage>
+              {/* <Main></Main>
+              <ProductList></ProductList> */}
+              {/* <InfoPage></InfoPage> */}
+              <Buy></Buy>
               <MenuBar></MenuBar>
             </div>
           }
@@ -63,11 +74,15 @@ function App() {
         <Route path="/regist" Component={Regist}></Route>
         <Route path="/orderList" Component={OrderListPage}></Route>
         <Route path="/orderListSelled" Component={OrderListPageSelled}></Route>
+<<<<<<< HEAD
         <Route
           path="/orderListSelling"
           Component={OrderListPageSelling}
         ></Route>
         <Route path="/reviewHistory" Component={ReviewHistory}></Route>
+=======
+        <Route path="/orderListSelling" Component={OrderListPageSelling}></Route>
+>>>>>>> e52022b (feat:slider,Buy Page)
         <Route path="/Dib" Component={Dib}></Route>
         <Route path="/productDetail" Component={ProductDetail}></Route>
         <Route path="/regist/email" Component={Regist_email}></Route>

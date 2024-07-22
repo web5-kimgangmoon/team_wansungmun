@@ -14,7 +14,7 @@ const OrderListPage = () => {
         reviewCount: 20,
         writer: "나는야작성자",
         src: bycle,
-        stateBtnInfo: { state: "trading", isDirectTrade: true },
+        stateBtnInfo: { state: "selling", isDirectTrade: true },
         isHeartFull: false,
       },
       path: undefined,
