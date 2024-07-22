@@ -1,20 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import KakaoBtn from "../Temp/KakaoBtn";
 import Email from "../Temp/Email";
 import LongButton from "../Public/Body/LongButton";
 import MenuBar from "../Public/Footer/MenuBar";
 
 const Login = () => {
+  const client_id = `${process.env.REACT_APP_KAKAO_API}`;
+  const navigate = useNavigate();
+  const url = new URL(
+    `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=http://localhost:3000/login/kakao&response_type=code`
+  );
   return (
     <div className="container">
-      {/* <div className="min-h-[200px]"></div> */}
       <ul className="flex flex-col gap-[1rem] min-h-[400px] justify-end">
         <li>
-          <Link to="/login/kakao">
-            <LongButton textColor="white" bgColor="yellow">
-              카카오로 계속하기
-            </LongButton>
-          </Link>
+          <LongButton
+            textColor="white"
+            bgColor="yellow"
+            onClick={() => {
+              // eslint-disable-next-line no-restricted-globals
+              location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=http://localhost:3000/login/kakao&response_type=code`;
+            }}
+          >
+            카카오로 계속하기
+          </LongButton>
         </li>
         <li>
           <Link to="/login/email">

@@ -27,6 +27,9 @@ import ProductPage from "./Components/ProductPage/ProductPage";
 import ReviewHistory from "./Components/ReviewHistory";
 import ProductDetail from "./Components/ProductDetail/test";
 import LocationCheck from "./Components/LocationCheck";
+import Regist_email from "./Components/Regist/Regist_Email/Comp";
+import KakaoCallback from "./Components/Login/Login_kakao/KakaoCallback";
+import Kakao_regist from "./Components/Regist/regist_kakao/Comp";
 
 function App() {
   return (
@@ -59,6 +62,7 @@ function App() {
         <Route path="/upload" Component={ProductUpload}></Route>
         <Route path="/login" Component={Login}></Route>
         <Route path="/login/email" Component={Email_login}></Route>
+        <Route path="/login/kakao" Component={KakaoCallback}></Route>
         <Route path="/regist" Component={Regist}></Route>
         <Route path="/orderList" Component={OrderListPage}></Route>
         <Route path="/orderListSelled" Component={OrderListPageSelled}></Route>
@@ -70,7 +74,11 @@ function App() {
         <Route path="/Dib" Component={Dib}></Route>
         <Route path="/productDetail" Component={ProductDetail}></Route>
         <Route path="/regist/email" Component={Regist_email}></Route>
+<<<<<<< HEAD
         <Route path="/locationCheck" Component={LocationCheck} />
+=======
+        <Route path="/regist/kakao" Component={Kakao_regist}></Route>
+>>>>>>> e044c4f (feat: kakao_oauth_login&&regist)
       </Routes>
     </div>
   );

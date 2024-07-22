@@ -16,6 +16,7 @@ const InputBox = ({
   name = "",
   id,
   type,
+  placeholder,
   onInput,
 }: IProps): JSX.Element => {
   return (
@@ -25,7 +26,7 @@ const InputBox = ({
         <InputText
           id={id}
           name={name}
-          placeholder={title}
+          placeholder={placeholder}
           onInput={onInput}
           value={value}
           type={type}

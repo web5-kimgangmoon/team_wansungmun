@@ -1,17 +1,19 @@
 import { useRef, useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
-import { ModalComp } from "./loca_modal/Comp";
+import { ModalComp } from "../Regist_Email/loca_modal/Comp";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
-const Regist_email = () => {
+import { useLocation, useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+const Kakao_regist = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const [phoneNum, setPhoneNum] = useState("");
   const [location, setLocation] = useState("");
   const [detailloca, setDetailloca] = useState("");
+  const userlocation = useLocation();
+  const userInfo = { ...userlocation.state };
   const navigate = useNavigate();
   const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
     try {
@@ -20,7 +22,7 @@ const Regist_email = () => {
       const data = await axios.post(
         "/api/regist",
         {
-          email: email,
+          email: userInfo.email,
           password: password,
           nickname: nickname,
           phoneNum: phoneNum,
@@ -49,8 +51,8 @@ const Regist_email = () => {
         <InputTextBox
           title="이메일 주소"
           placeholder="이메일 주소 입력"
-          value={email}
-          onInput={(e) => setEmail(e.target.value)}
+          value={userInfo.email}
+          onInput={(e) => (e.target.value = userInfo.email)}
         />
         <InputTextBox
           title="비밀번호"
@@ -92,4 +94,4 @@ const Regist_email = () => {
   );
 };
 
-export default Regist_email;
+export default Kakao_regist;

@@ -1,5 +1,6 @@
 import Logo from "../svgs/Moon.png";
 import Svg from "../svgs/Complete Moon Market";
+import LoginArea from "./LoginBtn/LoginBtn";
 
 interface IProps {}
 
@@ -17,9 +18,10 @@ const Header = (): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="mt-3">
+        {/* <div className="mt-3">
           <button className="font-bold text-sm ">로그인</button>
-        </div>
+        </div> */}
+        <LoginArea />
       </div>
     </div>
   );

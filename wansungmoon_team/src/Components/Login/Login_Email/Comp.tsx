@@ -1,9 +1,9 @@
 import axios from "axios";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
 import MenuBar from "../../Public/Footer/MenuBar";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 export interface LoginForm {
   email: string;
   password: string;
@@ -12,6 +12,7 @@ export interface LoginForm {
 const Email_login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
     try {
@@ -28,8 +29,10 @@ const Email_login = () => {
         }
       );
       if (data.status == 201) {
-        console.log(data.status);
+        console.log(data);
+        // const location = useLocation();
 
+        navigate("/");
         // axios.get("api/logCheck", { withCredentials: true });
       }
     } catch (err) {

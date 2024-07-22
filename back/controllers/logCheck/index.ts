@@ -1,20 +1,26 @@
 import User from "../../models/sequelize/user";
-import { Request, Response } from "express";
-
-export const logCheck = async (req: Request, res: Response) => {
+import { Request, Response, NextFunction } from "express";
+import index from "../../src/types/index";
+const logCheck = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    if (req.session) {
-      const body = await User.findAll({
+    console.log("user의 아이디는? :" + req.session.user);
+
+    if (req.session.user) {
+      const loginData = await User.findAll({
         where: { id: req.session.user },
-        include: [
-          {
-            model: User,
-          },
-        ],
         attributes: ["id", "authority"],
       });
+      console.log(loginData);
+      res.status(201).send(loginData);
+    } else {
+      res.status(301);
+      console.log("로그인: 실패");
     }
   } catch (err) {
     console.error(err);
+  } finally {
+    next;
   }
 };
+
+export default logCheck;

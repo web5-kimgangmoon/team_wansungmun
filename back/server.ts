@@ -106,21 +106,6 @@ const upload = (imgs: string) =>
 
 const FileStore = fileStore(session);
 
-declare module "express-session" {
-  interface SessionData {
-    cookie: Cookie;
-    user: string;
-    isLogined: boolean;
-    nickName: string;
-  }
-}
-
-declare module "express" {
-  interface Request {
-    session?: SessionData;
-  }
-}
-
 app.use(
   session({
     resave: false,

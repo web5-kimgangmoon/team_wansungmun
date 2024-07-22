@@ -13,9 +13,11 @@ export const Login = async (req: Request, res: Response) => {
       return;
     } else if (userInfo.password == req.body.password) {
       req.session;
+      console.log("아이디: " + userInfo.id);
+      req.session.isLogined = true;
+      req.session.user = userInfo.id;
       res.status(201).send({
-        user: req.body.email,
-        isLogined: true,
+        user: req.body.id,
         nickname: userInfo.nickname,
       });
       return;

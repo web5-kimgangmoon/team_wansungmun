@@ -32,6 +32,7 @@ export const Regist = async (req: Request, res: Response) => {
         phoneNum: req.body.phoneNum,
         password: req.body.password,
       });
+      res.status(201).send();
     }
   } catch (err) {
     console.error(err);
