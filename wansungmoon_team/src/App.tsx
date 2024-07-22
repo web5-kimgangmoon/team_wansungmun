@@ -10,24 +10,21 @@ import Email from "./Components/Temp/Email";
 import KakaoBtn from "./Components/Temp/KakaoBtn";
 import Login from "./Components/Login";
 import Email_login from "./Components/Login/Login_Email/Comp";
-import Regist from "./Components/regist";
+import Regist from "./Components/Regist";
 import Main from "./Components/Main/Main";
 import MenuBar from "./Components/Public/Footer/MenuBar";
-
 import List from "./Components/ProductList/Body";
 import ReviewWrite from "./Components/ReviewNreportWrite/ReviewWrite";
 import ReportWrite from "./Components/ReviewNreportWrite/ReportWrite";
-
 import OrderListPage from "./Components/OrderListTwo";
 import OrderListPageSelled from "./Components/OrderListTwo/UserOrderList/SelledList";
 import OrderListPageSelling from "./Components/OrderListTwo/UserOrderList/SellingList";
 import Dib from "./Components/OrderListTwo/Dib";
-import Regist_email from "./Components/regist/regist_email/Comp";
+import Regist_email from "./Components/Regist/Regist_Email/Comp";
 import ProductPage from "./Components/ProductPage/ProductPage";
 import ReviewHistory from "./Components/ReviewHistory";
 import ProductDetail from "./Components/ProductDetail/test";
 import LocationCheck from "./Components/LocationCheck";
-import Regist_email from "./Components/Regist/Regist_Email/Comp";
 import KakaoCallback from "./Components/Login/Login_kakao/KakaoCallback";
 import Kakao_regist from "./Components/Regist/regist_kakao/Comp";
 
@@ -74,11 +71,8 @@ function App() {
         <Route path="/Dib" Component={Dib}></Route>
         <Route path="/productDetail" Component={ProductDetail}></Route>
         <Route path="/regist/email" Component={Regist_email}></Route>
-<<<<<<< HEAD
         <Route path="/locationCheck" Component={LocationCheck} />
-=======
         <Route path="/regist/kakao" Component={Kakao_regist}></Route>
->>>>>>> e044c4f (feat: kakao_oauth_login&&regist)
       </Routes>
     </div>
   );
