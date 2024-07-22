@@ -3,16 +3,20 @@ import ProductPageMenu from "./ProductPageMenu";
 import ProductPageContents from "./ProductPageContents";
 import ProductPageTitleLine from "./ProductPageTitleLine";
 import ProductPageImg from "./ProductPageImg";
+import Container from "./test";
+import Content from "./ttest";
 
 interface IProps {}
 
 const ProductPage = () => {
   return (
     <div>
-      <ProductPageMenu></ProductPageMenu>
-      <ProductPageImg></ProductPageImg>
-      <ProductPageTitleLine></ProductPageTitleLine>
-      <ProductPageContents></ProductPageContents>
+      <ProductPageImg>
+        <ProductPageMenu />
+      </ProductPageImg>
+      <Container />
+      {/* <ProductPageTitleLine></ProductPageTitleLine> */}
+      <Content></Content>
       <div className="flex justify-center gap-3">
         <div className="w-[20%]">
           <LongButton textColor="white" bgColor="red">
