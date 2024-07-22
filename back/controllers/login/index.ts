@@ -17,7 +17,7 @@ export const Login = async (req: Request, res: Response) => {
       req.session.isLogined = true;
       req.session.user = userInfo.id;
       res.status(201).send({
-        user: req.body.id,
+        user: userInfo.id,
         nickname: userInfo.nickname,
       });
       return;

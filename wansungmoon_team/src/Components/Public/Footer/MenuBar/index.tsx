@@ -11,7 +11,7 @@ interface IProps {
 
 const MenuBar = ({ inactiveElement = -1 }: IProps): JSX.Element => {
   const menuArr = [
-    [home, "홈", "/home"],
+    [home, "홈", "/"],
     [search, "검색", "/search"],
     [heart, "즐겨찾기", "/dib"],
     ["orderList"],

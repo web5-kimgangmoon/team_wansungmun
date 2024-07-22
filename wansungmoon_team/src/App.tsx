@@ -54,10 +54,14 @@ function App() {
           element={
             <div>
               <Header></Header>
+<<<<<<< HEAD
               {/* <Main></Main>
               <ProductList></ProductList> */}
               {/* <InfoPage></InfoPage> */}
               <Buy></Buy>
+=======
+              <Main></Main>
+>>>>>>> d9f2fc1 (fix: router_error)
               <MenuBar></MenuBar>
             </div>
           }

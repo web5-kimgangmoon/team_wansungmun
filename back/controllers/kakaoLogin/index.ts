@@ -11,11 +11,11 @@ export const KakaoLogin = async (req: Request, res: Response) => {
     if (!KakaoSearch) {
       res.status(202).send(req.body.email);
     } else if (KakaoSearch) {
-      console.log("카카오 있니? : " + KakaoSearch);
+      console.log("카카오 있니? : " + KakaoSearch.id);
       req.session;
       req.session.isLogined = true;
       req.session.user = KakaoSearch.id;
-      res.status(203).send();
+      res.status(203).send({ id: KakaoSearch.id });
     }
   } catch (err) {
     console.error(err);

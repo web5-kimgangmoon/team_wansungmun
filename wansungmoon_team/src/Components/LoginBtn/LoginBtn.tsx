@@ -43,11 +43,11 @@ const LoginArea = () => {
   useEffect(() => {
     const loginCheck = async () => {
       try {
-        console.log("아무 일도 없었다");
         const isLogin = await axios.get("api/logCheck", {
           withCredentials: true,
         });
-        if (isLogin.data) {
+        console.log(isLogin.data);
+        if (isLogin.status == 201) {
           console.log(isLogin.data);
           console.log("로그인 성공");
           setLogined(true);
