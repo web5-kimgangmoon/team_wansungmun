@@ -40,7 +40,7 @@ const TopBox = ({ date, state = "trading", onClickClose }: IProps) => {
         date.getMonth() + 1
       }.${date.getDate()} ${date.getHours() > 11 ? "오후" : "오전"} ${
         date.getHours() > 12 ? date.getHours() - 12 : date.getHours()
-      }:${date.getMinutes()}`
+      }:${date.getMinutes().toString().padStart(2, "0")}`
     : "";
   return (
     <div className="flex">

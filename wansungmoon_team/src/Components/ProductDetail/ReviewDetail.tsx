@@ -61,7 +61,7 @@ const ReviewDetail = ({
                     date.getHours() > 12
                       ? (date.getHours() - 12).toString().padStart(2, "0")
                       : date.getHours().toString().padStart(2, "0")
-                  }:${date.getMinutes()}`}
+                  }:${date.getMinutes().toString().padStart(2, "0")}`}
                 </div>
                 <div className="flex items-center">
                   <Button

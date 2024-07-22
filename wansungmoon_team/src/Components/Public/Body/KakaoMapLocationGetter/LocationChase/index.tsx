@@ -1,47 +1,80 @@
-import { Map, MapMarker } from "react-kakao-maps-sdk";
-import { MouseEvent, useRef } from "react";
 import useKakaoLoader from "../hooks/useKakaoLoader";
-// import  from "react-kakao-maps-sdk";
+import Comp from "./comp";
 
 interface IProps {
   destination: { lat: number; lng: number };
   start: { lat: number; lng: number };
+  route?: { lat: number; lng: number };
+  getStart?: {
+    setAddress: (
+      lat: number,
+      lng: number,
+      service: kakao.maps.services.Geocoder
+    ) => void;
+  };
+  getDestination?: {
+    setAddress: (
+      lat: number,
+      lng: number,
+      service: kakao.maps.services.Geocoder
+    ) => void;
+  };
+  getRoute?: {
+    setAddress: (
+      lat: number,
+      lng: number,
+      service: kakao.maps.services.Geocoder
+    ) => void;
+  };
 }
 
-const LocationChase = ({ destination, start }: IProps) => {
+const LocationChase = ({
+  destination,
+  start,
+  route,
+  getDestination,
+  getRoute,
+  getStart,
+}: IProps) => {
   useKakaoLoader();
-  const map = useRef<kakao.maps.Map>(null);
-  let moveCenter = () => {
+  const moveCenter = (e: kakao.maps.Map) => {
     const startP = new kakao.maps.LatLng(start.lat, start.lng);
     const destinationP = new kakao.maps.LatLng(
       destination.lat,
       destination.lng
     );
-    console.log("s");
-    const boundsOne = new kakao.maps.LatLngBounds(startP, destinationP);
-    const boundsTwo = new kakao.maps.LatLngBounds(destinationP, startP);
-    const theBounds = boundsOne.isEmpty() ? boundsTwo : boundsOne;
-
-    map.current?.setBounds(theBounds);
-    moveCenter = () => {};
+    const addressGetter = new kakao.maps.services.Geocoder();
+    if (getDestination)
+      getDestination.setAddress(
+        destination.lat,
+        destination.lng,
+        addressGetter
+      );
+    if (getStart) {
+      getStart.setAddress(start.lat, start.lng, addressGetter);
+    }
+    if (getRoute && route)
+      getRoute.setAddress(route.lat, route.lng, addressGetter);
+    if (route) {
+      e.setCenter(new kakao.maps.LatLng(route.lat, route.lng));
+    } else {
+      e.setCenter(startP);
+    }
+    const mapBounds = e.getBounds();
+    mapBounds.extend(destinationP);
+    mapBounds.extend(startP);
+    if (route) {
+      mapBounds.extend(new kakao.maps.LatLng(route.lat, route.lng));
+    }
+    e.panTo(mapBounds);
   };
   return (
-    <div className="w-full">
-      <div className="w-full">
-        <Map
-          //   onTileLoaded={moveCenter}
-          onTileLoaded={moveCenter}
-          center={{ lat: 33.5563, lng: 126.79581 }}
-          style={{ width: "100%", height: "15rem" }}
-          ref={map}
-        >
-          <MapMarker position={start} title="출발지">
-            출발지
-          </MapMarker>
-          <MapMarker position={destination} title="목적지" />
-        </Map>
-      </div>
-    </div>
+    <Comp
+      destination={destination}
+      start={start}
+      route={route}
+      moveCenter={moveCenter}
+    />
   );
 };
 
