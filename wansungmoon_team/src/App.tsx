@@ -20,7 +20,7 @@ import OrderListPage from "./Components/OrderListTwo";
 import OrderListPageSelled from "./Components/OrderListTwo/UserOrderList/SelledList";
 import OrderListPageSelling from "./Components/OrderListTwo/UserOrderList/SellingList";
 import Dib from "./Components/OrderListTwo/Dib";
-import Regist_email from "./Components/Regist/Regist_Email/Comp";
+// import Regist_email from "./Components/Regist/Regist_Email/Comp";
 import ProductPage from "./Components/ProductPage/ProductPage";
 import ReviewHistory from "./Components/ReviewHistory";
 import ProductDetail from "./Components/ProductDetail/test";
@@ -70,7 +70,7 @@ function App() {
         <Route path="/reviewHistory" Component={ReviewHistory}></Route>
         <Route path="/Dib" Component={Dib}></Route>
         <Route path="/productDetail" Component={ProductDetail}></Route>
-        <Route path="/regist/email" Component={Regist_email}></Route>
+        {/* <Route path="/regist/email" Component={Regist_email}></Route> */}
         <Route path="/locationCheck" Component={LocationCheck} />
         <Route path="/regist/kakao" Component={Kakao_regist}></Route>
       </Routes>

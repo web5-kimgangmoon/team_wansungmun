@@ -1,8 +1,10 @@
 import Button from "../../Button";
 
+export type IStateTy = "trading" | "traded" | "selling";
+
 export interface IProps {
   isDirectTrade?: boolean;
-  state?: "trading" | "traded" | "selling";
+  state?: IStateTy;
 }
 
 const StateButtonLine = ({

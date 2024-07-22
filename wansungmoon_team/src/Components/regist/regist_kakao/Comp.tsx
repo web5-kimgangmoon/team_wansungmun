@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
-import { ModalComp } from "../Regist_Email/loca_modal/Comp";
+// import { ModalComp } from "../Regist_Email/loca_modal/Comp";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -72,7 +72,7 @@ const Kakao_regist = () => {
           value={phoneNum}
           onInput={(e) => setPhoneNum(e.target.value)}
         />
-        <ModalComp />
+        {/* <ModalComp /> */}
 
         <InputTextBox
           title="상세주소"

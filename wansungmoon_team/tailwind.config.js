@@ -26,10 +26,18 @@ module.exports = {
       white: "#FFFFFF",
       etcWord: "#A49393",
       cusGray: "#E5E0E0",
+      gray: "#E5E0E0",
+      blue: {
+        default: "#87CEEB",
+        long: "#3FC1F6",
+      },
       blueButton: {
         default: "#87CEEB",
         long: "#3FC1F6",
       },
+      orange: "#FFA500",
+      red: "#EE98A7",
+      green: "#35D835",
       orangeButton: "#FFA500",
       redButton: "#EE98A7",
       greenButton: "#35D835",
