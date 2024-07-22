@@ -54,14 +54,7 @@ function App() {
           element={
             <div>
               <Header></Header>
-<<<<<<< HEAD
-              {/* <Main></Main>
-              <ProductList></ProductList> */}
-              {/* <InfoPage></InfoPage> */}
-              <Buy></Buy>
-=======
               <Main></Main>
->>>>>>> d9f2fc1 (fix: router_error)
               <MenuBar></MenuBar>
             </div>
           }
@@ -85,6 +78,7 @@ function App() {
         <Route path="/regist/email" Component={Regist_email}></Route>
         <Route path="/locationCheck" Component={LocationCheck} />
         <Route path="/regist/kakao" Component={Kakao_regist}></Route>
+        <Route path="/productupload" Component={ProductUpload}></Route>
       </Routes>
     </div>
   );

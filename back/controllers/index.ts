@@ -8,14 +8,12 @@ import logCheck from "./logCheck";
 import { KakaoLogin } from "./kakaoLogin";
 
 const router = Router();
-router.use("/test", test);
 router.post("/login", Login);
-router.use("/regist", Regist);
-router.use("/logCheck", logCheck);
-router.use("/kakaoLogin", KakaoLogin);
+router.post("/regist", Regist);
+router.get("/logCheck", logCheck);
 
 // router.use("/session", sessions);
-
+router.use("/kakaoLogin", KakaoLogin);
 router.use("/test", test);
 router.use("/upload", upload);
 
