@@ -12,6 +12,10 @@ import session, { Session, SessionData } from "express-session";
 import fileStore from "session-file-store";
 import cookieParser from "cookie-parser";
 
+import test from "./services/test";
+import mkCase from "./services/testCase";
+import test2 from "./services/test2";
+
 dotenv.config();
 
 const app = express();
@@ -123,7 +127,7 @@ app.use(
 );
 
 (async () => {
-  await sequelize.sync({ force: false });
+  await sequelize.sync({ force: true });
   // create_table_category();
   // await db.User.create({
   //   email: "1234@naver.com",
@@ -131,6 +135,7 @@ app.use(
   //   nickname: "1234",
   //   phoneNum: "1234",
   // });
+  await mkCase();
 })();
 
 app.use("/api", router);

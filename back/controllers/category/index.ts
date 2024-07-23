@@ -1,13 +1,10 @@
-import Category from "../../models/sequelize/category";
-import { Request, Response, NextFunction } from "express";
+import { Router } from "express";
+import getCategory from "../../services/category/get";
+import getCateProducts from "../../services/category/getProducts";
 
-export const category = async (req: Request, res: Response) => {
-  try {
-    const cateData = await Category.findAll({
-      attributes: ["id", "category"],
-    });
-    res.status(201).send(cateData);
-  } catch (err) {
-    console.error(err);
-  }
-};
+const router = Router();
+
+router.get("/get", getCategory);
+router.get("/getProducts", getCateProducts);
+
+export default router;

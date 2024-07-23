@@ -11,7 +11,7 @@ import KakaoBtn from "./Components/Temp/KakaoBtn";
 import Login from "./Components/Login";
 import Email_login from "./Components/Login/Login_Email/Comp";
 import Regist from "./Components/regist";
-import Main from "./Components/Main/Main";
+import Main from "./Components/Main/index";
 import MenuBar from "./Components/Public/Footer/MenuBar";
 import List from "./Components/ProductList/Body";
 import ReviewWrite from "./Components/ReviewNreportWrite/ReviewWrite";
@@ -36,6 +36,10 @@ import ProductPageContents from "./Components/ProductPage/ProductPageContents";
 import PayComplete from "./Components/ProductBuy/Modal/PayComplete";
 import { Logout } from "./Components/Logout";
 
+import BottomIcons from "./Components/BottomIcons";
+import ProductListPage from "./Components/ProductListPage";
+import ProductDetailP from "./Components/ProductPage/index";
+
 function App() {
   return (
     <div>
@@ -51,7 +55,10 @@ function App() {
       {/* <SearchVoca textColor="black" bgColor="white">
         세탁기
       </SearchVoca> */}
+      <BottomIcons />
       <Routes>
+        <Route path="/productList/:categoryId" Component={ProductListPage} />
+        <Route path="/productDetail/:productId" Component={ProductDetailP} />
         <Route
           path="/"
           element={

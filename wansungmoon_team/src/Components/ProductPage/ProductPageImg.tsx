@@ -3,9 +3,10 @@ import Qwer from "./img/qwer.png";
 
 interface IProps {
   children: ReactNode | string;
+  src: string;
 }
 
-const ProductPageImg = ({ children }: IProps) => {
+const ProductPageImg = ({ children, src }: IProps) => {
   return (
     <div className="relative flex justify-center px-5">
       <div className="absolute w-full h-full px-6 pt-1">{children}</div>

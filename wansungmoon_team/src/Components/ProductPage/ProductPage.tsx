@@ -11,10 +11,10 @@ interface IProps {}
 const ProductPage = () => {
   return (
     <div>
-      <ProductPageImg>
+      {/* <ProductPageImg>
         <ProductPageMenu />
-      </ProductPageImg>
-      <Container />
+      </ProductPageImg> */}
+      {/* <Container /> */}
       {/* <ProductPageTitleLine></ProductPageTitleLine> */}
       <Content></Content>
       <div className="flex justify-center gap-3">

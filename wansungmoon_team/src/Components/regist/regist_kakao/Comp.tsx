@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
-import { ModalComp } from "../regist_email/loca_modal/Comp";
+// import { ModalComp } from "../regist_email/loca_modal/Comp";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";

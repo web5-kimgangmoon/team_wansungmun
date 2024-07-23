@@ -2,9 +2,9 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
 const useLoginCheck = () => {
-  const { data } = useMutation({
+  const { data, mutate } = useMutation({
     mutationKey: ["loginCheck", "get"],
-    mutationFn: async () => {
+    mutationFn: async (number: number) => {
       try {
         const isLogin = await axios.get("api/logCheck", {
           withCredentials: true,
@@ -15,7 +15,7 @@ const useLoginCheck = () => {
       }
     },
   });
-  return { data };
+  return { data, mutate };
 };
 
 export default useLoginCheck;
