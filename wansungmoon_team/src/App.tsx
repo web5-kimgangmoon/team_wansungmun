@@ -32,6 +32,8 @@ import MultipleRows from "./Components/Main/Slide";
 import MainBox from "./Components/Main/Main";
 import InfoPage from "./Components/MyInfo/Index";
 import Buy from "./Components/ProductBuy";
+import ProductPageContents from "./Components/ProductPage/ProductPageContents";
+import PayComplete from "./Components/ProductBuy/Modal/PayComplete";
 
 function App() {
   return (
@@ -68,10 +70,7 @@ function App() {
         <Route path="/regist" Component={Regist}></Route>
         <Route path="/orderList" Component={OrderListPage}></Route>
         <Route path="/orderListSelled" Component={OrderListPageSelled}></Route>
-        <Route
-          path="/orderListSelling"
-          Component={OrderListPageSelling}
-        ></Route>
+        <Route path="/orderListSelling" Component={OrderListPageSelling}></Route>
         <Route path="/reviewHistory" Component={ReviewHistory}></Route>
         <Route path="/Dib" Component={Dib}></Route>
         <Route path="/productDetail" Component={ProductDetail}></Route>

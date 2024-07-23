@@ -24,7 +24,7 @@ const ProductPage = () => {
           </LongButton>
         </div>
         <div className="w-[65%]">
-          <LongButton textColor="white" bgColor="red">
+          <LongButton textColor="white" bgColor="realRed">
             구매하기
           </LongButton>
         </div>
