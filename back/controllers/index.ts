@@ -6,6 +6,7 @@ import sessions from "./session/index";
 import { Regist } from "./Regist";
 import logCheck from "./logCheck";
 import { KakaoLogin } from "./kakaoLogin";
+import { Product } from "./Product";
 
 const router = Router();
 router.post("/login", Login);
