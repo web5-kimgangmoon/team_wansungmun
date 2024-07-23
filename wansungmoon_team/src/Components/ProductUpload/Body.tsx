@@ -17,6 +17,7 @@ import useMapAddress from "../Public/Body/KakaoMapLocationGetter/hooks/useMapAdd
 import { useState } from "react";
 import ReactModal from "react-modal";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Body = () => {
   const [currentAddress, setCurrentAddress] = useState<{
@@ -33,15 +34,26 @@ const Body = () => {
     content: string;
     title: string;
   }>({ category: undefined, point: undefined, content: "", title: "" });
+  const navigate = useNavigate();
 
   const onSubmit = async () => {
     try {
-      if (
-        uploadedImg &&
-        etcData.category &&
-        etcData.point &&
-        mapAddress !== "거래희망장소"
-      ) {
+      console.log(uploadedImg);
+      console.log(etcData);
+      console.log(mapAddress);
+      if (!uploadedImg) {
+        alert("이미지를 업로드해주세요!");
+      } else if (!etcData.category) {
+        alert("카테고리를 선택해주세요!");
+      } else if (!etcData.point) {
+        alert("가격을 선택해주세요!");
+      } else if (mapAddress == "거래희망장소!") {
+        alert("거래 장소를 선택해주세요!");
+      } else if (!etcData.title) {
+        alert("제목을 입력해주세요!");
+      } else if (!etcData.content) {
+        alert("내용을 입력해주세요!");
+      } else {
         const formData = new FormData();
         const imgArr = uploadedImg.getAll("imgs");
 
@@ -64,6 +76,11 @@ const Body = () => {
           data: formData,
           withCredentials: true,
         });
+        if (data.status == 302) {
+          alert("유저 정보를 찾을 수 없습니다");
+        } else if (data.status == 201) {
+          navigate("/");
+        }
       }
     } catch (err) {
       console.error(err);
@@ -199,13 +216,12 @@ const Body = () => {
                 data: uploadedImg,
                 withCredentials: true,
               });
+              console.log(data);
             } catch (err) {
               console.error(err);
             }
           }}
-        >
-          ㅇㅇ
-        </button>
+        ></button>
       </div>
     </CenterBody>
   );

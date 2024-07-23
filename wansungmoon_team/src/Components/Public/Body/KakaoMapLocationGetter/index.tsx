@@ -25,6 +25,7 @@ const KakaoMapLocationGetter = ({
     target: kakao.maps.Map,
     e: kakao.maps.event.MouseEvent
   ) => {
+    console.log(kakao);
     if (!isEnableMarking) return;
     const geocoder = new kakao.maps.services.Geocoder();
     geocoder.coord2Address(

@@ -1,6 +1,7 @@
 import Logo from "../svgs/Moon.png";
 import Svg from "../svgs/Complete Moon Market";
 import LoginArea from "./LoginBtn/LoginBtn";
+import { Link } from "react-router-dom";
 
 interface IProps {}
 
@@ -9,9 +10,11 @@ const Header = (): JSX.Element => {
     <div className="p-2">
       <div className="flex justify-between p-2 border-b">
         <div className="flex relative">
-          <div className="w-24 absolute top-[0.5] left-[-1rem]">
-            <img src={Logo} className="w-full" alt="" />
-          </div>
+          <Link to="/">
+            <div className="w-24 absolute top-[0.5] left-[-1rem]">
+              <img src={Logo} className="w-full" alt="" />
+            </div>
+          </Link>
           <div className="pl-12">
             <div className="w-28">
               <Svg />
