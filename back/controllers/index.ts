@@ -9,6 +9,7 @@ import { KakaoLogin } from "./kakaoLogin";
 import { sell } from "./Product";
 import { category } from "./category";
 import { cate_list } from "./cate_list";
+import { Logout } from "./logout";
 
 const router = Router();
 
@@ -22,6 +23,7 @@ router.post("/kakaoLogin", KakaoLogin);
 router.get("/productinfo");
 router.get("/category", category);
 router.get("/cate_list", cate_list);
+router.get("/logout", Logout);
 
 // router.use("/session", sessions);
 

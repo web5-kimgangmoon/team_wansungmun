@@ -15,31 +15,42 @@ const Kakao_regist = () => {
   const userlocation = useLocation();
   const userInfo = { ...userlocation.state };
   const navigate = useNavigate();
+  const pwreg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+  const phonereg = /^\d{3}-\d{3,4}-\d{4}$/;
+
   const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
     try {
       event.preventDefault();
       console.log(email + "+" + password + "+" + phoneNum + "+" + nickname);
-      const data = await axios.post(
-        "/api/regist",
-        {
-          email: userInfo.email,
-          password: password,
-          nickname: nickname,
-          phoneNum: phoneNum,
-          location: "서울시 어디구 무지개너머로",
-          detailloca: detailloca,
-        },
-        { withCredentials: true }
-      );
-      console.log(data.status);
-      if (data.status == 301) {
-        alert("이메일 중복");
-      } else if (data.status == 302) {
-        alert("휴대폰중복");
-      } else if (data.status == 303) {
-        alert("어쩌구저쩌꾸");
-      } else if (data.status == 201) {
-        navigate("/");
+      if (!pwreg.test(password)) {
+        alert("패스워드는 8자 이상, 영문과 숫자를 조합해 입력해주세요");
+      } else if (30 > nickname.length || nickname.length < 4) {
+        alert("닉네임은 최소 4자 이상, 최대 30자 미만으로 입력해주세요");
+      } else if (!phonereg) {
+        alert("입력하신 휴대폰 번호를 확인해주세요");
+      } else {
+        const data = await axios.post(
+          "/api/regist",
+          {
+            email: userInfo.email,
+            password: password,
+            nickname: nickname,
+            phoneNum: phoneNum,
+            location: "서울시 어디구 무지개너머로",
+            detailloca: detailloca,
+          },
+          { withCredentials: true }
+        );
+        console.log(data.status);
+        if (data.status == 301) {
+          alert("이메일 중복");
+        } else if (data.status == 302) {
+          alert("휴대폰중복");
+        } else if (data.status == 303) {
+          alert("어쩌구저쩌꾸");
+        } else if (data.status == 201) {
+          navigate("/");
+        }
       }
     } catch (err) {
       console.error(err);
