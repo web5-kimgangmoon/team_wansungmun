@@ -10,7 +10,11 @@ import Email from "./Components/Temp/Email";
 import KakaoBtn from "./Components/Temp/KakaoBtn";
 import Login from "./Components/Login";
 import Email_login from "./Components/Login/Login_Email/Comp";
+<<<<<<< HEAD
 import Regist from "./Components/regist";
+=======
+// import Regist from "./Components/Regist";
+>>>>>>> ec87601 (feat:etc)
 import Main from "./Components/Main/Main";
 import MenuBar from "./Components/Public/Footer/MenuBar";
 import List from "./Components/ProductList/Body";
@@ -20,13 +24,21 @@ import OrderListPage from "./Components/OrderListTwo";
 import OrderListPageSelled from "./Components/OrderListTwo/UserOrderList/SelledList";
 import OrderListPageSelling from "./Components/OrderListTwo/UserOrderList/SellingList";
 import Dib from "./Components/OrderListTwo/Dib";
+<<<<<<< HEAD
 import Regist_email from "./Components/regist/regist_email/Comp";
+=======
+// import Regist_email from "./Components/Regist/Regist_Email/Comp";
+>>>>>>> ec87601 (feat:etc)
 import ProductPage from "./Components/ProductPage/ProductPage";
 import ReviewHistory from "./Components/ReviewHistory";
 import ProductDetail from "./Components/ProductDetail/test";
 import LocationCheck from "./Components/LocationCheck";
 import KakaoCallback from "./Components/Login/Login_kakao/KakaoCallback";
+<<<<<<< HEAD
 import Kakao_regist from "./Components/regist/regist_kakao/Comp";
+=======
+// import Kakao_regist from "./Components/Regist/regist_kakao/Comp";
+>>>>>>> ec87601 (feat:etc)
 import MultipleItems from "./Components/Main/Slide";
 import MultipleRows from "./Components/Main/Slide";
 import MainBox from "./Components/Main/Main";
@@ -65,7 +77,7 @@ function App() {
         <Route path="/login" Component={Login}></Route>
         <Route path="/login/email" Component={Email_login}></Route>
         <Route path="/login/kakao" Component={KakaoCallback}></Route>
-        <Route path="/regist" Component={Regist}></Route>
+        {/* <Route path="/regist" Component={Regist}></Route> */}
         <Route path="/orderList" Component={OrderListPage}></Route>
         <Route path="/orderListSelled" Component={OrderListPageSelled}></Route>
         <Route
@@ -75,7 +87,7 @@ function App() {
         <Route path="/reviewHistory" Component={ReviewHistory}></Route>
         <Route path="/Dib" Component={Dib}></Route>
         <Route path="/productDetail" Component={ProductDetail}></Route>
-        <Route path="/regist/email" Component={Regist_email}></Route>
+        {/* <Route path="/regist/email" Component={Regist_email}></Route> */}
         <Route path="/locationCheck" Component={LocationCheck} />
         <Route path="/regist/kakao" Component={Kakao_regist}></Route>
         <Route path="/productupload" Component={ProductUpload}></Route>

@@ -55,6 +55,11 @@ User.hasMany(TradeReceipt, {
   as: "tradeReceipts",
   foreignKey: "customerId",
 });
+User.hasMany(Product, {
+  sourceKey: "id",
+  foreignKey: "sellerId",
+  as: "products",
+});
 Product.hasMany(Report, {
   sourceKey: "id",
   as: "reports",

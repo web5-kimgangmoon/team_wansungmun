@@ -20,6 +20,7 @@ import Location from "../location";
 import Review from "../review";
 import Report from "../report";
 import TradeReceipt from "../tradeReceipt";
+import Product from "../product";
 
 class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   id!: CreationOptional<number>;
@@ -83,6 +84,17 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   hasReposrts!: HasManyHasAssociationsMixin<Report, Report["reporterId"]>;
   createReport!: HasManyCreateAssociationMixin<Report>;
   countReports!: HasManyCountAssociationsMixin;
+
+  getProducts!: HasManyGetAssociationsMixin<Product>;
+  addProduct!: HasManyAddAssociationMixin<Product, Product["sellerId"]>;
+  addProducts!: HasManyAddAssociationsMixin<Product, Product["sellerId"]>;
+  setProducts!: HasManySetAssociationsMixin<Product, Product["sellerId"]>;
+  removeProduct!: HasManyRemoveAssociationMixin<Product, Product["sellerId"]>;
+  removeProducts!: HasManyRemoveAssociationsMixin<Product, Product["sellerId"]>;
+  hasProduct!: HasManyHasAssociationMixin<Product, Product["sellerId"]>;
+  hasProducts!: HasManyAddAssociationsMixin<Product, Product["sellerId"]>;
+  createProduct!: HasManyCreateAssociationMixin<Product, "sellerId">;
+  countProducts!: HasManyCountAssociationsMixin;
 
   getTradeReceipts!: HasManyGetAssociationsMixin<TradeReceipt>;
   addTradeReceipt!: HasManyAddAssociationMixin<

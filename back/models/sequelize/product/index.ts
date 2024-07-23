@@ -21,13 +21,13 @@ import Category from "../category";
 import Review from "../review";
 import Report from "../report";
 import TradeReceipt from "../tradeReceipt";
+import User from "../user";
 
 class Product extends Model<
   InferAttributes<Product>,
   InferCreationAttributes<Product>
 > {
   id!: CreationOptional<number>;
-  // sellerId
 
   productName!: string;
   isDirectTrade!: CreationOptional<boolean>;
@@ -41,6 +41,7 @@ class Product extends Model<
   deletedAt!: CreationOptional<Date>;
 
   categoryId!: ForeignKey<Category["id"]>;
+  sellerId!: ForeignKey<User["id"]>;
 
   getReviews!: HasManyGetAssociationsMixin<Review>;
   addReview!: HasManyAddAssociationMixin<Review, Review["productId"]>;

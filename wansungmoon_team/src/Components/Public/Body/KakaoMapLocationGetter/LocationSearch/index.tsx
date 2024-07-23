@@ -4,18 +4,22 @@ import { useState } from "react";
 import Comp from "./Comp";
 
 interface IProps {
-  initialLocation: { lat: number; lng: number };
+  mapLocation: { lat: number; lng: number };
   setMapLocation: ({ lat, lng }: { lat: number; lng: number }) => void;
   setMapAddress: React.Dispatch<React.SetStateAction<string>>;
-  isCenterMove?: boolean;
 }
 
 const KakaoMapLocationGetter = ({
-  initialLocation,
+  mapLocation,
   setMapLocation,
   setMapAddress,
 }: IProps) => {
   useKakaoLoader();
+  const [initail, setInital] = useState<
+    { lat: number; lng: number } | undefined
+  >(undefined);
+  if (!initail) setInital(mapLocation);
+
   const clickMarking = (
     target: kakao.maps.Map,
     e: kakao.maps.event.MouseEvent
@@ -37,8 +41,7 @@ const KakaoMapLocationGetter = ({
   return (
     <Comp
       mapLocation={mapLocation}
-      changeIsEnableMarking={changeIsEnableMarking}
-      isEnableMarking={isEnableMarking}
+      initailLocation={initail as { lat: number; lng: number }}
       clickMarking={clickMarking}
     />
   );

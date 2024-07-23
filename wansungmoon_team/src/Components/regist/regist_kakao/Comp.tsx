@@ -72,7 +72,7 @@ const Kakao_regist = () => {
           value={phoneNum}
           onInput={(e) => setPhoneNum(e.target.value)}
         />
-        <ModalComp />
+        {/* <ModalComp /> */}
 
         <InputTextBox
           title="상세주소"
