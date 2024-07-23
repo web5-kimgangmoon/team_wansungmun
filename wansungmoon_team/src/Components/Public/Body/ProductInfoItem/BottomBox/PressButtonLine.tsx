@@ -48,7 +48,7 @@ const PressButtonLine = ({
     ),
     chating: (
       <Button bgColor="blue" textColor="white" onClick={onClick}>
-        채딩하기
+        채팅하기
       </Button>
     ),
   };

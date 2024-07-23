@@ -65,7 +65,7 @@ function App() {
         <Route path="/login" Component={Login}></Route>
         <Route path="/login/email" Component={Email_login}></Route>
         <Route path="/login/kakao" Component={KakaoCallback}></Route>
-        {/* <Route path="/regist" Component={Regist}></Route> */}
+        <Route path="/regist" Component={Regist}></Route>
         <Route path="/orderList" Component={OrderListPage}></Route>
         <Route path="/orderListSelled" Component={OrderListPageSelled}></Route>
         <Route
@@ -75,7 +75,7 @@ function App() {
         <Route path="/reviewHistory" Component={ReviewHistory}></Route>
         <Route path="/Dib" Component={Dib}></Route>
         <Route path="/productDetail" Component={ProductDetail}></Route>
-        {/* <Route path="/regist/email" Component={Regist_email}></Route> */}
+        <Route path="/regist/email" Component={Regist_email}></Route>
         <Route path="/locationCheck" Component={LocationCheck} />
         <Route path="/regist/kakao" Component={Kakao_regist}></Route>
         <Route path="/productupload" Component={ProductUpload}></Route>

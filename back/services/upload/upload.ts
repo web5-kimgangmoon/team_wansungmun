@@ -15,8 +15,7 @@ const uploadMulter = (imgs: string) =>
   }).array(imgs);
 
 const upload = (req: Request, res: Response) => {
-  console.log(req.query);
-  console.log(req.files);
+  console.log(req.body);
   if (!req.files) {
     res.send({ files: undefined });
   }

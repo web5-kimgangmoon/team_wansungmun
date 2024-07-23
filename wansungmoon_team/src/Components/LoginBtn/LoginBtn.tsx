@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from "recoil";
+import { userState } from "../../recoil/logcheck";
 
 const LoginArea = () => {
   const [logined, setLogined] = useState(false);
@@ -39,7 +41,7 @@ const LoginArea = () => {
   //     console.error(err);
   //   }
   // }, []);
-
+  const [userData, setUserState] = useRecoilState(userState);
   useEffect(() => {
     const loginCheck = async () => {
       try {
@@ -48,12 +50,11 @@ const LoginArea = () => {
         });
         console.log(isLogin.data);
         if (isLogin.status == 201) {
-          console.log(isLogin.data);
           console.log("로그인 성공");
-          setLogined(true);
+          setUserState({ autority: isLogin.data.autority });
         } else {
           console.log("로그인 안됌");
-          setLogined(false);
+          setUserState(undefined);
         }
       } catch (err) {
         console.error(err);
@@ -64,8 +65,8 @@ const LoginArea = () => {
 
   return (
     <div>
-      {!logined && <LoginBtn></LoginBtn>}
-      {logined && <LogoutBtn></LogoutBtn>}
+      {!userData && <LoginBtn></LoginBtn>}
+      {userData && <LogoutBtn></LogoutBtn>}
     </div>
   );
 };

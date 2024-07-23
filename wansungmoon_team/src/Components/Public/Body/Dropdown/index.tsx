@@ -5,6 +5,7 @@ interface IProps {
   options: [string, string][];
   name?: string;
   defaultStr: string;
+  value?: string;
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
@@ -12,6 +13,7 @@ const Dropdown = ({
   name = "",
   options,
   defaultStr,
+  value,
   onChange,
 }: IProps): JSX.Element => {
   return (
@@ -23,6 +25,7 @@ const Dropdown = ({
         name={name}
         className="p-1 pr-5 border outline-none w-full appearance-none font-bold text-sm"
         onChange={onChange}
+        value={value}
       >
         <option value={""} key={0}>
           {defaultStr}
