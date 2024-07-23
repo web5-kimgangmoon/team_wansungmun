@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
-import { ModalComp } from "./loca_modal/Comp";
+// import { ModalComp } from "./loca_modal/Comp";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -70,7 +70,7 @@ const Regist_email = () => {
           value={phoneNum}
           onInput={(e) => setPhoneNum(e.target.value)}
         />
-        <ModalComp />
+        {/* <ModalComp /> */}
 
         <InputTextBox
           title="상세주소"

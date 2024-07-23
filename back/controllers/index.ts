@@ -6,16 +6,18 @@ import sessions from "./session/index";
 import { Regist } from "./Regist";
 import logCheck from "./logCheck";
 import { KakaoLogin } from "./kakaoLogin";
-import { Product } from "./Product";
+import { sell } from "./Product";
 
 const router = Router();
-router.post("/login", Login);
-router.post("/regist", Regist);
-router.get("/logCheck", logCheck);
 
-// router.use("/session", sessions);
-router.use("/kakaoLogin", KakaoLogin);
 router.use("/test", test);
 router.use("/upload", upload);
+router.post("/sell", sell);
+router.get("/logCheck", logCheck);
+router.post("/login", Login);
+router.post("/regist", Regist);
+router.post("/kakaoLogin", KakaoLogin);
+
+// router.use("/session", sessions);
 
 export default router;

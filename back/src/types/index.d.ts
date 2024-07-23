@@ -3,7 +3,7 @@ import session, { Session, SessionData } from "express-session";
 declare module "express-session" {
   interface SessionData {
     cookie: Cookie;
-    user: string | number;
+    user: number;
     isLogined: boolean;
     nickName: string;
   }

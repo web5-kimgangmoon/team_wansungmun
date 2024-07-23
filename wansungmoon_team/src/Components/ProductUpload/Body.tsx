@@ -34,6 +34,7 @@ const Body = () => {
     title: string;
   }>({ category: "", isPropose: false, point: 0, content: "", title: "" });
   console.log(etcData);
+  const onSubmit = () => {};
   return (
     <CenterBody>
       <InputTextBox
@@ -150,7 +151,11 @@ const Body = () => {
         </div>
       </ReactModal>
       <div className="py-2">
-        <LongButton bgColor="blue" textColor="white">
+        <LongButton
+          bgColor="blue"
+          textColor="white"
+          onClick={(e) => onSubmit()}
+        >
           거래할 물건 올리기
         </LongButton>
       </div>
@@ -186,7 +191,10 @@ onClick={async (e) => {
           너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러
           너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러
           너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러`,
-      },
+      }
+          if(data.status==201){
+          axios.post(api/sell)
+          etcData, imgs = data.data.path}
       // withCredentials: true,
     });
   } catch (err) {
