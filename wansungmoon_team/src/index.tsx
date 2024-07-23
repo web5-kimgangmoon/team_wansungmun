@@ -13,6 +13,8 @@ axios.defaults.validateStatus = (status) => {
   if (status == 301) return true;
   else if (status == 302) return true;
   else if (status == 303) return true;
+  else if (status == 304) return true;
+
   return status > 199 && status < 300 ? true : false;
 };
 

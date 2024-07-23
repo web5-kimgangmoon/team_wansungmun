@@ -61,6 +61,9 @@ function App() {
             </div>
           }
         ></Route>
+        <Route path="/regist/kakao" Component={Kakao_regist}></Route>
+        <Route path="/regist" Component={Regist}></Route>
+        <Route path="/regist/email" Component={Regist_email}></Route>
         <Route path="/reviewWrite" Component={ReviewWrite} />
         <Route path="/reportWrite" Component={ReportWrite} />
         <Route path="/upload" Component={ProductUpload}></Route>
@@ -78,6 +81,16 @@ function App() {
         <Route path="/locationCheck" Component={LocationCheck} />
         <Route path="/regist/kakao" Component={Kakao_regist}></Route>
         <Route path="/productupload" Component={ProductUpload}></Route>
+        <Route
+          path="/list"
+          element={
+            <div>
+              <Header></Header>
+              <List></List>
+              <MenuBar></MenuBar>
+            </div>
+          }
+        ></Route>
       </Routes>
     </div>
   );

@@ -3,17 +3,17 @@ import Product from "../../models/sequelize/product";
 
 export const sell = async (req: Request, res: Response) => {
   try {
-    const seller = req.session.user;
+    console.log(req.body.etcData);
     await Product.create({
       productName: req.body.etcData.title,
-      categoryId: req.body.etcData.category,
       isDirectTrade: req.body.etcData.isPropose,
+      tradeLocation: "",
+      categoryId: req.body.etcData.category,
+      sellerId: req.session.user,
       price: req.body.etcData.point,
+      content: req.body.etcData.content,
       imgs: "",
-      tradeLocation: "ㅇㅇ",
       titleImg: "",
-      content: "",
-      sellerId: 3,
     });
     res.status(201).send();
   } catch (err) {

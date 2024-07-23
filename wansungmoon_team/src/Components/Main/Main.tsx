@@ -1,39 +1,49 @@
+import axios from "axios";
 import Dropdown from "../Public/Body/Dropdown";
 import MainBox from "./MainBox";
 import MainList from "./MainList";
 import MultipleRows from "./Slide";
+import { useEffect } from "react";
 
 interface IProps {}
-
 const Main = () => {
-  const titleArr = [
-    "인기매물",
-    "디지털기기",
-    "가구/인테리어",
-    "유아동",
-    "여성의류",
-    "여성잡화",
-    "남성패션/잡화",
-    "생활가전",
-    "생활/주방",
-    "스포츠/레저",
-    "취미/게임/음반",
-    "뷰티/미용",
-    "식물",
-    "가공식품",
-    "건강기능식품",
-    "반려동물용품",
-    "티켓/교환권",
-    "도서",
-    "유아도서",
-    "기타 중고물품",
-    "삽니다",
-  ];
+  let temp;
+  const cate_list = async () => {
+    try {
+      console.log("카테고리 데이터");
+      // const titleArr = [];
+      const listData = await axios.get(
+        "/api/category",
+        {
+          withCredentials: true,
+        }
+        // titleArr.forEach()
+      );
+      console.log(listData.data);
+      temp = listData.data;
+      return temp;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  cate_list();
+  console.log(temp);
+  // useMutation, useQuery
+  const titleArr = ["1234"];
+
   return (
     <div className="container">
-      <Dropdown name="address" defaultStr="주소설정" options={[["강동구 천호동", "강동구 천호동"]]} />
+      <Dropdown
+        name="address"
+        defaultStr="주소설정"
+        options={[["강동구 천호동", "강동구 천호동"]]}
+      />
       <div className="mt-2 mb-2">
-        <input type="text" placeholder="검색어를 입력해주세요." className="border w-full" />
+        <input
+          type="text"
+          placeholder="검색어를 입력해주세요."
+          className="border w-full"
+        />
       </div>
       {/* <MultipleRows /> */}
       <MainList titleArr={titleArr} />
