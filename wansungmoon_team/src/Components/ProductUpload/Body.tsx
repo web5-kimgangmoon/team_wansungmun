@@ -16,6 +16,7 @@ import useMapLocation from "../Public/Body/KakaoMapLocationGetter/hooks/useMapLo
 import useMapAddress from "../Public/Body/KakaoMapLocationGetter/hooks/useMapAddress";
 import { useState } from "react";
 import ReactModal from "react-modal";
+import axios from "axios";
 
 const Body = () => {
   const [currentAddress, setCurrentAddress] = useState<{
@@ -23,18 +24,51 @@ const Body = () => {
     isOpenModal: boolean;
   }>({ address: "거래희망장소", isOpenModal: false });
   const { uploadedImg, setUploadedImg, onChangeImg } = useImgUpload(5);
-  const deliveryFee = useSwap();
+  const isDirectEnable = useSwap();
   const { mapLocation, setMapLocation } = useMapLocation();
   const { mapAddress, setMapAddress } = useMapAddress();
   const [etcData, setEtcData] = useState<{
-    category: string;
-    isPropose: boolean;
-    point: number;
+    category: number | undefined;
+    point: number | undefined;
     content: string;
     title: string;
-  }>({ category: "", isPropose: false, point: 0, content: "", title: "" });
-  console.log(etcData);
-  const onSubmit = () => {};
+  }>({ category: undefined, point: undefined, content: "", title: "" });
+
+  const onSubmit = async () => {
+    try {
+      if (
+        uploadedImg &&
+        etcData.category &&
+        etcData.point &&
+        mapAddress !== "거래희망장소"
+      ) {
+        const formData = new FormData();
+        const imgArr = uploadedImg.getAll("imgs");
+
+        for (let item of imgArr) {
+          formData.append("imgs", item);
+        }
+        formData.set("productName", etcData.title);
+        formData.set(
+          "isDirectTrade",
+          isDirectEnable.isSwapped ? "true" : "false"
+        );
+        formData.set("tradeLocation", mapAddress);
+        formData.set("categoryId", etcData.category.toString());
+        formData.set("price", etcData.point.toString());
+        formData.set("content", etcData.content);
+        let data = await axios({
+          method: "post",
+          url: "http://localhost:3080/api/upload/upload",
+
+          data: formData,
+          withCredentials: true,
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <CenterBody>
       <InputTextBox
@@ -47,37 +81,36 @@ const Body = () => {
       <Dropdown
         name="category"
         defaultStr="카테고리"
-        options={[["ss", "ㅇㅇ"]]}
+        options={[["1", "ㅇㅇ"]]}
+        value={etcData.category?.toString()}
         onChange={(e) => {
-          setEtcData({ ...etcData, category: e.target.value });
+          if (!Number.isNaN(+e.target.value))
+            setEtcData({ ...etcData, category: +e.target.value });
         }}
       />
       <BoldLine>직거래 가능 여부</BoldLine>
       <div className="pb-1">
-        <Button textColor="black" bgColor="blue">
-          직거래 가능
-        </Button>
+        <SwapButton
+          btnA={"직거래가능"}
+          btnB={"직거래불가능"}
+          isSwapped={isDirectEnable.isSwapped}
+          swapClick={isDirectEnable.swapClick}
+        />
       </div>
-      <CheckNLabel
-        laTitle="가격 제안 받기"
-        onChange={(e) => {
-          setEtcData({ ...etcData, isPropose: !etcData.isPropose });
-        }}
-      />
       <InputText
         placeholder="Point를 입력해주세요"
         type="number"
         onInput={(e) => {
-          setEtcData({ ...etcData, point: Number(e.target.value) });
+          if (!Number.isNaN(e.target.value) || Number.isFinite(e.target.value))
+            setEtcData({ ...etcData, point: Number(e.target.value) });
         }}
       />
       <div className="py-1">
         <TextArea
-          placeholder={`풍납1동에 올릴 게시글 내용을 작성해 주세요. (판매 금지 물품은 게시가 제한될 수 있어요.)
+          placeholder={`게시글 내용을 작성해 주세요. (판매 금지 물품은 게시가 제한될 수 있어요.)
 
-신뢰할 수 있는 거래를 위해 자세히 적어주세요.
-과학기술정보통신부, 한국 인터넷진흥원과 함께 해요.`}
-          rows={10}
+신뢰할 수 있는 거래를 위해 자세히 적어주세요.`}
+          rows={6}
           onChange={(e) => {
             setEtcData({ ...etcData, content: e.target.value });
           }}
@@ -91,13 +124,6 @@ const Body = () => {
           data={uploadedImg}
         />
       </div>
-      <BoldLine>택배거래</BoldLine>
-      <SwapButton
-        swapClick={deliveryFee.swapClick}
-        isSwapped={deliveryFee.isSwapped}
-        btnA="배송비 포함"
-        btnB="배송비 별도"
-      />
       <div
         className="py-2"
         onClick={() => {
@@ -159,54 +185,33 @@ const Body = () => {
           거래할 물건 올리기
         </LongButton>
       </div>
+      <div>
+        <button
+          onClick={async (e) => {
+            try {
+              let data = await axios({
+                method: "post",
+                url: "http://localhost:3080/api/upload/upload",
+                // headers: {
+                //   "Content-type": "multipart/form-data",
+                // },
+
+                data: uploadedImg,
+                withCredentials: true,
+              });
+            } catch (err) {
+              console.error(err);
+            }
+          }}
+        >
+          ㅇㅇ
+        </button>
+      </div>
     </CenterBody>
   );
 };
 
 export default Body;
-
-/* <button
-onClick={async (e) => {
-  try {
-    let data = await axios({
-      method: "post",
-      url: "http://localhost:3080/api/upload/upload",
-      // headers: {
-      //   "Content-type": "multipart/form-data",
-      // },
-      data: uploadedImg,
-      params: {
-        content: `ㅏㄴㅇ러ㅏㅣ너리ㅏ넝림너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴ
-          ㅇ마러ㅣㅁㄴ어라ㅣㅁㄴ어리ㅓ미나러ㅣ멍ㄴ라머인라ㅓㅁ
-          ㄴ아ㅣ러ㅣㅁㅇ너리ㅏㅁ넝리ㅏㅓㅇ니라ㅓㅏㅣㄴㅇ머리먼아럼닝러마ㅣㄴ런이머
-          리ㅏ먼ㅇ리ㅏㅓㅁ닝런미ㅏㄹ어ㅏㄴㅇ러ㅏㅣ너리ㅏ넝림너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러ㅣㅁ
-          ㄴ어라ㅣㅁㄴ어리ㅓ미나러ㅣ멍ㄴ라머인라ㅓㅁㄴ아ㅣ러ㅣㅁㅇ너리ㅏㅁ넝리ㅏㅓㅇ니라ㅓㅏ
-          ㅣㄴㅇ머리먼아럼닝러마ㅣㄴ런이머리ㅏ먼ㅇ리ㅏㅓㅁ닝런미ㅏㄹ어ㅏㄴㅇ러ㅏㅣ너리ㅏ넝림너아러ㅣㅁ너
-          린ㅁ어라ㅣㅓㄴㅇ마러ㅣㅁㄴ어라ㅣㅁㄴ어리ㅓ미나러ㅣ멍ㄴ라머인라ㅓㅁㄴ아ㅣ러ㅣㅁㅇ너리ㅏㅁ넝리
-          ㅏㅓㅇ니라ㅓㅏㅣㄴㅇ머리먼아럼닝러마ㅣㄴ런이머리ㅏ먼ㅇ리ㅏㅓㅁ닝런미ㅏㄹ어ㅏㄴㅇ러ㅏㅣ너리ㅏ넝림
-          너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러
-          너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러
-          너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러
-          너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러
-          너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러
-          너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러
-          너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러너아러ㅣㅁ너린ㅁ어라ㅣㅓㄴㅇ마러`,
-      }
-          if(data.status==201){
-          axios.post(api/sell)
-          etcData, imgs = data.data.path}
-      // withCredentials: true,
-    });
-  } catch (err) {
-    console.error(err);
-  }
-  // console.log(data);
-  // const src = JSON.parse(data);
-  // console.log(src);
-}}
->
-ㅇㅇ
-</button> */
 
 // 한번에 formdata와 json 형식의 데이터를 보낼 수는 없습니다. 그러니까
 // formdata와 쿼리로 보내거나 요청을 두번으로 나누어 보내거나

@@ -15,7 +15,6 @@ const KakaoMapLocationGetter = ({
   mapLocation,
   setMapLocation,
   setMapAddress,
-  mapAddress,
 }: IProps) => {
   useKakaoLoader();
   const [isEnableMarking, setIsEnableMarking] = useState<boolean>(false);
@@ -32,14 +31,13 @@ const KakaoMapLocationGetter = ({
       e.latLng.getLng(),
       e.latLng.getLat(),
       (result, status) => {
-        if (result) {
+        if (result.length > 0) {
           if (status === "OK") {
             setMapAddress(result[0].address?.address_name);
           }
         }
       }
     );
-
     setMapLocation({ lat: e.latLng.getLat(), lng: e.latLng.getLng() });
   };
   return (

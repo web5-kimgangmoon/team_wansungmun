@@ -30,7 +30,6 @@ class Product extends Model<
   id!: CreationOptional<number>;
 
   productName!: string;
-  seller_id!: number;
   isDirectTrade!: CreationOptional<boolean>;
   tradeLocation!: string;
   titleImg!: string;
@@ -113,10 +112,6 @@ class Product extends Model<
         },
         content: {
           type: DataTypes.STRING(500),
-          allowNull: false,
-        },
-        seller_id: {
-          type: DataTypes.NUMBER,
           allowNull: false,
         },
         isDirectTrade: {
