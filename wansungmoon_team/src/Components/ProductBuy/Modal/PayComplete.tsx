@@ -29,7 +29,7 @@ export const PayComplete = () => {
           bgColor="realRed"
           onClick={(e) => {
             setModalOpen(true);
-            setTimeout(() => navigate("/login"), 1000);
+            setTimeout(() => navigate("/"), 1000);
           }}
         >
           구매하기
@@ -37,7 +37,12 @@ export const PayComplete = () => {
       </div>
       {/* </Link> */}
 
-      <Modal className="" style={customStyles} isOpen={modalOpen} onRequestClose={() => {}}>
+      <Modal
+        className=""
+        style={customStyles}
+        isOpen={modalOpen}
+        onRequestClose={() => {}}
+      >
         <div className="flex justify-center items-center">구매완료</div>
       </Modal>
     </div>

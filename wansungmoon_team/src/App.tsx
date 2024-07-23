@@ -39,6 +39,8 @@ import { Logout } from "./Components/Logout";
 import BottomIcons from "./Components/BottomIcons";
 import ProductListPage from "./Components/ProductListPage";
 import ProductDetailP from "./Components/ProductPage/index";
+import MainPage from "./Components/Main/MainPage";
+import axios from "axios";
 
 function App() {
   return (
@@ -59,19 +61,10 @@ function App() {
       <Routes>
         <Route path="/productList/:categoryId" Component={ProductListPage} />
         <Route path="/productDetail/:productId" Component={ProductDetailP} />
-        <Route
-          path="/"
-          element={
-            <div>
-              <Header></Header>
-              <Main></Main>
-              <MenuBar></MenuBar>
-            </div>
-          }
-        ></Route>
         <Route path="/regist/kakao" Component={Kakao_regist}></Route>
         <Route path="/regist" Component={Regist}></Route>
         <Route path="/regist/email" Component={Regist_email}></Route>
+        <Route path="/" Component={MainPage}></Route>
         <Route path="/reviewWrite" Component={ReviewWrite} />
         <Route path="/reportWrite" Component={ReportWrite} />
         <Route path="/upload" Component={ProductUpload}></Route>
@@ -81,10 +74,7 @@ function App() {
         <Route path="/regist" Component={Regist}></Route>
         <Route path="/orderList" Component={OrderListPage}></Route>
         <Route path="/orderListSelled" Component={OrderListPageSelled}></Route>
-        <Route
-          path="/orderListSelling"
-          Component={OrderListPageSelling}
-        ></Route>
+        <Route path="/orderListSelling" Component={OrderListPageSelling}></Route>
         <Route path="/reviewHistory" Component={ReviewHistory}></Route>
         <Route path="/Dib" Component={Dib}></Route>
         <Route path="/productDetail" Component={ProductDetail}></Route>
@@ -103,6 +93,9 @@ function App() {
             </div>
           }
         ></Route>
+        <Route path="/info" Component={InfoPage}></Route>
+        <Route path="/productbuy" Component={Buy}></Route>
+        <Route path="/productlist" Component={ProductList}></Route>
       </Routes>
     </div>
   );
