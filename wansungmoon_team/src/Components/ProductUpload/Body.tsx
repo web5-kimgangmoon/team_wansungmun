@@ -14,7 +14,7 @@ import BoldLine from "../Public/Body/BoldLine";
 import KakaoMapLocation from "../Public/Body/KakaoMapLocationGetter";
 import useMapLocation from "../Public/Body/KakaoMapLocationGetter/hooks/useMapLocation";
 import useMapAddress from "../Public/Body/KakaoMapLocationGetter/hooks/useMapAddress";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactModal from "react-modal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -35,6 +35,13 @@ const Body = () => {
     title: string;
   }>({ category: undefined, point: undefined, content: "", title: "" });
   const navigate = useNavigate();
+
+  const cateReq = async () => {
+    const callCate = await axios.get("/api/category/uploadpage", {
+      withCredentials: true,
+    });
+  };
+  cateReq();
 
   const onSubmit = async () => {
     try {
@@ -98,7 +105,10 @@ const Body = () => {
       <Dropdown
         name="category"
         defaultStr="카테고리"
-        options={[["1", "ㅇㅇ"]]}
+        options={[
+          ["1", "ㅇㅇ"],
+          ["2", "유아동"],
+        ]}
         value={etcData.category?.toString()}
         onChange={(e) => {
           if (!Number.isNaN(+e.target.value))

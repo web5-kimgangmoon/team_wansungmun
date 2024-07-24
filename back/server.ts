@@ -127,7 +127,7 @@ app.use(
 );
 
 (async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: false });
   // create_table_category();
   // await db.User.create({
   //   email: "1234@naver.com",
@@ -135,7 +135,7 @@ app.use(
   //   nickname: "1234",
   //   phoneNum: "1234",
   // });
-  await mkCase();
+  // await mkCase();
 })();
 
 app.use("/api", router);
