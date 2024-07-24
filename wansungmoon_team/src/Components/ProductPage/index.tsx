@@ -22,6 +22,7 @@ const Content = () => {
   if (!data) return <div>페이지를 불러오는데 실패했습니다</div>;
   return (
     <Comp
+      productId={data.id}
       sellerId={data.seller_id}
       category={data.category}
       contents={data.content}

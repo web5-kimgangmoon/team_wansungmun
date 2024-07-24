@@ -4,6 +4,7 @@ import ProductPageContents from "./ProductPageContents";
 import ProductPageImg from "./ProductPageImg";
 import ProductPageMenu from "./ProductPageMenu";
 import ProductPageTitleLine from "./ProductPageTitleLine";
+import { useNavigate } from "react-router-dom";
 
 export interface IProps {
   category: string;
@@ -16,6 +17,7 @@ export interface IProps {
   reviewCount: number;
   src: string;
   sellerId: number;
+  productId: number;
 }
 
 const Content = ({
@@ -28,6 +30,7 @@ const Content = ({
   score,
   reviewCount,
   src,
+  productId,
 }: IProps) => {
   return (
     <div>
