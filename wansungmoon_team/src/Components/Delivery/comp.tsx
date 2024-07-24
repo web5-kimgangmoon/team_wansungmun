@@ -2,12 +2,14 @@ import DeliveryBtn from "./DeliveryZip/DeliveryBtn";
 import DeliveryList from "./DeliveryZip/DeliveryList";
 import DeliveryTab from "./DeliveryZip/DeliveryTab";
 
-interface IProps {}
+interface IProps {
+  children: string;
+}
 
 const DeliveryListPage = () => {
   return (
     <div>
-      <DeliveryTab></DeliveryTab>
+      <DeliveryTab>배송목록</DeliveryTab>
       <DeliveryList></DeliveryList>
       <DeliveryBtn></DeliveryBtn>
     </div>

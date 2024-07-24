@@ -40,6 +40,7 @@ import ProductDetailP from "./Components/ProductPage/index";
 import MainPage from "./Components/Main/MainPage";
 import axios from "axios";
 import DeliveryListPage from "./Components/Delivery/comp";
+import DeliveryDetail from "./Components/DeliveryDetail/comp";
 
 function App() {
   return (
@@ -73,7 +74,10 @@ function App() {
         <Route path="/regist" Component={Regist}></Route>
         <Route path="/orderList" Component={OrderListPage}></Route>
         <Route path="/orderListSelled" Component={OrderListPageSelled}></Route>
-        <Route path="/orderListSelling" Component={OrderListPageSelling}></Route>
+        <Route
+          path="/orderListSelling"
+          Component={OrderListPageSelling}
+        ></Route>
         <Route path="/reviewHistory" Component={ReviewHistory}></Route>
         <Route path="/Dib" Component={Dib}></Route>
         <Route path="/productDetail" Component={ProductDetail}></Route>
@@ -87,6 +91,7 @@ function App() {
         <Route path="/productbuy" Component={Buy}></Route>
         <Route path="/productlist" Component={ProductList}></Route>
         <Route path="/delivery" Component={DeliveryListPage}></Route>
+        <Route path="/deliverydetail" Component={DeliveryDetail}></Route>
       </Routes>
     </div>
   );

@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import Btn from "../svg/detailBtn.svg";
 
-interface IProps {}
+interface IProps {
+  num: number;
+  name: string;
+  phone: string;
+  adrress: string;
+}
 
 const DeliveryContent = () => {
   return (
@@ -17,7 +22,7 @@ const DeliveryContent = () => {
         <div>서울 강동구 올림픽로 776 암사역</div>
       </div>
       <div className="w-5">
-        <Link to="/">
+        <Link to="/deliverydetail">
           <button className="block w-3 h-3">
             <img src={Btn} alt="" className="w-full h-full" />
           </button>
