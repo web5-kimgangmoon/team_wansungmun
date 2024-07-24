@@ -2,7 +2,7 @@ import Header from "../Header";
 import List from "../ProductList/Body";
 import More from "../ProductList/More";
 import MenuBar from "../Public/Footer/MenuBar";
-import Main from "./Main";
+import Main from "./Body";
 
 interface IProps {}
 
