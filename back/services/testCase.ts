@@ -6,8 +6,8 @@ const mkCase = async () => {
     category: "히히히",
   });
   const cate2 = await db.Category.create({
-    cateImg: "아유아",
-    category: "히히히",
+    cateImg: "나는2야",
+    category: "나는2야",
   });
   const cate3 = await db.Category.create({
     cateImg: "아미아",

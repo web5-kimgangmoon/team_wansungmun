@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, connect, model } from "mongoose";
 
 interface IChat_log {
   sender_ID: number;

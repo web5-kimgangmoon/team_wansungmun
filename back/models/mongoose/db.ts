@@ -6,7 +6,7 @@ import Point_charge_receipt from "./point_charge_receipt";
 const db = { Chat_log, Dib, Point_charge_receipt };
 
 (async () => {
-  await connect("mongodb://127.0.0.1:27001/test");
+  await connect("mongodb://127.0.0.1:27017/test");
 })();
 
 export default db;

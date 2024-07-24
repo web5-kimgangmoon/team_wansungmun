@@ -11,6 +11,7 @@ import { sell } from "./Product";
 import { Logout } from "./logout";
 import category from "./category";
 import productInfo from "./productInfo";
+import delivery from "./delivery/index";
 
 const router = Router();
 
@@ -18,6 +19,8 @@ router.use("/category", category);
 router.use("/productInfo", productInfo);
 router.use("/test", test);
 router.use("/upload", upload);
+router.use("delivery", delivery);
+
 router.post("/sell", sell);
 router.get("/logCheck", logCheck);
 router.post("/login", Login);
