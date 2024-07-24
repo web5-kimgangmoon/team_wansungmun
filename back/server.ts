@@ -12,10 +12,10 @@ import session, { Session, SessionData } from "express-session";
 import fileStore from "session-file-store";
 import cookieParser from "cookie-parser";
 
-import test from "./services/test";
-import mkCase from "./services/testCase";
-import test2 from "./services/test2";
-import mongoDbTest from "./services/test4";
+import test from "./queries/sequelize/product/getCateProducts";
+import mkCase from "./queries/testCase";
+import test2 from "./queries/sequelize/product/getProductDetail";
+import mongoDbTest from "./queries/mongoose/test4";
 
 dotenv.config();
 

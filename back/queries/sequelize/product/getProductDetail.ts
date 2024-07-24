@@ -1,6 +1,6 @@
-import db, { sequelize } from "../models/sequelize";
+import db, { sequelize } from "../../../models/sequelize";
 
-const test2 = async (number: number) => {
+const getProductDetailQuery = async (number: number) => {
   if (Number.isNaN(number)) return undefined;
   if (number == -1) return undefined;
   const productInfo = await db.Product.findOne({
@@ -8,7 +8,7 @@ const test2 = async (number: number) => {
       include: [
         [
           sequelize.literal(
-            `(select COUNT(*) from reviews as review where review.product_id = ${number})`
+            `(select COUNT(*) from reviews as review where review.product_id = id)`
           ),
           "reviewCount",
         ],
@@ -20,25 +20,21 @@ const test2 = async (number: number) => {
         ],
         [
           sequelize.literal(
-            `(select nickname from users as user where user.id = ${
-              sequelize.col("seller_id").col
-            })`
+            `(select nickname from users as user where user.id = seller_id)`
           ),
           "nickName",
         ],
         [
           sequelize.literal(
-            `(select category from categories as category where category.id = ${
-              sequelize.col("category_id").col
-            })`
+            `(select category from categories as category where category.id = category_id)`
           ),
           "category",
         ],
       ],
     },
-    where: { id: 2 },
+    where: { id: number },
   });
   return productInfo;
 };
 
-export default test2;
+export default getProductDetailQuery;

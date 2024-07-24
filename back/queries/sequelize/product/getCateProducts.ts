@@ -1,6 +1,6 @@
-import db, { sequelize } from "../models/sequelize";
+import db, { sequelize } from "../../../models/sequelize";
 
-const test = async (number: number) => {
+const getCateProductsQuery = async (number: number) => {
   if (Number.isNaN(number)) number = 1;
 
   const cate = await db.Category.findOne({
@@ -38,4 +38,4 @@ const test = async (number: number) => {
   return cate;
 };
 
-export default test;
+export default getCateProductsQuery;

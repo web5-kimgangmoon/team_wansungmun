@@ -1,5 +1,5 @@
 import { Router } from "express";
-import getCategory from "../../services/category/get";
+import getCategory from "../../services/category/getCategory";
 import getCateProducts from "../../services/category/getProducts";
 import uploadCate from "../../services/category/uploadCate";
 

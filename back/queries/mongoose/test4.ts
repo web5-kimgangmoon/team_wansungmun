@@ -1,4 +1,4 @@
-import db from "../models/mongoose/db";
+import db from "../../models/mongoose/db";
 
 const mongoDbTest = async () => {
   const s = await db.Chat_log.findOne({ sender_ID: 1 });
