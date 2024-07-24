@@ -28,7 +28,7 @@ import KakaoCallback from "./Components/Login/Login_kakao/KakaoCallback";
 import Kakao_regist from "./Components/regist/regist_kakao/Comp";
 import MultipleItems from "./Components/Main/Slide";
 import MultipleRows from "./Components/Main/Slide";
-import InfoPage from "./Components/MyInfo/Index";
+import InfoPage from "./Components/MyInfo/comp";
 import Buy from "./Components/ProductBuy";
 import ProductPageContents from "./Components/ProductPage/ProductPageContents";
 import PayComplete from "./Components/ProductBuy/Modal/PayComplete";
@@ -39,6 +39,7 @@ import ProductListPage from "./Components/ProductListPage";
 import ProductDetailP from "./Components/ProductPage/index";
 import MainPage from "./Components/Main/MainPage";
 import axios from "axios";
+import DeliveryListPage from "./Components/Delivery/comp";
 
 function App() {
   return (
@@ -85,6 +86,7 @@ function App() {
         <Route path="/info" Component={InfoPage}></Route>
         <Route path="/productbuy" Component={Buy}></Route>
         <Route path="/productlist" Component={ProductList}></Route>
+        <Route path="/delivery" Component={DeliveryListPage}></Route>
       </Routes>
     </div>
   );

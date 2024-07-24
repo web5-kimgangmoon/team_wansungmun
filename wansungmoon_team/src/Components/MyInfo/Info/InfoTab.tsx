@@ -1,12 +1,12 @@
 import { useState } from "react";
 import MyInfo from "./MyInfo";
-import Box from "./img/box.png";
-import Star from "./img/star.png";
-import list from "./img/list.png";
-import Phone from "./img/phone.png";
-import Gear from "./img/gear.png";
-import Card from "./img/Card.png";
-import Car from "./img/car.png";
+import Box from "../img/box.png";
+import Star from "../img/star.png";
+import list from "../img/list.png";
+import Phone from "../img/phone.png";
+import Gear from "../img/gear.png";
+import Card from "../img/Card.png";
+import Car from "../img/car.png";
 import TabBtn from "./TabBtn";
 import { Link } from "react-router-dom";
 
@@ -89,7 +89,9 @@ const InfoTab = () => {
         <div>
           <img src={Car} alt="" className="w-[1.5rem]" />
         </div>
-        <TabBtn>배송시작하기</TabBtn>
+        <Link to={"/delivery"}>
+          <TabBtn>배송시작하기</TabBtn>
+        </Link>
       </div>
     </div>
   );

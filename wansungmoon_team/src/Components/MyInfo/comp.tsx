@@ -1,6 +1,6 @@
 import Header from "../Header";
-import InfoTab from "./InfoTab";
-import MyInfo from "./MyInfo";
+import InfoTab from "./Info/InfoTab";
+import MyInfo from "./Info/MyInfo";
 
 interface IProps {}
 
