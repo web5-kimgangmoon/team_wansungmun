@@ -1,5 +1,5 @@
 import LongButton from "../Public/Body/LongButton";
-import CategoryBar from "../CategoryBar/CategoryBar";
+import CategoryBar from "../ProductListPage/CategoryBar/CategoryBar";
 import ProductInfo from "./Deal/ProductInfo";
 import DealMethod from "./Deal/DealMethod";
 import DeliveryAdrress from "./Deal/DeliveryAdrress";

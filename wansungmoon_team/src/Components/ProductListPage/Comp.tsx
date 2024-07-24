@@ -1,7 +1,8 @@
+import CateBar from "./CategoryBar";
 import Header from "../Header";
 import Item from "../Public/Body/ProductInfoItem";
 import MenuBar from "../Public/Footer/MenuBar";
-import SingleTextBox from "../Public/Header/singleTextBox";
+import { ChangeEvent } from "react";
 
 export type DataTy = {
   id: number;
@@ -24,13 +25,16 @@ export type DataTy = {
 
 interface IProps {
   dataArr: DataTy[];
-}
+  isDirectCheck: boolean;
 
-const ProductListPage = ({ dataArr }: IProps): JSX.Element => {
+  category: string;
+  setIsDirectCheck: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+const ProductListPage = ({ dataArr, isDirectCheck, category, setIsDirectCheck }: IProps): JSX.Element => {
   return (
     <div>
       <Header />
-      <SingleTextBox>상품내역</SingleTextBox>
+      <CateBar isDirectCheck={isDirectCheck} category={category} setIsDirectCheck={setIsDirectCheck}></CateBar>
       {dataArr.map((item) => (
         <Item
           key={item.id}

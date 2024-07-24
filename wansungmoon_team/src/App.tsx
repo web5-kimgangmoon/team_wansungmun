@@ -81,16 +81,7 @@ function App() {
         <Route path="/regist/kakao" Component={Kakao_regist}></Route>
         <Route path="/productupload" Component={ProductUpload}></Route>
         <Route path="/logout" Component={Logout}></Route>
-        <Route
-          path="/list"
-          element={
-            <div>
-              <Header></Header>
-              <List></List>
-              <MenuBar></MenuBar>
-            </div>
-          }
-        ></Route>
+        <Route path="/list" Component={ProductList}></Route>
         <Route path="/info" Component={InfoPage}></Route>
         <Route path="/productbuy" Component={Buy}></Route>
         <Route path="/productlist" Component={ProductList}></Route>

@@ -21,9 +21,12 @@ const List = () => {
             글제목
             {/* {data.title[0]} */}
           </div>
-          <div className="flex h-[2.5rem] items-center justify-between">
-            <div>⭐</div>
-            <div>4.4(15)</div>
+          <div className="flex h-[2.5rem] items-center gap-3">
+            <div className="flex">
+              <div>⭐</div>
+              <div>4.4(15)</div>
+            </div>
+
             <div className="">
               작성자
               {/* {data.writer[0]} */}

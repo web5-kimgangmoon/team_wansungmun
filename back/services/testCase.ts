@@ -13,11 +13,16 @@ const mkCase = async () => {
     cateImg: "아미아",
     category: "히히히",
   });
-
+  for (let i = 0; i < 30; i++) {
+    await db.Category.create({
+      cateImg: `${i}마나`,
+      category: `${i}무기`,
+    });
+  }
   const product = await cate1.createProduct({
     content: "ss",
     price: 0,
-    titleImg: "아아",
+    titleImg: "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "네네",
     tradeLocation: "ss",
   });
@@ -28,6 +33,7 @@ const mkCase = async () => {
     productName: "네s네",
     tradeLocation: "ss",
   });
+
   const pro3 = await cate2.createProduct({
     content: "seqs",
     price: 305,
