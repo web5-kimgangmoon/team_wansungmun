@@ -2,21 +2,21 @@ import db from "../models/sequelize";
 
 const mkCase = async () => {
   const cate1 = await db.Category.create({
-    cateImg: "아아아",
-    category: "히히히",
+    cateImg: "test",
+    category: "test_1",
   });
   const cate2 = await db.Category.create({
-    cateImg: "나는2야",
-    category: "나는2야",
+    cateImg: "test",
+    category: "test_2",
   });
   const cate3 = await db.Category.create({
-    cateImg: "아미아",
-    category: "히히히",
+    cateImg: "test",
+    category: "test_3",
   });
   for (let i = 0; i < 30; i++) {
     await db.Category.create({
       cateImg: `${i}마나`,
-      category: `${i}무기`,
+      category: `카테고리테스트${i}`,
     });
   }
   const user1 = await db.User.create({
@@ -67,7 +67,7 @@ const mkCase = async () => {
         "상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. ",
       price: 3000,
       titleImg: "아아ds",
-      productName: "유아동 시험 데이터",
+      productName: "시험 데이터",
       tradeLocation: "ssz",
     }),
     await db.Product.create({
@@ -75,7 +75,7 @@ const mkCase = async () => {
         "상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. ",
       price: 3000,
       titleImg: "아아ds",
-      productName: "유아동 시험 데이터",
+      productName: "시험 데이터",
       tradeLocation: "ssz",
     }),
     await db.Product.create({
@@ -83,7 +83,7 @@ const mkCase = async () => {
         "상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. ",
       price: 3000,
       titleImg: "아아ds",
-      productName: "유아동 시험 데이터",
+      productName: "시험 데이터",
       tradeLocation: "ssz",
     }),
     await db.Product.create({
@@ -91,7 +91,7 @@ const mkCase = async () => {
         "상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. ",
       price: 3000,
       titleImg: "아아ds",
-      productName: "유아동 시험 데이터",
+      productName: "시험 데이터",
       tradeLocation: "ssz",
     }),
   ]);
