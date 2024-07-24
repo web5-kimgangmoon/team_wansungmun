@@ -28,6 +28,7 @@ Category.hasMany(Product, {
   foreignKey: "categoryId",
   as: "products",
 });
+
 User.hasMany(Review, {
   sourceKey: "id",
   foreignKey: "reviewerId",
@@ -38,7 +39,6 @@ User.hasMany(Review, {
   foreignKey: "sellerId",
   as: "sellers",
 });
-
 Product.hasMany(Review, {
   sourceKey: "id",
   foreignKey: "productId",
@@ -59,6 +59,11 @@ User.hasMany(Product, {
   sourceKey: "id",
   foreignKey: "sellerId",
   as: "products",
+});
+User.hasMany(Product, {
+  sourceKey: "id",
+  foreignKey: "deliveryUserId",
+  as: "deliveryProducts",
 });
 Product.hasMany(Report, {
   sourceKey: "id",

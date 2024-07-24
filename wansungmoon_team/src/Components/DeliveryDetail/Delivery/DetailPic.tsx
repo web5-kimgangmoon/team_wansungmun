@@ -1,4 +1,4 @@
-import qwer from "./img/qwer.png";
+import qwer from "./../img/qwer.png";
 
 const DetailPic = () => {
   return (

@@ -96,6 +96,41 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   createProduct!: HasManyCreateAssociationMixin<Product, "sellerId">;
   countProducts!: HasManyCountAssociationsMixin;
 
+  getDeliveryProducts!: HasManyGetAssociationsMixin<Product>;
+  addDeliveryProduct!: HasManyAddAssociationMixin<
+    Product,
+    Product["deliveryUserId"]
+  >;
+  addDeliveryProducts!: HasManyAddAssociationsMixin<
+    Product,
+    Product["deliveryUserId"]
+  >;
+  setDeliveryProducts!: HasManySetAssociationsMixin<
+    Product,
+    Product["deliveryUserId"]
+  >;
+  removeDeliveryProduct!: HasManyRemoveAssociationMixin<
+    Product,
+    Product["deliveryUserId"]
+  >;
+  removeDeliveryProducts!: HasManyRemoveAssociationsMixin<
+    Product,
+    Product["deliveryUserId"]
+  >;
+  hasDeliveryProduct!: HasManyHasAssociationMixin<
+    Product,
+    Product["deliveryUserId"]
+  >;
+  hasDeliveryProducts!: HasManyAddAssociationsMixin<
+    Product,
+    Product["deliveryUserId"]
+  >;
+  createDeliveryProduct!: HasManyCreateAssociationMixin<
+    Product,
+    "deliveryUserId"
+  >;
+  countDeliveryProducts!: HasManyCountAssociationsMixin;
+
   getTradeReceipts!: HasManyGetAssociationsMixin<TradeReceipt>;
   addTradeReceipt!: HasManyAddAssociationMixin<
     TradeReceipt,

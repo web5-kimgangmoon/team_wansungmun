@@ -1,17 +1,18 @@
-import DeliveryBtn from "./DeliveryZip/DeliveryBtn";
-import DeliveryList from "./DeliveryZip/DeliveryList";
+import DeliveryBtn, { IProps as IBtn } from "./DeliveryZip/DeliveryBtn2";
+import DeliveryList, { ListTy } from "./DeliveryZip/DeliveryList";
 import DeliveryTab from "./DeliveryZip/DeliveryTab";
 
 interface IProps {
-  children: string;
+  btn: IBtn;
+  list: ListTy;
 }
 
-const DeliveryListPage = () => {
+const DeliveryListPage = ({ btn, list }: IProps) => {
   return (
     <div>
       <DeliveryTab>배송목록</DeliveryTab>
-      <DeliveryList></DeliveryList>
-      <DeliveryBtn></DeliveryBtn>
+      <DeliveryList list={list}></DeliveryList>
+      <DeliveryBtn {...btn}></DeliveryBtn>
     </div>
   );
 };

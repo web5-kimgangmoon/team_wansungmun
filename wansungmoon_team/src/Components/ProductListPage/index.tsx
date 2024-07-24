@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import useCategoryProducts from "../../hooks/useCateProducts";
+import useCategoryProducts from "../../hooks/category/useCateProducts";
 import Comp, { DataTy } from "./Comp";
 import { useState, ChangeEvent } from "react";
 
@@ -17,12 +17,17 @@ const ProductListPage = () => {
       id: item.id as number,
       bottomData: {
         title: item.productName as string,
-        score: item.avarageScore as number,
+        score: item.avarageScore ? (item.averageScore as number) : 0,
         reviewCount: item.reviewCount as number,
         writer: item.nickName as string,
         src: item.titleImg as string,
         stateBtnInfo: {
-          state: item.tradeStatus == 1 ? "selling" : item.tradeStatus == 2 ? "trading" : "traded",
+          state:
+            item.tradeStatus == 1
+              ? "selling"
+              : item.tradeStatus == 2
+              ? "trading"
+              : "traded",
           isDirectTrade: item.isDirectTrade as boolean,
         },
         isHeartFull: undefined,

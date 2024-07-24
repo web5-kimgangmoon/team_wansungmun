@@ -37,12 +37,14 @@ class Product extends Model<
   price!: number;
   content!: string;
   tradeStatus!: CreationOptional<number>;
+  deliveryStatus!: CreationOptional<number>;
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
   deletedAt!: CreationOptional<Date>;
 
   categoryId!: ForeignKey<Category["id"]>;
   sellerId!: ForeignKey<User["id"]>;
+  deliveryUserId!: ForeignKey<User["id"]>;
 
   getReviews!: HasManyGetAssociationsMixin<Review>;
   addReview!: HasManyAddAssociationMixin<Review, Review["productId"]>;
@@ -134,6 +136,11 @@ class Product extends Model<
         tradeStatus: {
           type: DataTypes.TINYINT,
           defaultValue: 1,
+        },
+        deliveryStatus: {
+          type: DataTypes.TINYINT,
+          defaultValue: 0,
+          allowNull: false,
         },
         createdAt: DataTypes.DATE,
         updatedAt: DataTypes.DATE,

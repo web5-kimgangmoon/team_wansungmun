@@ -1,5 +1,5 @@
 import Main from "./Main";
-import useCategory from "../../../hooks/useCategory";
+import useCategory from "../../../hooks/category/useCategory";
 
 interface IProps {}
 

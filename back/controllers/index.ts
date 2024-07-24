@@ -19,7 +19,7 @@ router.use("/category", category);
 router.use("/productInfo", productInfo);
 router.use("/test", test);
 router.use("/upload", upload);
-router.use("delivery", delivery);
+router.use("/delivery", delivery);
 
 router.post("/sell", sell);
 router.get("/logCheck", logCheck);

@@ -15,7 +15,9 @@ import cookieParser from "cookie-parser";
 import test from "./queries/sequelize/product/getCateProducts";
 import mkCase from "./queries/testCase";
 import test2 from "./queries/sequelize/product/getProductDetail";
-import mongoDbTest from "./queries/mongoose/test4";
+import getDeliveryProductList from "./queries/sequelize/location/getDeliveryProductList";
+import locationSendQuery from "./queries/mongoose/location/locationSend";
+import locationGetQuery from "./queries/mongoose/location/getLocation";
 
 dotenv.config();
 
@@ -137,6 +139,8 @@ app.use(
   //   phoneNum: "1234",
   // });
   // await mkCase();
+  // console.log(await locationSendQuery(1, 1, 3, 4));
+  // console.log(await locationGetQuery(3, 5));
 })();
 
 app.use("/api", router);

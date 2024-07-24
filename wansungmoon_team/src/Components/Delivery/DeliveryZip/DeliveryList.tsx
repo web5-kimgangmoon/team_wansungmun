@@ -1,15 +1,26 @@
 import DeliveryContent from "./DeliveryContent";
 import DeliveryIndex from "./DeliveryIndex";
+import { IItem } from "./DeliveryContent";
 
-interface IProps {}
+export type ListTy = IItem[];
+export interface IProps {
+  list: ListTy;
+}
 
-const DeliveryList = () => {
+const DeliveryList = ({ list }: IProps) => {
   return (
     <div className="text-sm">
       <DeliveryIndex></DeliveryIndex>
-      <DeliveryContent></DeliveryContent>
-      <DeliveryContent></DeliveryContent>
-      <DeliveryContent></DeliveryContent>
+      {list.map((item, idx) => (
+        <DeliveryContent
+          key={item.id}
+          id={item.id}
+          idx={idx + 1}
+          name={item.name}
+          phone={item.phone}
+          address={item.address}
+        ></DeliveryContent>
+      ))}
     </div>
   );
 };

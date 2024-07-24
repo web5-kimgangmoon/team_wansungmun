@@ -16,7 +16,6 @@ class TradeReceipt extends Model<
 > {
   id!: CreationOptional<number>;
 
-  deliveryStatus!: CreationOptional<number>;
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
   deletedAt!: CreationOptional<Date>;
@@ -31,11 +30,6 @@ class TradeReceipt extends Model<
           type: DataTypes.INTEGER.UNSIGNED,
           autoIncrement: true,
           primaryKey: true,
-        },
-        deliveryStatus: {
-          type: DataTypes.TINYINT,
-          defaultValue: 0,
-          allowNull: false,
         },
         createdAt: DataTypes.DATE,
         updatedAt: DataTypes.DATE,

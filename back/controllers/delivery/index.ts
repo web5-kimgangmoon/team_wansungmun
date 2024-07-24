@@ -1,10 +1,10 @@
 import { Router } from "express";
-import saveLog from "../../services/delivery/saveLog";
-import getLocation from "../../services/delivery/getLocation";
+import locationSend from "../../services/delivery/locationSend";
+import getDeliveryProductList from "../../services/delivery/getDeliveryProductList";
 
 const router = Router();
 
-router.post("/saveDB", saveLog);
-router.get("/location", getLocation);
+router.post("/locationSend", locationSend);
+router.get("/getList", getDeliveryProductList);
 
 export default router;

@@ -19,29 +19,6 @@ const mkCase = async () => {
       category: `${i}무기`,
     });
   }
-  const product = await cate1.createProduct({
-    content: "ss",
-    price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
-    productName: "네네",
-    tradeLocation: "ss",
-  });
-  const pro2 = await cate1.createProduct({
-    content: "ss",
-    price: 30,
-    titleImg: "아아s",
-    productName: "네s네",
-    tradeLocation: "ss",
-  });
-
-  const pro3 = await cate2.createProduct({
-    content: "seqs",
-    price: 305,
-    titleImg: "아아ds",
-    productName: "네sa네",
-    tradeLocation: "ssz",
-  });
   const user1 = await db.User.create({
     email: "test1@naver.com",
     nickname: "test_user_1",
@@ -54,6 +31,35 @@ const mkCase = async () => {
     phoneNum: "01098765432",
     password: "1234qwer",
   });
+  const product = await cate1.createProduct({
+    content: "ss",
+    price: 0,
+    titleImg:
+      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    productName: "네네",
+    tradeLocation: "ss",
+    deliveryUserId: 1,
+    sellerId: 2,
+  });
+  const pro2 = await cate1.createProduct({
+    content: "ss",
+    price: 30,
+    titleImg: "아아s",
+    productName: "네s네",
+    tradeLocation: "ss",
+    deliveryUserId: 2,
+    sellerId: 2,
+  });
+
+  const pro3 = await cate2.createProduct({
+    content: "seqs",
+    price: 305,
+    titleImg: "아아ds",
+    productName: "네sa네",
+    tradeLocation: "ssz",
+    deliveryUserId: 1,
+    sellerId: 1,
+  });
 
   const product2 = await cate2.addProducts([
     await db.Product.create({
@@ -63,7 +69,6 @@ const mkCase = async () => {
       titleImg: "아아ds",
       productName: "유아동 시험 데이터",
       tradeLocation: "ssz",
-      sellerId: 1,
     }),
     await db.Product.create({
       content:
@@ -72,7 +77,6 @@ const mkCase = async () => {
       titleImg: "아아ds",
       productName: "유아동 시험 데이터",
       tradeLocation: "ssz",
-      sellerId: 2,
     }),
     await db.Product.create({
       content:
@@ -81,7 +85,6 @@ const mkCase = async () => {
       titleImg: "아아ds",
       productName: "유아동 시험 데이터",
       tradeLocation: "ssz",
-      sellerId: 2,
     }),
     await db.Product.create({
       content:
@@ -90,9 +93,12 @@ const mkCase = async () => {
       titleImg: "아아ds",
       productName: "유아동 시험 데이터",
       tradeLocation: "ssz",
-      sellerId: 1,
     }),
   ]);
+
+  await pro2.createTradeReceipt({ customerId: 1 });
+  await pro3.createTradeReceipt({ customerId: 2 });
+  await product.createTradeReceipt({ customerId: 1 });
 };
 
 export default mkCase;

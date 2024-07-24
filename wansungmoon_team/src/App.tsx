@@ -39,7 +39,7 @@ import ProductListPage from "./Components/ProductListPage";
 import ProductDetailP from "./Components/ProductPage/index";
 import MainPage from "./Components/Main/MainPage";
 import axios from "axios";
-import DeliveryListPage from "./Components/Delivery/comp";
+import DeliveryListPage from "./Components/Delivery/index";
 import DeliveryDetail from "./Components/DeliveryDetail/comp";
 
 function App() {
@@ -90,8 +90,11 @@ function App() {
         <Route path="/info" Component={InfoPage}></Route>
         <Route path="/productbuy" Component={Buy}></Route>
         <Route path="/productlist" Component={ProductList}></Route>
-        <Route path="/delivery" Component={DeliveryListPage}></Route>
-        <Route path="/deliverydetail" Component={DeliveryDetail}></Route>
+        <Route path="/delivery/:id" Component={DeliveryListPage}></Route>
+        <Route
+          path="/deliverydetail/:proudctId"
+          Component={DeliveryDetail}
+        ></Route>
       </Routes>
     </div>
   );

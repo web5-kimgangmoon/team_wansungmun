@@ -2,8 +2,9 @@ import { connect } from "mongoose";
 import Chat_log from "./chat_log";
 import Dib from "./dib";
 import Point_charge_receipt from "./point_charge_receipt";
+import Delivery_log from "./deliveryLog";
 
-const db = { Chat_log, Dib, Point_charge_receipt };
+const db = { Chat_log, Dib, Point_charge_receipt, Delivery_log };
 
 (async () => {
   await connect("mongodb://127.0.0.1:27017/test");
