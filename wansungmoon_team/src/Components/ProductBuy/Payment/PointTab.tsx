@@ -10,9 +10,7 @@ const PointTab = () => {
       <div className="flex">
         <input type="text" className="bg-cusGray w-[75%] rounded-2xl" />
         <div className="pl-2">
-          <LongButton textColor="black" bgColor="gray">
-            전액사용
-          </LongButton>
+          <PointCharge></PointCharge>
         </div>
       </div>
       <div className="flex p-1">
@@ -21,9 +19,6 @@ const PointTab = () => {
             <div className="font-cusgray">사용가능한 MoonPoint</div>
             <div className="font-semibold">100,000 원</div>
           </div>
-        </div>
-        <div className="flex pl-2.5">
-          <PointCharge></PointCharge>
         </div>
       </div>
     </div>

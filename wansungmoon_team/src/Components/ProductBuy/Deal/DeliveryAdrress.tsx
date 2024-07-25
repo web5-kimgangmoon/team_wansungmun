@@ -1,17 +1,27 @@
+import Dropdown from "../../Public/Body/Dropdown";
 import LongButton from "../../Public/Body/LongButton";
+import AddAddress from "../Modal/AddAddress";
 
 interface IProps {}
 
 const DeliveryAdrress = () => {
   return (
     <div>
-      <div className="p-1 font-black">배송지</div>
-      <div className="flex gap-3 p-2">
-        <input type="text" className="bg-cusGray rounded-2xl pl-3 w-[80%]"></input>
-        <div className="w-[15%]">
-          <LongButton textColor="black" bgColor="gray">
-            등록
-          </LongButton>
+      <div className="px-2 font-black">배송지</div>
+      <div className="gap-3 p-2">
+        <div className="mb-2">
+          <Dropdown
+            name="myAddress"
+            defaultStr="주소설정"
+            options={[
+              ["1", "서울시 강남구 청담동 건물갖고싶다"],
+              ["2", "서울시 강동구 천호동 100-100"],
+              ["3", "충남 논산시 부창동 100-100"],
+            ]}
+          ></Dropdown>
+        </div>
+        <div className="">
+          <AddAddress></AddAddress>
         </div>
       </div>
       <div className="flex p-1">

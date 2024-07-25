@@ -10,7 +10,7 @@ import Email from "./Components/Temp/Email";
 import KakaoBtn from "./Components/Temp/KakaoBtn";
 import Login from "./Components/Login";
 import Email_login from "./Components/Login/Login_Email/Comp";
-import Regist from "./Components/Regist";
+import Regist from "./Components/regist";
 import MenuBar from "./Components/Public/Footer/MenuBar";
 import List from "./Components/ProductList/Body";
 import ReviewWrite from "./Components/ReviewNreportWrite/ReviewWrite";
@@ -19,13 +19,13 @@ import OrderListPage from "./Components/OrderListTwo";
 import OrderListPageSelled from "./Components/OrderListTwo/UserOrderList/SelledList";
 import OrderListPageSelling from "./Components/OrderListTwo/UserOrderList/SellingList";
 import Dib from "./Components/OrderListTwo/Dib";
-import Regist_email from "./Components/Regist/Regist_email/Comp";
+import Regist_email from "./Components/regist/regist_email/Comp";
 import ProductPage from "./Components/ProductPage/ProductPage";
 import ReviewHistory from "./Components/ReviewHistory";
 import ProductDetail from "./Components/ProductDetail/test";
 import LocationCheck from "./Components/LocationCheck";
 import KakaoCallback from "./Components/Login/Login_kakao/KakaoCallback";
-import Kakao_regist from "./Components/Regist/regist_kakao/Comp";
+import Kakao_regist from "./Components/regist/regist_kakao/Comp";
 import MultipleItems from "./Components/Main/Slide";
 import MultipleRows from "./Components/Main/Slide";
 import InfoPage from "./Components/MyInfo/comp";
@@ -74,10 +74,7 @@ function App() {
         <Route path="/regist" Component={Regist}></Route>
         <Route path="/orderList" Component={OrderListPage}></Route>
         <Route path="/orderListSelled" Component={OrderListPageSelled}></Route>
-        <Route
-          path="/orderListSelling"
-          Component={OrderListPageSelling}
-        ></Route>
+        <Route path="/orderListSelling" Component={OrderListPageSelling}></Route>
         <Route path="/reviewHistory" Component={ReviewHistory}></Route>
         <Route path="/Dib" Component={Dib}></Route>
         <Route path="/productDetail" Component={ProductDetail}></Route>
