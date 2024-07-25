@@ -5,10 +5,10 @@ interface IProps {}
 
 const Container = () => {
   const { data, isFetching } = useCategory();
-  if (isFetching) return <div>다운중</div>;
+  if (isFetching || !data) return <div>다운중</div>;
   return (
     <div>
-      <Main cateArr={data} />
+      <Main cateArr={data.data} />
     </div>
   );
 };

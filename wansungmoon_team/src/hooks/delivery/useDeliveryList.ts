@@ -6,11 +6,11 @@ const useDeliveryList = () => {
     queryKey: ["list", "get", "delivery"],
     queryFn: async () => {
       try {
-        const List = await axios.get("api/delivery/getList", {
+        const list = await axios.get("api/delivery/getList", {
           withCredentials: true,
         });
 
-        return List.data;
+        return list;
       } catch (err) {
         console.error(err);
       }

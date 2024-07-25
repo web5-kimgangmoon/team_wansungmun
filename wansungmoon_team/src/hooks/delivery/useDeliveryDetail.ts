@@ -1,17 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const useCategoryProducts = (categoryId: number) => {
+const useDeliveryList = (productId: number) => {
   const { data, isPending } = useQuery({
-    queryKey: ["category", "product", "get"],
+    queryKey: ["list", "get", "delivery"],
     queryFn: async () => {
       try {
-        const products = await axios.get("api/category/getProducts", {
+        const detail = await axios.get("api/delivery/getDeatil", {
           withCredentials: true,
-          params: { categoryId },
+          params: { productId },
         });
-
-        return products;
+        return detail;
       } catch (err) {
         console.error(err);
       }
@@ -20,4 +19,4 @@ const useCategoryProducts = (categoryId: number) => {
   return { data, isPending };
 };
 
-export default useCategoryProducts;
+export default useDeliveryList;

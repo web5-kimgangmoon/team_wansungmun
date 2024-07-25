@@ -9,7 +9,7 @@ const useCategory = () => {
         const category = await axios.get("/api/category/get", {
           withCredentials: true,
         });
-        return category.data;
+        return category;
       } catch (err) {
         console.error(err);
       }

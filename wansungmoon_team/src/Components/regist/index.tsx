@@ -1,7 +1,6 @@
-import { FC } from "react";
 import Comp from "./Comp";
 
-const Regist: FC = () => {
+const Regist = () => {
   return <Comp />;
 };
 

@@ -10,7 +10,7 @@ const useProductDetail = (productId: number) => {
           withCredentials: true,
           params: { productId },
         });
-        return { data: product.data, status: product.status };
+        return product;
       } catch (err) {
         console.error(err);
       }

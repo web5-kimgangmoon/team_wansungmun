@@ -9,10 +9,10 @@ const ProductListPage = () => {
   let { data, isPending } = useCategoryProducts(+categoryId);
 
   const [isDirectCheck, setIsDirectCheck] = useState<boolean>(true);
-  if (isPending) return <div>로딩중</div>;
+  if (isPending || !data) return <div>로딩중</div>;
 
   const itemArr: DataTy[] = [];
-  for (let item of data.products) {
+  for (let item of data.data.products) {
     itemArr.push({
       id: item.id as number,
       bottomData: {
@@ -44,7 +44,7 @@ const ProductListPage = () => {
         setIsDirectCheck(e.target.checked);
       }}
       isDirectCheck={isDirectCheck}
-      category={data.category}
+      category={data.data.category}
     />
   );
 };
