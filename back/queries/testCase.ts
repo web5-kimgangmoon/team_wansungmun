@@ -48,6 +48,22 @@ const mkCase = async () => {
     phoneNum: "01012345678",
     password: "1234qwer",
   });
+
+  const loca1 = await user1.createLocation({
+    location: "서울시 어쩌구 어딘가로",
+    locationDetail: "천마아파트 307동 42호",
+  });
+
+  const loca2 = await user1.createLocation({
+    location: "대전광역시 어쩌구 어딘가로",
+    locationDetail: "성심당 귤시루케이크",
+  });
+
+  const loca3 = await user1.createLocation({
+    location: "부산광역시 어쩌구 어딘가로",
+    locationDetail: "이재모피자 오븐스파게티",
+  });
+
   const user2 = await db.User.create({
     email: "test2@naver.com",
     nickname: "test_user_2",

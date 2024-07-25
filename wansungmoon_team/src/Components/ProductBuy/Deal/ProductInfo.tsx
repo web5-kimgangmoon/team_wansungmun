@@ -1,20 +1,24 @@
 import qwer from "../../ProductPage/img/qwer.png";
 
-interface IProps {}
+interface IProps {
+  title: string;
+  price: number;
+  src: string;
+}
 
-const ProductInfo = () => {
+const ProductInfo = ({ src, title, price }: IProps) => {
   return (
     <div className="border-b">
       <div className="flex p-3">
         <div className="w-[30%]">
-          <img src={qwer} alt="" />
+          <img src={src} alt="" />
         </div>
         <div className="pl-2">
           <div>
-            <div className="text-xl font-bold">QWER 앨범 팔아요</div>
+            <div className="text-xl font-bold">{title}</div>
           </div>
           <div className="pt-5">
-            <div className="font-bold">150,000 원</div>
+            <div className="font-bold">{price} 원</div>
           </div>
         </div>
       </div>

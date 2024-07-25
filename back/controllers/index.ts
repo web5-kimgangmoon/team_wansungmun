@@ -12,6 +12,8 @@ import category from "./category";
 import productInfo from "./productInfo";
 import delivery from "./delivery/index";
 import { Sell } from "./sell/sell";
+import trade from "./trade/trade";
+import { sell_process } from "../services/trade/sell_process";
 
 const router = Router();
 
@@ -20,6 +22,7 @@ router.use("/productInfo", productInfo);
 router.use("/test", test);
 router.use("/upload", upload);
 router.use("/delivery", delivery);
+router.use("/trade", trade);
 
 router.get("/sell", Sell);
 router.get("/logCheck", logCheck);

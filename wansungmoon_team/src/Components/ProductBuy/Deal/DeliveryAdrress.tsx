@@ -1,10 +1,19 @@
+import { AnyARecord } from "dns";
 import Dropdown from "../../Public/Body/Dropdown";
 import LongButton from "../../Public/Body/LongButton";
 import AddAddress from "../Modal/AddAddress";
 
-interface IProps {}
+interface IProps {
+  location: Array<any>;
+}
 
-const DeliveryAdrress = () => {
+const DeliveryAdrress = ({ location }: IProps) => {
+  let locaArr: any = [];
+  for (let i = 0; i < location.length; i++) {
+    locaArr.push(location[i].location + location[i].locationDetail);
+  }
+
+  console.log(locaArr);
   return (
     <div>
       <div className="px-2 font-black">배송지</div>
@@ -14,9 +23,11 @@ const DeliveryAdrress = () => {
             name="myAddress"
             defaultStr="주소설정"
             options={[
-              ["1", "서울시 강남구 청담동 건물갖고싶다"],
-              ["2", "서울시 강동구 천호동 100-100"],
-              ["3", "충남 논산시 부창동 100-100"],
+              ["1", locaArr[0]],
+              ["2", locaArr[1]],
+              ["3", locaArr[2]],
+              ["4", locaArr[3]],
+              ["5", locaArr[4]],
             ]}
           ></Dropdown>
         </div>
