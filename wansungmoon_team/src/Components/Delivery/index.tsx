@@ -7,14 +7,13 @@ import { ListTy } from "./DeliveryZip/DeliveryList";
 import useLocationSend from "../../hooks/delivery/useLocationSend";
 
 const DeliveryListPage = () => {
-  const { id } = useParams();
-  let deliveryId = id ? (Number.isNaN(+id) ? -1 : +id) : -1;
-  const { data, isPending } = useDeliveryList(deliveryId);
+  // const { id } = useParams();
+  // let deliveryId = id ? (Number.isNaN(+id) ? -1 : +id) : -1;
+  const { data, isPending } = useDeliveryList();
   const { mapLocation } = useMapLocation();
   console.log(mapLocation);
   const [isDeliverying, setIsDeliverying] = useState<boolean>(false);
   const sendResult = useLocationSend(
-    deliveryId,
     mapLocation.lat,
     mapLocation.lng,
     isDeliverying
@@ -31,7 +30,11 @@ const DeliveryListPage = () => {
           ? item.tradeReceipts[0].phone
           : "확인불가",
       });
-      console.log(item.tradeLocation);
+      const a = new Date();
+      // console.log(
+      //   new Date(new Date(item.createdAt).getTime() - Date.now()).getTime() <
+      //     86400000
+      // );
     }
   }
 

@@ -90,7 +90,7 @@ function App() {
         <Route path="/info" Component={InfoPage}></Route>
         <Route path="/productbuy" Component={Buy}></Route>
         <Route path="/productlist" Component={ProductList}></Route>
-        <Route path="/delivery/:id" Component={DeliveryListPage}></Route>
+        <Route path="/delivery" Component={DeliveryListPage}></Route>
         <Route
           path="/deliverydetail/:proudctId"
           Component={DeliveryDetail}

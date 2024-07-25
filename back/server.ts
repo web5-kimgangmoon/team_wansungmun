@@ -130,7 +130,7 @@ app.use(
 );
 
 (async () => {
-  await sequelize.sync({ force: false });
+  await sequelize.sync({ force: true });
   // create_table_category();
   // await db.User.create({
   //   email: "1234@naver.com",
@@ -138,7 +138,7 @@ app.use(
   //   nickname: "1234",
   //   phoneNum: "1234",
   // });
-  // await mkCase();
+  await mkCase();
   // console.log(await locationSendQuery(1, 1, 3, 4));
   // console.log(await locationGetQuery(3, 5));
 })();

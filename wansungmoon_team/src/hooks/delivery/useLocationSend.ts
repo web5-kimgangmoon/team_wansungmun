@@ -1,19 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const useLocationSend = (
-  deliveryId: number,
-  lat: number,
-  lng: number,
-  isStart: boolean
-) => {
+const useLocationSend = (lat: number, lng: number, isStart: boolean) => {
   const { data, isPending } = useQuery({
     queryKey: ["location", "post", "delivery"],
     queryFn: async () => {
       try {
         const result = await axios.post("api/delivery/locationSend", {
           withCredentials: true,
-          data: { deliveryId, lat, lng },
+          data: { lat, lng },
         });
 
         return result.data;

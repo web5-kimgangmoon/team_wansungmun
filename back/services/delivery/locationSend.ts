@@ -7,7 +7,7 @@ import getDeliveryProductListQuery from "../../queries/sequelize/location/getDel
 import db from "../../models/sequelize";
 const locationSend = async (req: Request, res: Response) => {
   try {
-    let id = req.body.data.deliveryId ? +req.body.data.deliveryId : -1;
+    let id = req.session.user ? req.session.user : -1;
     let lat = req.body.data.lat ? +req.body.data.lat : 33.5563;
     let lng = req.body.data.lng ? +req.body.data.lng : 126.79581;
     if (Number.isNaN(id)) id = -1;
