@@ -4,7 +4,9 @@ import ProductPageContents from "./ProductPageContents";
 import ProductPageImg from "./ProductPageImg";
 import ProductPageMenu from "./ProductPageMenu";
 import ProductPageTitleLine from "./ProductPageTitleLine";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { write } from "fs";
 
 export interface IProps {
   category: string;
@@ -32,6 +34,24 @@ const Content = ({
   src,
   productId,
 }: IProps) => {
+<<<<<<< HEAD
+=======
+  const navigate = useNavigate();
+  const Info = useLocation();
+
+  const onSubmit = async () => {
+    const Sell = await axios.post("/api/sell", {
+      id: productId,
+      sellerId: sellerId,
+    });
+    if (Sell.status == 302) {
+      alert("자신의 상품은 구매할 수 없습니다!");
+    } else {
+      navigate("/buy", { state: { sellerId, contents, title, src, price } });
+    }
+  };
+
+>>>>>>> c3e24a0 (feat: sell_process)
   return (
     <div>
       <ProductPageImg src={src}>
