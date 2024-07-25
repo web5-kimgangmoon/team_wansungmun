@@ -20,9 +20,11 @@ export interface IProps {
   src: string;
   sellerId: number;
   productId: number;
+  status: number;
 }
 
 const Content = ({
+  sellerId,
   category,
   contents,
   title,
@@ -33,25 +35,54 @@ const Content = ({
   reviewCount,
   src,
   productId,
+  status,
 }: IProps) => {
-<<<<<<< HEAD
-=======
   const navigate = useNavigate();
   const Info = useLocation();
 
   const onSubmit = async () => {
-    const Sell = await axios.post("/api/sell", {
-      id: productId,
-      sellerId: sellerId,
+    // console.log("웨안되");
+    const Sell = await axios.get("/api/sell", { withCredentials: true });
+    console.log(Sell);
+    navigate("/productbuy", {
+      state: { sellerId, contents, title, src, price },
     });
-    if (Sell.status == 302) {
-      alert("자신의 상품은 구매할 수 없습니다!");
-    } else {
-      navigate("/buy", { state: { sellerId, contents, title, src, price } });
-    }
   };
 
->>>>>>> c3e24a0 (feat: sell_process)
+  let version;
+  // 211 == 로그인 되어있고, 자신의 상품이 아님
+  if (status == 211) {
+    version = (
+      <LongButton
+        textColor="white"
+        bgColor="realRed"
+        onClick={async (e) => {
+          await onSubmit();
+        }}
+      >
+        구매하기
+      </LongButton>
+    );
+    // 210 == 자신의 상품
+  } else if (status == 210) {
+    version = (
+      <LongButton textColor="white" bgColor="realRed">
+        수정하기
+      </LongButton>
+    );
+    // 209 == not login
+  } else if (status == 209) {
+    version = version = (
+      <LongButton
+        textColor="white"
+        bgColor="realRed"
+        onClick={(e) => navigate("/login")}
+      >
+        구매하기
+      </LongButton>
+    );
+  }
+
   return (
     <div>
       <ProductPageImg src={src}>
@@ -71,19 +102,11 @@ const Content = ({
       ></ProductPageContents>
       <div className="flex justify-center gap-3">
         <div className="w-[20%]">
-          <LongButton textColor="red" bgColor="chatRed">
+          <LongButton textColor="white" bgColor="red">
             채팅하기
           </LongButton>
         </div>
-        <div className="w-[65%]">
-          <LongButton
-            textColor="white"
-            bgColor="realRed"
-            onClick={(e) => onSubmit()}
-          >
-            구매하기
-          </LongButton>
-        </div>
+        <div className="w-[65%]">{version}</div>
       </div>
     </div>
   );

@@ -6,12 +6,12 @@ import sessions from "./session/index";
 import { Regist } from "./Regist";
 import logCheck from "./logCheck";
 import { KakaoLogin } from "./kakaoLogin";
-import { sell } from "./Product";
 
 import { Logout } from "./logout";
 import category from "./category";
 import productInfo from "./productInfo";
 import delivery from "./delivery/index";
+import { Sell } from "./sell/sell";
 
 const router = Router();
 
@@ -21,7 +21,7 @@ router.use("/test", test);
 router.use("/upload", upload);
 router.use("/delivery", delivery);
 
-router.post("/sell", sell);
+router.get("/sell", Sell);
 router.get("/logCheck", logCheck);
 router.post("/login", Login);
 router.post("/regist", Regist);

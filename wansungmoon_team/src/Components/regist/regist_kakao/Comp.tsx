@@ -16,7 +16,7 @@ const Kakao_regist = () => {
   const userInfo = { ...userlocation.state };
   const navigate = useNavigate();
   const pwreg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-  const phonereg = /^\d{3}-\d{3,4}-\d{4}$/;
+  const phonereg = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
 
   const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
     try {
@@ -43,11 +43,11 @@ const Kakao_regist = () => {
         );
         console.log(data.status);
         if (data.status == 301) {
-          alert("이메일 중복");
+          alert("이미 가입된 이메일입니다");
         } else if (data.status == 302) {
-          alert("휴대폰중복");
+          alert("중복된 휴대폰 번호입니다");
         } else if (data.status == 303) {
-          alert("어쩌구저쩌꾸");
+          alert("중복된 닉네임입니다");
         } else if (data.status == 201) {
           navigate("/");
         }
