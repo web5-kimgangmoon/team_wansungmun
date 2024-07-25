@@ -1,7 +1,7 @@
 import DeliveryBtn from "../Delivery/DeliveryZip/DeliveryBtn";
 import DeliveryList from "../Delivery/DeliveryZip/DeliveryList";
 import DeliveryTab from "../Delivery/DeliveryZip/DeliveryTab";
-import DeliveryContent from "../Delivery/DeliveryZip/DeliveryContent";
+import DeliveryContent from "./Delivery/DeliveryDetail";
 import DetailPic from "../DeliveryDetail/Delivery/DetailPic";
 
 interface IProps {
