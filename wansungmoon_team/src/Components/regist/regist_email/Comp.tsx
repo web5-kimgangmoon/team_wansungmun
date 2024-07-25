@@ -15,7 +15,7 @@ const Regist_email = () => {
   const navigate = useNavigate();
   const emailReg = /^[a-z0-9가-힣]+@[a-z]+\.[a-z]{2,3}$/;
   const pwreg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-  const phonereg = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+  const phonereg = /^(01(0|1|[6-9])-[0-9]{3,4}-([0-9]{4}))$/;
   console.log(phonereg.test(phoneNum));
 
   const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
