@@ -16,9 +16,13 @@ class TradeReceipt extends Model<
 > {
   id!: CreationOptional<number>;
 
+  destination!: CreationOptional<string>;
+  destinationDetail!: CreationOptional<string>;
+  tradeRequest!: CreationOptional<String>;
+
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
-  deletedAt!: CreationOptional<Date>;
+  deletedAt!: CreationOptional<Date | null>;
 
   customerId!: ForeignKey<User["id"]>;
   productId!: ForeignKey<Product["id"]>;
@@ -30,6 +34,18 @@ class TradeReceipt extends Model<
           type: DataTypes.INTEGER.UNSIGNED,
           autoIncrement: true,
           primaryKey: true,
+        },
+        destination: {
+          type: new DataTypes.STRING(300),
+          allowNull: true,
+        },
+        destinationDetail: {
+          type: new DataTypes.STRING(100),
+          allowNull: true,
+        },
+        tradeRequest: {
+          type: new DataTypes.STRING(500),
+          allowNull: true,
         },
         createdAt: DataTypes.DATE,
         updatedAt: DataTypes.DATE,

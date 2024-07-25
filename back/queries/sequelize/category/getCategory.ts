@@ -1,9 +1,13 @@
 import db from "../../../models/sequelize";
 
 const getCategoryQuery = async () => {
-  return await db.Category.findAll({
-    attributes: ["category", "id", "cateImg"],
-  });
+  try {
+    return await db.Category.findAll({
+      attributes: ["category", "id", "cateImg"],
+    });
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export default getCategoryQuery;

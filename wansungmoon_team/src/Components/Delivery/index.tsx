@@ -9,16 +9,13 @@ import useLocationSend from "../../hooks/delivery/useLocationSend";
 const DeliveryListPage = () => {
   // const { id } = useParams();
   // let deliveryId = id ? (Number.isNaN(+id) ? -1 : +id) : -1;
-  const { data, isPending } = useDeliveryList();
+  const { data, isPending, isFetching } = useDeliveryList();
   const { mapLocation } = useMapLocation();
   console.log(mapLocation);
   const [isDeliverying, setIsDeliverying] = useState<boolean>(false);
-  const sendResult = useLocationSend(
-    mapLocation.lat,
-    mapLocation.lng,
-    isDeliverying
-  );
-  if (isPending) return <div>로딩중</div>;
+  useLocationSend(mapLocation.lat, mapLocation.lng, isDeliverying);
+  if (isPending || isFetching) return <div>로딩중</div>;
+  if (!data || !data.data) return <div>데이터를 불러오는데 실패했습니다</div>;
   let list: ListTy = [];
   if (data) {
     for (let item of data.data) {
@@ -29,8 +26,9 @@ const DeliveryListPage = () => {
         phone: item.tradeReceipts[0].phone
           ? item.tradeReceipts[0].phone
           : "확인불가",
+        isDeliverying:
+          item.deliveryStatus == 0 || item.deliveryStatus == 1 ? true : false,
       });
-      const a = new Date();
       // console.log(
       //   new Date(new Date(item.createdAt).getTime() - Date.now()).getTime() <
       //     86400000

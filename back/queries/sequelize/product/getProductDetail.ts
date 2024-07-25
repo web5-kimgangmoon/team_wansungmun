@@ -1,3 +1,4 @@
+import { Op } from "sequelize";
 import db, { sequelize } from "../../../models/sequelize";
 
 const getProductDetailQuery = async (number: number) => {
@@ -32,7 +33,13 @@ const getProductDetailQuery = async (number: number) => {
         ],
       ],
     },
-    where: { id: number },
+    where: {
+      id: number,
+      [Op.or]: [
+        { deletedAt: null },
+        { deletedAt: { [Op.gt]: Date.now() - 86400000 }, tradeStatus: 3 },
+      ],
+    },
   });
   return productInfo;
 };

@@ -1,20 +1,27 @@
-import DeliveryBtn from "../Delivery/DeliveryZip/DeliveryBtn";
+import DeliveryBtn, { IProps as IDeliveryBtn } from "./Delivery/DeliveryBtn3";
 import DeliveryTab from "../Delivery/DeliveryZip/DeliveryTab";
-import DeliveryContent from "./Delivery/DeliveryDetail";
+import DeliveryContent, {
+  IProps as IDeliveryContent,
+} from "./Delivery/DeliveryDetail";
 import DetailPic, { IProps as IDeatilPic } from "./Delivery/DetailPic";
-import qwer from "./img/qwer.png";
 
 interface IProps {
-  // detailPic: IDeatilPic;
+  detailPic: IDeatilPic;
+  deliveryContent: IDeliveryContent;
+  deliveryBtn: IDeliveryBtn;
 }
 
-const DeliveryDetail = () => {
+const DeliveryDetail = ({
+  detailPic,
+  deliveryContent,
+  deliveryBtn,
+}: IProps) => {
   return (
     <div>
       <DeliveryTab>배송 상세</DeliveryTab>
-      <DetailPic titleImg={qwer}></DetailPic>
-      <DeliveryContent></DeliveryContent>
-      <DeliveryBtn></DeliveryBtn>
+      <DetailPic titleImg={detailPic.titleImg}></DetailPic>
+      <DeliveryContent {...deliveryContent}></DeliveryContent>
+      <DeliveryBtn {...deliveryBtn}></DeliveryBtn>
     </div>
   );
 };

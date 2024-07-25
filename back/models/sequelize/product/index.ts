@@ -40,7 +40,7 @@ class Product extends Model<
   deliveryStatus!: CreationOptional<number>;
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
-  deletedAt!: CreationOptional<Date>;
+  deletedAt!: CreationOptional<Date | null>;
 
   categoryId!: ForeignKey<Category["id"]>;
   sellerId!: ForeignKey<User["id"]>;
@@ -152,7 +152,7 @@ class Product extends Model<
         tableName: "products",
         timestamps: true,
         underscored: true,
-        paranoid: true,
+        // paranoid: true,
       }
     );
   }

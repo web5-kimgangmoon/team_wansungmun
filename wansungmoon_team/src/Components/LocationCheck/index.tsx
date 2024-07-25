@@ -5,11 +5,13 @@ import LocationChase from "../Public/Body/KakaoMapLocationGetter/LocationChase";
 import getAddress from "../Public/Body/KakaoMapLocationGetter/hooks/LocationChase/useAddress";
 import Button from "../Public/Body/Button";
 import LongButton from "../Public/Body/LongButton";
+import { useNavigate } from "react-router-dom";
 
 const LocationCheck = () => {
   const getStart = getAddress();
   const getDestination = getAddress();
   const getRoute = getAddress();
+  const navigate = useNavigate();
   const date = new Date();
   return (
     <div>
@@ -77,7 +79,12 @@ const LocationCheck = () => {
           </div>
         </div>
         <div className="p-2">
-          <LongButton bgColor="white" textColor="black" isBorder={true}>
+          <LongButton
+            bgColor="white"
+            textColor="black"
+            isBorder={true}
+            onClick={() => navigate(-1)}
+          >
             이전으로
           </LongButton>
         </div>

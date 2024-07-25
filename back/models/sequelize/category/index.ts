@@ -27,7 +27,7 @@ class Category extends Model<
   cateImg!: string;
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
-  deletedAt!: CreationOptional<Date>;
+  deletedAt!: CreationOptional<Date | null>;
 
   getProducts!: HasManyGetAssociationsMixin<Product>;
   addProduct!: HasManyAddAssociationMixin<Product, Product["categoryId"]>;

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const useCategoryProducts = (categoryId: number) => {
-  const { data, isPending } = useQuery({
+  const { data, isPending, isFetching } = useQuery({
     queryKey: ["category", "product", "get"],
     queryFn: async () => {
       try {
@@ -17,7 +17,7 @@ const useCategoryProducts = (categoryId: number) => {
       }
     },
   });
-  return { data, isPending };
+  return { data, isPending, isFetching };
 };
 
 export default useCategoryProducts;

@@ -19,7 +19,7 @@ class Review extends Model<
   imgs!: string;
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
-  deletedAt!: CreationOptional<Date>;
+  deletedAt!: CreationOptional<Date | null>;
 
   reviewerId!: ForeignKey<User["id"]>;
   sellerId!: ForeignKey<User["id"]>;

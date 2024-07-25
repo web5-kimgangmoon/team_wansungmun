@@ -19,7 +19,7 @@ class Location extends Model<
   locationDetail!: CreationOptional<string>;
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
-  deletedAt!: CreationOptional<Date>;
+  deletedAt!: CreationOptional<Date | null>;
 
   userId!: ForeignKey<User["id"]>;
 
