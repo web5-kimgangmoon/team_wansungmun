@@ -19,7 +19,7 @@ const ProductPage = () => {
       <Content></Content>
       <div className="flex justify-center gap-3">
         <div className="w-[20%]">
-          <LongButton textColor="white" bgColor="red">
+          <LongButton textColor="red" bgColor="chatRed">
             채팅하기
           </LongButton>
         </div>

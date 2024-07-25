@@ -16,17 +16,7 @@ export interface IProps {
   src: string;
 }
 
-const Content = ({
-  category,
-  contents,
-  title,
-  writer,
-  location,
-  price,
-  score,
-  reviewCount,
-  src,
-}: IProps) => {
+const Content = ({ category, contents, title, writer, location, price, score, reviewCount, src }: IProps) => {
   return (
     <div>
       <ProductPageImg src={src}>
@@ -40,13 +30,10 @@ const Content = ({
         score={score}
         reviewCount={reviewCount}
       />
-      <ProductPageContents
-        category={category}
-        contents={contents}
-      ></ProductPageContents>
+      <ProductPageContents category={category} contents={contents}></ProductPageContents>
       <div className="flex justify-center gap-3">
         <div className="w-[20%]">
-          <LongButton textColor="white" bgColor="red">
+          <LongButton textColor="red" bgColor="chatRed">
             채팅하기
           </LongButton>
         </div>

@@ -36,6 +36,7 @@ module.exports = {
       yellow: "#fcd34d",
       red: "#dc2626",
       realRed: "#FF0000",
+      chatRed: "#FDF3F3",
     },
     container: {
       center: true,
