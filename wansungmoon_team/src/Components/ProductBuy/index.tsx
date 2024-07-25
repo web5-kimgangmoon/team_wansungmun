@@ -6,11 +6,15 @@ import DeliveryAdrress from "./Deal/DeliveryAdrress";
 import RequestContent from "./Deal/RequestContent";
 import PointPayment from "./Deal/PointPayment";
 import PayComplete from "./Modal/PayComplete";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 interface IProps {}
 
 const Buy = () => {
+  const Info = useLocation();
+  console.log(Info);
+  const content = Info.state.contents;
   return (
     <div>
       <CategoryBar></CategoryBar>
