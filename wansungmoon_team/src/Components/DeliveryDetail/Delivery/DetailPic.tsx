@@ -1,9 +1,13 @@
-import qwer from "../img/qwer.png";
+import Img from "../../Public/Body/ImgModal";
 
-const DetailPic = () => {
+export interface IProps {
+  titleImg: string;
+}
+
+const DetailPic = ({ titleImg }: IProps) => {
   return (
     <div className="flex justify-center p-2">
-      <img src={qwer} alt="" />
+      <img src={titleImg} alt="" />
     </div>
   );
 };

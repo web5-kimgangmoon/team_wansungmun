@@ -13,7 +13,7 @@ const List = () => {
     { title: "2중고자전거-싸게파는중!!!", writer: "2자전거팜" },
   ]);
   return (
-    <div className="border-t mt-2">
+    <div className="border-t mt-2" onClick={() => console.log("클릭중")}>
       <div className="flex mx-5 mt-3">
         <div className="w-[7.5rem] h-[7.5rem] border">사진</div>
         <div className="m-1">

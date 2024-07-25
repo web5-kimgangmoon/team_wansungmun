@@ -34,7 +34,6 @@ import ProductPageContents from "./Components/ProductPage/ProductPageContents";
 import PayComplete from "./Components/ProductBuy/Modal/PayComplete";
 import { Logout } from "./Components/Logout";
 
-import BottomIcons from "./Components/BottomIcons";
 import ProductListPage from "./Components/ProductListPage";
 import ProductDetailP from "./Components/ProductPage/index";
 import MainPage from "./Components/Main/MainPage";
@@ -57,12 +56,11 @@ function App() {
       {/* <SearchVoca textColor="black" bgColor="white">
         세탁기
       </SearchVoca> */}
-      <BottomIcons />
       <Routes>
         <Route path="/productList/:categoryId" Component={ProductListPage} />
         <Route path="/productDetail/:productId" Component={ProductDetailP} />
         <Route path="/regist/kakao" Component={Kakao_regist}></Route>
-        <Route path="/regist" Component={Regist}></Route>
+        {/* <Route path="/regist" Component={Regist}></Route> */}
         <Route path="/regist/email" Component={Regist_email}></Route>
         <Route path="/" Component={MainPage}></Route>
         <Route path="/reviewWrite" Component={ReviewWrite} />

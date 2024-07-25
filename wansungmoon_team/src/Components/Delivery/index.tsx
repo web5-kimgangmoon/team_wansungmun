@@ -21,7 +21,7 @@ const DeliveryListPage = () => {
   if (isPending) return <div>로딩중</div>;
   let list: ListTy = [];
   if (data) {
-    for (let item of data) {
+    for (let item of data.data) {
       list.push({
         address: item.tradeLocation ? item.tradeLocation : "확인불가",
         id: item.id,

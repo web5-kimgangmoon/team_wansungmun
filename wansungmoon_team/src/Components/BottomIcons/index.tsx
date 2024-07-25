@@ -7,7 +7,7 @@ import { userState } from "../../recoil/logcheck";
 const BottomIcons = () => {
   const user = useRecoilValue(userState);
   return (
-    <div className={`flex fixed right-3 bottom-3`}>
+    <div className={`flex absolute top-[-4rem]`}>
       {user ? (
         <Icon src={write} path="/productUpload" />
       ) : (

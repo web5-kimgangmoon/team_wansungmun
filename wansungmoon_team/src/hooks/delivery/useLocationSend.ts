@@ -11,7 +11,7 @@ const useLocationSend = (lat: number, lng: number, isStart: boolean) => {
           data: { lat, lng },
         });
 
-        return result.data;
+        return result;
       } catch (err) {
         console.error(err);
       }
