@@ -6,13 +6,14 @@ import { useState, ChangeEvent } from "react";
 const ProductListPage = () => {
   let { categoryId } = useParams();
   if (!categoryId || Number.isNaN(+categoryId)) categoryId = "1";
-  let { data, isPending } = useCategoryProducts(+categoryId);
+  let { data, isPending, isFetching } = useCategoryProducts(+categoryId);
 
   const [isDirectCheck, setIsDirectCheck] = useState<boolean>(true);
-  if (isPending || !data) return <div>로딩중</div>;
-
+  if (isPending || isFetching) return <div>로딩중</div>;
+  if (!data || !data.data) return <div>데이터가 존재하지 않습니다</div>;
   const itemArr: DataTy[] = [];
   for (let item of data.data.products) {
+    if (isDirectCheck && !item.isDirectTrade) continue;
     itemArr.push({
       id: item.id as number,
       bottomData: {

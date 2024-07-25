@@ -18,14 +18,11 @@ export interface IProps {
 
 const Content = () => {
   const { productId } = useParams();
-  const { data, isPending } = useProductDetail(productId ? +productId : -1);
-
-  if (isPending) return <div>로딩중</div>;
-  if (!data) return <div>페이지를 불러오는데 실패했습니다</div>;
-  console.log(data.status);
-  console.log(data.data.sellerId);
-  console.log(data.data.id);
-
+  const { data, isPending, isFetching } = useProductDetail(
+    productId ? +productId : -1
+  );
+  if (isPending || isFetching) return <div>로딩중</div>;
+  if (!data || !data.data) return <div>데이터가 존재하지 않습니다</div>;
   return (
     <Comp
       status={data.status}

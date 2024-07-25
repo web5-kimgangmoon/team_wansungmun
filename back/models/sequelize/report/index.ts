@@ -20,7 +20,7 @@ class Report extends Model<
   reportReason!: CreationOptional<number>;
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
-  deletedAt!: CreationOptional<Date>;
+  deletedAt!: CreationOptional<Date | null>;
 
   reporterId!: ForeignKey<User["id"]>;
   productId!: ForeignKey<Product["id"]>;

@@ -1,25 +1,23 @@
 import { Request, Response } from "express";
 import locationSendQueryMy from "../../queries/sequelize/location/locationSend";
 import locationSendQueryMong from "../../queries/mongoose/location/locationSend";
-import locationGetQuery from "../../queries/mongoose/location/getLocation";
 import locationSendStateUpdateQuery from "../../queries/sequelize/location/locationSendStateUpdate";
-import getDeliveryProductListQuery from "../../queries/sequelize/location/getDeliveryProductList";
-import db from "../../models/sequelize";
+import valueCheck from "../../lib/valueCheck";
 const locationSend = async (req: Request, res: Response) => {
   try {
-    let id = req.session.user ? req.session.user : -1;
-    let lat = req.body.data.lat ? +req.body.data.lat : 33.5563;
-    let lng = req.body.data.lng ? +req.body.data.lng : 126.79581;
-    if (Number.isNaN(id)) id = -1;
-    if (Number.isNaN(lat)) lat = 33.5563;
-    if (Number.isNaN(lng)) lng = 126.79581;
+    let id = valueCheck(req.session.user);
+    console.log(id);
+    let lat = valueCheck(req.body.lat as string | undefined, 33.5563);
+    let lng = valueCheck(req.body.lng as string | undefined, 126.79581);
     const users = await locationSendQueryMy(id);
     for (let item of users ? users : []) {
-      const targetId = await item.getTradeReceipts();
-      if (targetId)
+      const targetId = await item.getTradeReceipts({
+        where: { deletedAt: null },
+      });
+      if (targetId.length > 0)
         await locationSendQueryMong(lat, lng, item.id, targetId[0].customerId);
     }
-    locationSendStateUpdateQuery(id);
+    await locationSendStateUpdateQuery(id);
 
     res.send(true);
   } catch (err) {

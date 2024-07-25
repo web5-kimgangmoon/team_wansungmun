@@ -24,9 +24,12 @@ const MenuBar = ({ inactiveElement = -1 }: IProps): JSX.Element => {
     "sm:top-2 sm:left-2 md:top-2 md:left-2 lg:top-4 lg:left-4 xl:top-4 xl:left-4";
   const fontClassName = "sm:text-sm md:text-sm text-center";
   return (
-    <div className="sticky bottom-0">
-      <div className="container py-1 flex justify-center border-t-2 bg-white relative">
+    <div className="sticky bottom-0 bg-white">
+      <div className="relative">
         <BottomIcons />
+      </div>
+
+      <div className="container py-1 flex justify-center border-t-2 ">
         <div className="w-full">
           <div className="py-3 flex w-full">
             {menuArr.map((item, index) =>

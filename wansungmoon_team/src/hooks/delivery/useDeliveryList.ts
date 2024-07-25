@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const useDeliveryList = () => {
-  const { data, isPending } = useQuery({
+  const { data, isPending, isFetching } = useQuery({
     queryKey: ["list", "get", "delivery"],
     queryFn: async () => {
       try {
@@ -16,7 +16,7 @@ const useDeliveryList = () => {
       }
     },
   });
-  return { data, isPending };
+  return { data, isPending, isFetching };
 };
 
 export default useDeliveryList;

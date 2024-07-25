@@ -37,7 +37,7 @@ const mkCase = async () => {
     titleImg:
       "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "네네",
-    tradeLocation: "ss",
+    tradeLocation: "서울 강동구 암사동 496-43",
     deliveryUserId: 1,
     sellerId: 2,
   });
@@ -46,9 +46,10 @@ const mkCase = async () => {
     price: 30,
     titleImg: "아아s",
     productName: "네s네",
-    tradeLocation: "ss",
+    tradeLocation: "서울 강동구 암사동 496-43",
     deliveryUserId: 2,
     sellerId: 2,
+    isDirectTrade: true,
   });
 
   const pro3 = await cate2.createProduct({
@@ -56,7 +57,7 @@ const mkCase = async () => {
     price: 305,
     titleImg: "아아ds",
     productName: "네sa네",
-    tradeLocation: "ssz",
+    tradeLocation: "서울 강동구 암사동 496-43",
     deliveryUserId: 1,
     sellerId: 1,
   });
@@ -67,38 +68,51 @@ const mkCase = async () => {
         "상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. ",
       price: 3000,
       titleImg: "아아ds",
-      productName: "시험 데이터",
-      tradeLocation: "ssz",
+      productName: "유아동 시험 데이터",
+      tradeLocation: "서울 강동구 암사동 496-43",
     }),
     await db.Product.create({
       content:
         "상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. ",
       price: 3000,
       titleImg: "아아ds",
-      productName: "시험 데이터",
-      tradeLocation: "ssz",
+      productName: "유아동 시험 데이터",
+      tradeLocation: "서울 강동구 암사동 496-43",
     }),
     await db.Product.create({
       content:
         "상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. ",
       price: 3000,
       titleImg: "아아ds",
-      productName: "시험 데이터",
-      tradeLocation: "ssz",
+      productName: "유아동 시험 데이터",
+      tradeLocation: "서울 강동구 암사동 496-43",
     }),
     await db.Product.create({
       content:
         "상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. 상품 설명 예시 데이터입니다. ",
       price: 3000,
       titleImg: "아아ds",
-      productName: "시험 데이터",
-      tradeLocation: "ssz",
+      productName: "유아동 시험 데이터",
+      tradeLocation: "서울 강동구 암사동 496-43",
     }),
   ]);
 
-  await pro2.createTradeReceipt({ customerId: 1 });
-  await pro3.createTradeReceipt({ customerId: 2 });
-  await product.createTradeReceipt({ customerId: 1 });
+  await pro2.createTradeReceipt({
+    customerId: 1,
+    destination: "서울 광진구 광장동 5-11",
+    destinationDetail: "2층",
+  });
+  await pro3.createTradeReceipt({
+    customerId: 2,
+    destination: "서울 광진구 광장동 5-11",
+    destinationDetail: "3층",
+  });
+  await product.createTradeReceipt({
+    customerId: 1,
+    destination: "서울 광진구 광장동 5-11",
+    destinationDetail: "4층",
+    tradeRequest: "살려주세요",
+  });
 };
 
 export default mkCase;

@@ -18,6 +18,7 @@ import test2 from "./queries/sequelize/product/getProductDetail";
 import getDeliveryProductList from "./queries/sequelize/location/getDeliveryProductList";
 import locationSendQuery from "./queries/mongoose/location/locationSend";
 import locationGetQuery from "./queries/mongoose/location/getLocation";
+import getDeliveryDetailQuery from "./queries/sequelize/location/detail/getDeliveryDetail";
 
 dotenv.config();
 

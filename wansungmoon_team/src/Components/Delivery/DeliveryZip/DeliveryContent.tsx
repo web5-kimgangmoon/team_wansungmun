@@ -6,16 +6,28 @@ export interface IItem {
   phone: string;
   address: string;
   id: number;
+  isDeliverying: boolean;
 }
 
 export interface IProps extends IItem {
   idx: number;
 }
 
-const DeliveryContent = ({ idx, name, phone, address, id }: IProps) => {
+const DeliveryContent = ({
+  idx,
+  name,
+  phone,
+  address,
+  id,
+  isDeliverying,
+}: IProps) => {
   return (
     <Link to={`/deliverydetail/${id}`}>
-      <div className="flex text-center font-bold items-center bg-blueButton-long rounded mt-1">
+      <div
+        className={`flex text-center font-bold items-center rounded mt-1 ${
+          isDeliverying ? "bg-blueButton-long" : "bg-greenButton"
+        }`}
+      >
         <div className="w-10 flex justify-center">
           <div className="bg-cusGray w-7 rounded">{idx}</div>
         </div>

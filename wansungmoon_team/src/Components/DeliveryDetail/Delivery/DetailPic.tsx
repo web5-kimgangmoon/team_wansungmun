@@ -1,5 +1,3 @@
-import Img from "../../Public/Body/ImgModal";
-
 export interface IProps {
   titleImg: string;
 }

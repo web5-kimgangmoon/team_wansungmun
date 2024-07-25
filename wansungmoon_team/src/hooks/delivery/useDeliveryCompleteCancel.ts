@@ -3,7 +3,7 @@ import axios from "axios";
 
 const useDeliveryDetail = (productId: number) => {
   const { data, isPending, isFetching } = useQuery({
-    queryKey: ["detail", "get", "delivery"],
+    queryKey: ["list", "get", "delivery"],
     queryFn: async () => {
       try {
         const detail = await axios.get("api/delivery/getDetail", {

@@ -1,10 +1,11 @@
+import { Op } from "sequelize";
 import db, { sequelize } from "../../../models/sequelize";
 
 const getCateProductsQuery = async (number: number) => {
   if (Number.isNaN(number)) number = 1;
 
   const cate = await db.Category.findOne({
-    where: { id: number },
+    where: { id: number, deletedAt: null },
     include: [
       {
         model: db.Product,
@@ -29,6 +30,12 @@ const getCateProductsQuery = async (number: number) => {
               ),
               "nickName",
             ],
+          ],
+        },
+        where: {
+          [Op.or]: [
+            { deletedAt: null },
+            { deletedAt: { [Op.gt]: Date.now() - 86400000 }, tradeStatus: 3 },
           ],
         },
       },

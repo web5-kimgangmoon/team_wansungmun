@@ -19,6 +19,7 @@ const DeliveryList = ({ list }: IProps) => {
           name={item.name}
           phone={item.phone}
           address={item.address}
+          isDeliverying={item.isDeliverying}
         ></DeliveryContent>
       ))}
     </div>

@@ -33,7 +33,7 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
   password!: CreationOptional<string>;
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
-  deletedAt!: CreationOptional<Date>;
+  deletedAt!: CreationOptional<Date | null>;
 
   getLocationList!: HasManyGetAssociationsMixin<Location>;
   addLocation!: HasManyAddAssociationMixin<Location, Location["userId"]>;

@@ -8,7 +8,7 @@ interface IProps {
 const Icon = ({ src, path }: IProps) => {
   return (
     <Link to={path}>
-      <div className="p-2 w-10 h-10 rounded-full border border-cusGray">
+      <div className="p-2 w-10 h-10 rounded-full border border-cusGray bg-white">
         <img src={src} className="w-full h-full" />
       </div>
     </Link>
