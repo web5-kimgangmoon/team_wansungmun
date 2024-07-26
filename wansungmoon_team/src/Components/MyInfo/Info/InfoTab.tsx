@@ -83,7 +83,9 @@ const InfoTab = () => {
         <div>
           <img src={Card} alt="" className="w-[1.5rem]" />
         </div>
-        <TabBtn>포인트 충전</TabBtn>
+        <Link to={"/pointcharge"}>
+          <TabBtn>포인트 충전</TabBtn>
+        </Link>
       </div>
       <div className="flex w-full px-2 py-4 font-black text-large">
         <div>

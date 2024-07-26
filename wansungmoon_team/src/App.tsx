@@ -40,6 +40,8 @@ import MainPage from "./Components/Main/MainPage";
 import axios from "axios";
 import DeliveryListPage from "./Components/Delivery/index";
 import DeliveryDetail from "./Components/DeliveryDetail";
+import PointChargePage from "./Components/Point/PointChargePage";
+import PointPageMain from "./Components/Point/Comp";
 
 function App() {
   return (
@@ -87,6 +89,7 @@ function App() {
         <Route path="/productlist" Component={ProductList}></Route>
         <Route path="/delivery" Component={DeliveryListPage}></Route>
         <Route path="/deliverydetail/:productId" Component={DeliveryDetail}></Route>
+        <Route path="/pointcharge" Component={PointPageMain}></Route>
       </Routes>
     </div>
   );

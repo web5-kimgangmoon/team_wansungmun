@@ -34,12 +34,7 @@ export const PointCharge = () => {
         </LongButton>
       </div>
 
-      <Modal
-        className=""
-        style={customStyles}
-        isOpen={modalOpen}
-        onRequestClose={() => setModalOpen(false)}
-      >
+      <Modal className="" style={customStyles} isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
         <div>
           <div className="font-bold">고객정보</div>
           <div className="border-b mb-2">
