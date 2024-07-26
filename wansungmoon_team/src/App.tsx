@@ -86,10 +86,7 @@ function App() {
         <Route path="/productbuy" Component={Buy}></Route>
         <Route path="/productlist" Component={ProductList}></Route>
         <Route path="/delivery" Component={DeliveryListPage}></Route>
-        <Route
-          path="/deliverydetail/:productId"
-          Component={DeliveryDetail}
-        ></Route>
+        <Route path="/deliverydetail/:productId" Component={DeliveryDetail}></Route>
       </Routes>
     </div>
   );
