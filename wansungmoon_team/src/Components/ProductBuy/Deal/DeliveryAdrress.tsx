@@ -8,19 +8,32 @@ interface IProps {
   location: Array<{ id: number; location: string; locationDetail: string }>;
   locaValue: string;
   setLocaValue: (str: string) => void;
+  setDetailLoca: (str: string) => void;
+  detailLoca: string;
 }
 
-const DeliveryAdrress = ({ location, locaValue, setLocaValue }: IProps) => {
-  let fulllocaArr: Array<[string, string]> = [];
-  let loca: Array<string> = [];
+const DeliveryAdrress = ({
+  location,
+  locaValue,
+  setLocaValue,
+  setDetailLoca,
+  detailLoca,
+}: IProps) => {
+  let fulllocaArr: Array<[string | number, string]> = [];
   for (let i = 0; i < location.length; i++) {
     if (!location[i].location) continue;
-    fulllocaArr.push([
-      location[i].location,
-      location[i].location + location[i].locationDetail,
-    ]);
+    fulllocaArr.push([i, location[i].location + location[i].locationDetail]);
     // loca:
   }
+  // setDetailLoca UserList[value].detailLoca
+  // fulllocaArr.push(["custom","선택주소"]);
+
+  // const currenLocation = location.find(
+  //   (item) => item.id.toString() === locaValue
+  // );
+  const currenLocation = locaValue
+    ? `${location[+locaValue].location} ${location[+locaValue].locationDetail}`
+    : "";
 
   console.log(fulllocaArr);
   return (
@@ -31,25 +44,19 @@ const DeliveryAdrress = ({ location, locaValue, setLocaValue }: IProps) => {
           <Dropdown
             name="myAddress"
             defaultStr="주소설정"
-            options={
-              fulllocaArr
-              // fulllocaArr.map((item, idx) => [idx.toString(), item])
-              // [loca[0], fulllocaArr[0]],
-              // [loca[1], fulllocaArr[1]],
-              // [loca[2], fulllocaArr[2]],
-              // [loca[3], `4${fulllocaArr[3] ? fulllocaArr[3] : ""}`],
-              // [loca[4], fulllocaArr[4]],
-            }
+            options={fulllocaArr}
             onChange={(e) => {
               setLocaValue(e.target.value);
             }}
           ></Dropdown>
-          <div>현재 설정된 배송지 : {locaValue}</div>
+          <div>현재 설정된 배송지 :{currenLocation}</div>
         </div>
         <div className="">
           <AddAddress
             locaValue={locaValue}
             setLocaValue={setLocaValue}
+            setDetailLoca={setDetailLoca}
+            detailLoca={detailLoca}
           ></AddAddress>
         </div>
       </div>

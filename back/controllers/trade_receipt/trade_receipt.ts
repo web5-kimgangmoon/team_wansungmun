@@ -3,9 +3,7 @@ import TradeReceipt from "../../models/sequelize/tradeReceipt";
 import Product from "../../models/sequelize/product";
 
 export const trade_receipt = async (req: Request, res: Response) => {
-  console.log("판매자 아이디 :" + req.body.sellerId);
-  console.log("상품 아이디 :" + req.body.Id);
-
+  console.log("전송된 정보 보여줘 :" + req.body);
   try {
     if (req.session.user == req.body.sellerId) {
       res.status(302).send;
@@ -14,12 +12,14 @@ export const trade_receipt = async (req: Request, res: Response) => {
         {
           tradeStatus: 2,
         },
-        { where: { id: req.body.id } }
+        { where: { id: req.session.user } }
       );
       //   TradeReceipt.create();
       const receipt = await TradeReceipt.create({
         customerId: req.session.user,
-        productId: req.body.id,
+        productId: req.body.productId,
+        destination: req.body.locaValue,
+        tradeRequest: req.body,
       });
     }
   } catch (err) {

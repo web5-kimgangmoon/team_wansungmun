@@ -30,11 +30,19 @@ const Buy = () => {
   const src = info.state.src;
   const price = info.state.price;
   const productId = info.state.productId;
-  const [location, setLocation] = useState([]);
-  const [userpoint, setUserpoint] = useState(Number);
+  const [userpoint, setUserpoint] = useState<number>(21);
   const [phone, setPhone] = useState("");
   const [reqContent, setReqContent] = useState("");
+
   const [locaValue, setLocaValue] = useState("");
+  const [lat, setLat] = useState<number>();
+  const [lng, setLng] = useState<number>();
+  const [locaID, setLocaID] = useState<number>();
+  const [location, setLocation] = useState([]);
+  const [detailLoca, setdetailLoca] = useState("");
+
+  // isDBloca: true 면 location_list를 요청으로 보냄
+  // isDBloca: false 면 직접 입력한 주소 및 주소, 경도를 직접 요청으로 보내도록
 
   useEffect(() => {
     const ReqInfo = async () => {
@@ -50,9 +58,6 @@ const Buy = () => {
     ReqInfo();
   }, []);
 
-  console.log();
-
-  console.log(location);
   console.log(userpoint);
 
   return (
@@ -64,6 +69,9 @@ const Buy = () => {
         location={location}
         locaValue={locaValue}
         setLocaValue={setLocaValue}
+        setDetailLoca={setdetailLoca}
+        detailLoca={detailLoca}
+        // setLocaID={setLocaID}
       ></DeliveryAdrress>
       <RequestContent
         reqContent={reqContent}
@@ -77,6 +85,7 @@ const Buy = () => {
           productId={productId}
           locaValue={locaValue}
           userpoint={userpoint}
+          detailLoca={detailLoca}
         ></PayComplete>
       </div>
     </div>

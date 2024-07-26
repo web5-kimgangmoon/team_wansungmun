@@ -2,10 +2,10 @@ import { ChangeEvent } from "react";
 import arrow from "../../../../imgs/Chevron-down.svg";
 
 interface IProps {
-  options: [string, string][];
+  options: [string | number, string][];
   name?: string;
   defaultStr: string;
-  value?: string;
+  value?: string | number;
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 

@@ -6,10 +6,13 @@ import LeftArrow from "./img/LeftArrow.png";
 import useMapLocation from "../../Public/Body/KakaoMapLocationGetter/hooks/useMapLocation";
 import KakaoMapLocationGetter from "../../Public/Body/KakaoMapLocationGetter";
 import useMapAddress from "../../Public/Body/KakaoMapLocationGetter/hooks/useMapAddress";
+import InputBox from "../../Public/Body/InputBox";
 
 interface IProps {
   locaValue: string;
   setLocaValue: (str: string) => void;
+  setDetailLoca: (str: string) => void;
+  detailLoca: string;
 }
 const customStyles = {
   content: {
@@ -23,7 +26,12 @@ const customStyles = {
   },
 };
 
-export const AddAddress = ({ locaValue, setLocaValue }: IProps) => {
+export const AddAddress = ({
+  locaValue,
+  setLocaValue,
+  setDetailLoca,
+  detailLoca,
+}: IProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const { setMapLocation, mapLocation } = useMapLocation();
   const { setMapAddress, mapAddress } = useMapAddress();
@@ -69,6 +77,13 @@ export const AddAddress = ({ locaValue, setLocaValue }: IProps) => {
             /> */}
             <div className="">주소</div>
             <div className="mb-2 border-b w-full">{mapAddress}</div>
+            <InputBox
+              title="상세 주소를 입력해주세요"
+              placeholder="상세주소"
+              value={detailLoca}
+              onInput={(e) => setDetailLoca(e.target.value)}
+              type="string"
+            />
             <KakaoMapLocationGetter
               setMapLocation={setMapLocation}
               mapLocation={mapLocation}

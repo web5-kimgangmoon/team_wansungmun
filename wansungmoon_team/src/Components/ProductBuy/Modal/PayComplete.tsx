@@ -13,6 +13,7 @@ interface IProps {
   productId: number;
   locaValue: string;
   userpoint: number;
+  detailLoca: string;
 }
 
 const customStyles = {
@@ -32,6 +33,7 @@ export const PayComplete = ({
   productId,
   locaValue,
   userpoint,
+  detailLoca,
 }: IProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [cantBuy, setCantbuy] = useState(false);
@@ -41,11 +43,12 @@ export const PayComplete = ({
       setCantbuy(true);
     } else {
       const payComplete = await axios.post(
-        "/api",
+        "/api/trade/sell_process",
         {
           reqContent: reqContent,
           productId: productId,
           locaValue: locaValue,
+          detailLoca: detailLoca,
         },
         { withCredentials: true }
       );
