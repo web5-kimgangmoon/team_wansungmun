@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
-import useMapLocation from "../Public/Body/KakaoMapLocationGetter/hooks/useMapLocation";
+import { useState } from "react";
 import Comp from "./comp";
 import useDeliveryList from "../../hooks/delivery/useDeliveryList";
-import { useParams } from "react-router-dom";
 import { ListTy } from "./DeliveryZip/DeliveryList";
 import useLocationSend from "../../hooks/delivery/useLocationSend";
+import useMapLocationRepeat from "../Public/Body/KakaoMapLocationGetter/hooks/useMapLocationRepeat";
 
 const DeliveryListPage = () => {
-  // const { id } = useParams();
-  // let deliveryId = id ? (Number.isNaN(+id) ? -1 : +id) : -1;
   const { data, isPending, isFetching } = useDeliveryList();
-  const { mapLocation } = useMapLocation();
-  console.log(mapLocation);
+  const { mapLocation } = useMapLocationRepeat();
   const [isDeliverying, setIsDeliverying] = useState<boolean>(false);
   useLocationSend(mapLocation.lat, mapLocation.lng, isDeliverying);
   if (isPending || isFetching) return <div>로딩중</div>;

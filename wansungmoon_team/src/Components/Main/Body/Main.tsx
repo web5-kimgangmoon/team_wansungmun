@@ -13,7 +13,7 @@ interface IProps {
 
 const Main = ({ cateArr }: IProps) => {
   return (
-    <div className="container h-[100rem]">
+    <div className="container">
       <Dropdown
         name="address"
         defaultStr="주소설정"

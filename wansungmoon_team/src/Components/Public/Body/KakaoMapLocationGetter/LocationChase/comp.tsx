@@ -7,10 +7,17 @@ interface IProps {
   destination: { lat: number; lng: number };
   start: { lat: number; lng: number };
   route?: { lat: number; lng: number };
+  current?: { lat: number; lng: number };
   moveCenter: (e: kakao.maps.Map) => void;
 }
 
-const LocationChase = ({ destination, start, route, moveCenter }: IProps) => {
+const LocationChase = ({
+  destination,
+  start,
+  route,
+  current,
+  moveCenter,
+}: IProps) => {
   return (
     <div className="w-full">
       <div className="w-full">
@@ -38,6 +45,17 @@ const LocationChase = ({ destination, start, route, moveCenter }: IProps) => {
           {route ? (
             <MapMarker
               position={route}
+              image={{
+                src: routeMarker,
+                size: { width: 30, height: 32 },
+              }}
+            />
+          ) : (
+            ""
+          )}
+          {current ? (
+            <MapMarker
+              position={current}
               image={{
                 src: routeMarker,
                 size: { width: 30, height: 32 },
