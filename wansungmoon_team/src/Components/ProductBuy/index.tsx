@@ -44,6 +44,11 @@ const Buy = () => {
   // isDBloca: true 면 location_list를 요청으로 보냄
   // isDBloca: false 면 직접 입력한 주소 및 주소, 경도를 직접 요청으로 보내도록
 
+  //24.7.28
+  // 주소 정보 관련해서 state값 정리
+  // 주소지, 상세주소, lat, lng에 대해서 state 만들고 받아올 수 있도록
+  // addaddress 모달창에서 주소 클릭하면 값 변환되게
+
   useEffect(() => {
     const ReqInfo = async () => {
       const userInfo = await axios.get("/api/trade/sell_process", {
