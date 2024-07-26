@@ -17,6 +17,9 @@ class Location extends Model<
 
   location!: string;
   locationDetail!: CreationOptional<string>;
+  latitude!: CreationOptional<number>;
+  longitude!: CreationOptional<number>;
+
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
   deletedAt!: CreationOptional<Date | null>;
@@ -38,6 +41,12 @@ class Location extends Model<
         locationDetail: {
           type: new DataTypes.STRING(100),
           allowNull: true,
+        },
+        latitude: {
+          type: DataTypes.FLOAT,
+        },
+        longitude: {
+          type: DataTypes.FLOAT,
         },
         createdAt: DataTypes.DATE,
         updatedAt: DataTypes.DATE,

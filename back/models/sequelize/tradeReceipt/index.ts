@@ -19,6 +19,8 @@ class TradeReceipt extends Model<
   destination!: CreationOptional<string>;
   destinationDetail!: CreationOptional<string>;
   tradeRequest!: CreationOptional<String>;
+  latitude!: CreationOptional<number>;
+  longitude!: CreationOptional<number>;
 
   createdAt!: CreationOptional<Date>;
   updatedAt!: CreationOptional<Date>;
@@ -46,6 +48,12 @@ class TradeReceipt extends Model<
         tradeRequest: {
           type: new DataTypes.STRING(500),
           allowNull: true,
+        },
+        latitude: {
+          type: DataTypes.FLOAT,
+        },
+        longitude: {
+          type: DataTypes.FLOAT,
         },
         createdAt: DataTypes.DATE,
         updatedAt: DataTypes.DATE,

@@ -31,7 +31,11 @@ class Product extends Model<
 
   productName!: string;
   isDirectTrade!: CreationOptional<boolean>;
+
+  latitude!: CreationOptional<number>;
+  longitude!: CreationOptional<number>;
   tradeLocation!: string;
+
   titleImg!: string;
   imgs!: CreationOptional<string>;
   price!: number;
@@ -122,6 +126,12 @@ class Product extends Model<
         },
         tradeLocation: {
           type: new DataTypes.STRING(100),
+        },
+        latitude: {
+          type: DataTypes.FLOAT,
+        },
+        longitude: {
+          type: DataTypes.FLOAT,
         },
         titleImg: {
           type: new DataTypes.STRING(100),

@@ -1,8 +1,6 @@
 import { useState } from "react";
-import useKakaoLoader from "../useKakaoLoader";
 
 const useAddress = () => {
-  useKakaoLoader();
   const [addr, setAddr] = useState<string>("주소를 찾지 못했습니다");
 
   const setAddress = (
