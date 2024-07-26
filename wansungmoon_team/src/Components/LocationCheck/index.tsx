@@ -6,27 +6,43 @@ import getAddress from "../Public/Body/KakaoMapLocationGetter/hooks/LocationChas
 import Button from "../Public/Body/Button";
 import LongButton from "../Public/Body/LongButton";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const LocationCheck = () => {
-  const getStart = getAddress();
-  const getDestination = getAddress();
-  const getRoute = getAddress();
+  // const getStart = getAddress( );
+  // const getDestination = getAddress();
+  const getRoute = getAddress(35.56496830314491, 126.93990862062978);
+  const getCurrent = getAddress(35.56496830314391, 126.93990862062678);
   const navigate = useNavigate();
+  const [data, setData] = useState<string>("");
   const date = new Date();
   return (
     <div>
-      <div>
+      <div
+        onClick={() => {
+          setData((item) => {
+            getCurrent.setAddr({
+              lat: 34.424244,
+              lng: 126.3213213123,
+              addr: "주소를 찾지 못했습니다",
+            });
+            return "";
+          });
+        }}
+      >
         <Header />
         <SingleTextBox>배송품위치확인</SingleTextBox>
       </div>
       <div>
         <LocationChase
           start={{ lat: 35.56496830314491, lng: 126.93990862062978 }}
-          route={{ lat: 37.5443765, lng: 127.1276202 }}
+          route={getRoute.addr}
+          current={getCurrent.addr}
           destination={{ lat: 37.5591140475276, lng: 127.13168588897 }}
-          getStart={{ setAddress: getStart.setAddress }}
-          getDestination={{ setAddress: getDestination.setAddress }}
+          // getStart={{ setAddress: getStart.setAddress }}
+          // getDestination={{ setAddress: getDestination.setAddress }}
           getRoute={{ setAddress: getRoute.setAddress }}
+          getCurrent={{ setAddress: getCurrent.setAddress }}
         />
         <div className="py-2 px-1">
           <div className="px-2 py-1 border border-cusGray rounded-md flex flex-col gap-2">
@@ -53,7 +69,17 @@ const LocationCheck = () => {
                 </Button>
               </div>
               <div className="flex text-sm items-center justify-center">
-                {getRoute.addr}
+                {getRoute.addr?.addr}
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center">
+                <Button bgColor="white" textColor="black" isBorder={true}>
+                  현재위치
+                </Button>
+              </div>
+              <div className="flex text-sm items-center justify-center">
+                {getCurrent.addr?.addr}
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -63,7 +89,7 @@ const LocationCheck = () => {
                 </Button>
               </div>
               <div className="flex text-sm items-center justify-center">
-                {getStart.addr}
+                강동구 암사동 22
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -73,7 +99,7 @@ const LocationCheck = () => {
                 </Button>
               </div>
               <div className="flex text-sm items-center justify-center">
-                {getDestination.addr}
+                강동구 암사동 44
               </div>
             </div>
           </div>
