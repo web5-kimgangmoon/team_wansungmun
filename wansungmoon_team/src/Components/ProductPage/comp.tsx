@@ -45,7 +45,7 @@ const Content = ({
     const Sell = await axios.get("/api/sell", { withCredentials: true });
     console.log(Sell);
     navigate("/productbuy", {
-      state: { sellerId, contents, title, src, price },
+      state: { productId, sellerId, contents, title, src, price },
     });
   };
 

@@ -7,6 +7,10 @@ import useMapLocation from "../../Public/Body/KakaoMapLocationGetter/hooks/useMa
 import KakaoMapLocationGetter from "../../Public/Body/KakaoMapLocationGetter";
 import useMapAddress from "../../Public/Body/KakaoMapLocationGetter/hooks/useMapAddress";
 
+interface IProps {
+  locaValue: string;
+  setLocaValue: (str: string) => void;
+}
 const customStyles = {
   content: {
     top: "50%",
@@ -19,7 +23,7 @@ const customStyles = {
   },
 };
 
-export const AddAddress = () => {
+export const AddAddress = ({ locaValue, setLocaValue }: IProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const { setMapLocation, mapLocation } = useMapLocation();
   const { setMapAddress, mapAddress } = useMapAddress();
@@ -39,7 +43,12 @@ export const AddAddress = () => {
         </LongButton>
       </div>
 
-      <Modal className="" style={customStyles} isOpen={modalOpen} onRequestClose={() => {}}>
+      <Modal
+        className=""
+        style={customStyles}
+        isOpen={modalOpen}
+        onRequestClose={() => {}}
+      >
         <div className="p-0">
           <div className="flex gap-3 py-3">
             <div className="pt-1" onClick={() => setModalOpen(false)}>
@@ -48,8 +57,16 @@ export const AddAddress = () => {
             <div className="w-[16rem]">주소추가</div>
           </div>
           <div className="p-2">
-            <input type="text" placeholder="이름" className="mb-2 border-b w-full" />
-            <input type="text" placeholder="휴대폰 번호" className="mb-2 border-b w-full" />
+            {/* <input
+              type="text"
+              placeholder="이름"
+              className="mb-2 border-b w-full"
+            />
+            <input
+              type="text"
+              placeholder="휴대폰 번호"
+              className="mb-2 border-b w-full"
+            /> */}
             <div className="">주소</div>
             <div className="mb-2 border-b w-full">{mapAddress}</div>
             <KakaoMapLocationGetter
@@ -68,7 +85,14 @@ export const AddAddress = () => {
               <div>자세히</div>
             </div>
             <div className="py-3">
-              <LongButton textColor="white" bgColor="red">
+              <LongButton
+                textColor="white"
+                bgColor="red"
+                onClick={(e) => {
+                  setLocaValue(mapAddress);
+                  setModalOpen(false);
+                }}
+              >
                 완료
               </LongButton>
             </div>

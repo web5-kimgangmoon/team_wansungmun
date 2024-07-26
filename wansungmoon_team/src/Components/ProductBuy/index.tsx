@@ -29,9 +29,13 @@ const Buy = () => {
   const sellerId = info.state.sellerId;
   const src = info.state.src;
   const price = info.state.price;
+  const productId = info.state.productId;
   const [location, setLocation] = useState([]);
   const [userpoint, setUserpoint] = useState(Number);
   const [phone, setPhone] = useState("");
+  const [reqContent, setReqContent] = useState("");
+  const [locaValue, setLocaValue] = useState("");
+
   useEffect(() => {
     const ReqInfo = async () => {
       const userInfo = await axios.get("/api/trade/sell_process", {
@@ -46,20 +50,34 @@ const Buy = () => {
     ReqInfo();
   }, []);
 
+  console.log();
+
   console.log(location);
   console.log(userpoint);
-  console.log();
 
   return (
     <div>
       <CategoryBar></CategoryBar>
       <ProductInfo src={src} title={title} price={price}></ProductInfo>
       <DealMethod></DealMethod>
-      <DeliveryAdrress location={location}></DeliveryAdrress>
-      <RequestContent></RequestContent>
+      <DeliveryAdrress
+        location={location}
+        locaValue={locaValue}
+        setLocaValue={setLocaValue}
+      ></DeliveryAdrress>
+      <RequestContent
+        reqContent={reqContent}
+        setReqContent={setReqContent}
+      ></RequestContent>
       <PointPayment point={userpoint} price={price}></PointPayment>
       <div className="p-2">
-        <PayComplete></PayComplete>
+        <PayComplete
+          price={price}
+          reqContent={reqContent}
+          productId={productId}
+          locaValue={locaValue}
+          userpoint={userpoint}
+        ></PayComplete>
       </div>
     </div>
   );
