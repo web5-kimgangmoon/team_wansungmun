@@ -14,6 +14,8 @@ import delivery from "./delivery/index";
 import { Sell } from "./sell/sell";
 import trade from "./trade/trade";
 import { sell_process } from "../services/trade/sell_process";
+import orderList from "./orderLIst";
+import locationCheck from "./locationCheck";
 
 const router = Router();
 
@@ -23,6 +25,8 @@ router.use("/test", test);
 router.use("/upload", upload);
 router.use("/delivery", delivery);
 router.use("/trade", trade);
+router.use("/orderList", orderList);
+router.use("/locationCheck", locationCheck);
 
 router.get("/sell", Sell);
 router.get("/logCheck", logCheck);

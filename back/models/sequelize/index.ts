@@ -75,6 +75,7 @@ Product.hasMany(TradeReceipt, {
   as: "tradeReceipts",
   foreignKey: "productId",
 });
+TradeReceipt.belongsTo(Product, { as: "product" });
 
 // export {db["Category" as keyof] as Category}
 export default db;

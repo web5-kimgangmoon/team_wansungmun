@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const useLocationSend = (lat: number, lng: number, isStart: boolean) => {
+const useLog = (productId: number) => {
   const { data, isPending, isFetching } = useQuery({
-    queryKey: ["location", "post", "delivery"],
+    queryKey: ["locationCheck", "get", "log"],
     queryFn: async () => {
       try {
-        const result = await axios("api/delivery/locationSend", {
-          method: "post",
+        const result = await axios("api/locationCheck/get", {
+          method: "get",
           withCredentials: true,
-          data: { lat, lng },
+          params: { productId },
         });
 
         return result;
@@ -17,11 +17,10 @@ const useLocationSend = (lat: number, lng: number, isStart: boolean) => {
         console.error(err);
       }
     },
-    refetchInterval: 30000,
+    refetchInterval: 15000,
     refetchIntervalInBackground: true,
-    enabled: isStart,
   });
   return { data, isPending, isFetching };
 };
 
-export default useLocationSend;
+export default useLog;

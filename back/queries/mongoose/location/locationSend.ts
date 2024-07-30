@@ -11,6 +11,7 @@ const locationSendQuery = async (
     lng,
     product_ID,
     purchaser_ID,
+    createdAt: new Date(),
   });
   return info;
 };

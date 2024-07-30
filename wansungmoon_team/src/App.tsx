@@ -22,8 +22,8 @@ import Dib from "./Components/OrderListTwo/Dib";
 // import Regist_email from "./Components/regist/regist_email/Comp";
 import ProductPage from "./Components/ProductPage/ProductPage";
 import ReviewHistory from "./Components/ReviewHistory";
-import ProductDetail from "./Components/ProductDetail/test";
-import LocationCheck from "./Components/LocationCheck";
+import ProductDetail from "./Components/ProductDetail";
+import LocationCheck from "./Components/LocationCheck/index";
 import KakaoCallback from "./Components/Login/Login_kakao/KakaoCallback";
 // import Kakao_regist from "./Components/regist/regist_kakao/Comp";
 import MultipleItems from "./Components/Main/Slide";
@@ -74,12 +74,15 @@ function App() {
         {/* <Route path="/regist" Component={Regist}></Route> */}
         <Route path="/orderList" Component={OrderListPage}></Route>
         <Route path="/orderListSelled" Component={OrderListPageSelled}></Route>
-        <Route path="/orderListSelling" Component={OrderListPageSelling}></Route>
+        <Route
+          path="/orderListSelling"
+          Component={OrderListPageSelling}
+        ></Route>
         <Route path="/reviewHistory" Component={ReviewHistory}></Route>
         <Route path="/Dib" Component={Dib}></Route>
-        <Route path="/productDetail" Component={ProductDetail}></Route>
+        <Route path="/orderDetail/:productId" Component={ProductDetail}></Route>
         {/* <Route path="/regist/email" Component={Regist_email}></Route> */}
-        <Route path="/locationCheck" Component={LocationCheck} />
+        <Route path="/locationCheck/:productId" Component={LocationCheck} />
         {/* <Route path="/regist/kakao" Component={Kakao_regist}></Route> */}
         <Route path="/productupload" Component={ProductUpload}></Route>
         <Route path="/logout" Component={Logout}></Route>
@@ -88,7 +91,10 @@ function App() {
         <Route path="/productbuy" Component={Buy}></Route>
         <Route path="/productlist" Component={ProductList}></Route>
         <Route path="/delivery" Component={DeliveryListPage}></Route>
-        <Route path="/deliverydetail/:productId" Component={DeliveryDetail}></Route>
+        <Route
+          path="/deliverydetail/:productId"
+          Component={DeliveryDetail}
+        ></Route>
         <Route path="/pointcharge" Component={PointPageMain}></Route>
       </Routes>
     </div>

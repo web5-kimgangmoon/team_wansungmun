@@ -2,6 +2,7 @@ import { Map, MapMarker } from "react-kakao-maps-sdk";
 import startMarker from "./../../../../../imgs/blue_b.png";
 import destinationMarker from "./../../../../../imgs/red_b.png";
 import routeMarker from "./../../../../../imgs/route2.png";
+import currentMarker from "./../../../../../imgs/Map-Marker-Pin-Free-PNG-Image.png";
 
 interface IProps {
   destination: { lat: number; lng: number };
@@ -57,8 +58,8 @@ const LocationChase = ({
             <MapMarker
               position={current}
               image={{
-                src: routeMarker,
-                size: { width: 30, height: 32 },
+                src: currentMarker,
+                size: { width: 20, height: 32 },
               }}
             />
           ) : (

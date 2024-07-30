@@ -19,6 +19,8 @@ import getDeliveryProductList from "./queries/sequelize/location/getDeliveryProd
 import locationSendQuery from "./queries/mongoose/location/locationSend";
 import locationGetQuery from "./queries/mongoose/location/getLocation";
 import getDeliveryDetailQuery from "./queries/sequelize/location/detail/getDeliveryDetail";
+import getOrderList from "./queries/sequelize/orderList/getOrderList";
+import getOrderDetail from "./queries/sequelize/orderList/detail/getOrderDetail";
 
 dotenv.config();
 
