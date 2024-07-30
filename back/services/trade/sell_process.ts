@@ -14,7 +14,13 @@ export const sell_process = async (req: Request, res: Response) => {
           {
             model: Location,
             as: "locationList",
-            attributes: ["id", "location", "locationDetail"],
+            attributes: [
+              "id",
+              "location",
+              "locationDetail",
+              "latitude",
+              "longitude",
+            ],
           },
         ],
       });

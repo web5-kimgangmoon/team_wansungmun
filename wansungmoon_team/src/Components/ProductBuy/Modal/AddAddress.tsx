@@ -13,6 +13,7 @@ interface IProps {
   setLocaValue: (str: string) => void;
   setDetailLoca: (str: string) => void;
   detailLoca: string;
+  setLocaOther: (str: object) => void;
 }
 const customStyles = {
   content: {
@@ -31,6 +32,7 @@ export const AddAddress = ({
   setLocaValue,
   setDetailLoca,
   detailLoca,
+  setLocaOther,
 }: IProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const { setMapLocation, mapLocation } = useMapLocation();
@@ -81,7 +83,9 @@ export const AddAddress = ({
               title="상세 주소를 입력해주세요"
               placeholder="상세주소"
               value={detailLoca}
-              onInput={(e) => setDetailLoca(e.target.value)}
+              onInput={(e) => {
+                setDetailLoca(e.target.value);
+              }}
               type="string"
             />
             <KakaoMapLocationGetter
@@ -104,7 +108,14 @@ export const AddAddress = ({
                 textColor="white"
                 bgColor="red"
                 onClick={(e) => {
-                  setLocaValue(mapAddress);
+                  setLocaValue("6");
+                  setLocaOther({
+                    latitude: mapLocation.lat,
+                    longitude: mapLocation.lng,
+                    location: mapAddress,
+                    locationDetail: detailLoca,
+                  });
+                  console.log(mapLocation);
                   setModalOpen(false);
                 }}
               >

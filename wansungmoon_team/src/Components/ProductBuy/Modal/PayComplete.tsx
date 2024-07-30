@@ -14,6 +14,8 @@ interface IProps {
   locaValue: string;
   userpoint: number;
   detailLoca: string;
+  location: Array<{ id: number; location: string; locationDetail: string }>;
+  locaOther: object;
 }
 
 const customStyles = {
@@ -34,6 +36,8 @@ export const PayComplete = ({
   locaValue,
   userpoint,
   detailLoca,
+  location,
+  locaOther,
 }: IProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [cantBuy, setCantbuy] = useState(false);
@@ -41,14 +45,34 @@ export const PayComplete = ({
   const onSubmit = async () => {
     if (userpoint - price < 0) {
       setCantbuy(true);
-    } else {
+    } else if (locaValue == "6") {
       const payComplete = await axios.post(
-        "/api/trade/sell_process",
+        "/api/trade/sellcomplete",
         {
           reqContent: reqContent,
           productId: productId,
-          locaValue: locaValue,
+          locaValue: locaOther,
           detailLoca: detailLoca,
+          price: price,
+        },
+        { withCredentials: true }
+      );
+      if (payComplete.status == 211) {
+        setModalOpen(true);
+        setTimeout(() => navigate("/"), 1000);
+      } else {
+        alert("구매에 실패했습니다!");
+      }
+    } else {
+      const arrValue = parseInt(locaValue, 10);
+      const payComplete = await axios.post(
+        "/api/trade/sellcomplete",
+        {
+          reqContent: reqContent,
+          productId: productId,
+          locaValue: location[arrValue],
+          detailLoca: detailLoca,
+          price: price,
         },
         { withCredentials: true }
       );

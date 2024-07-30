@@ -19,6 +19,7 @@ interface IProps {
   phone: string;
   location: Array<any>;
   point: number;
+  locaOther: object;
 }
 
 const Buy = () => {
@@ -35,11 +36,10 @@ const Buy = () => {
   const [reqContent, setReqContent] = useState("");
 
   const [locaValue, setLocaValue] = useState("");
-  const [lat, setLat] = useState<number>();
-  const [lng, setLng] = useState<number>();
-  const [locaID, setLocaID] = useState<number>();
   const [location, setLocation] = useState([]);
   const [detailLoca, setdetailLoca] = useState("");
+  const [locaOther, setLocaOther] = useState({});
+  const [showLoca, setShowLoca] = useState("");
 
   // isDBloca: true 면 location_list를 요청으로 보냄
   // isDBloca: false 면 직접 입력한 주소 및 주소, 경도를 직접 요청으로 보내도록
@@ -63,6 +63,7 @@ const Buy = () => {
     ReqInfo();
   }, []);
 
+  console.log(location);
   console.log(userpoint);
 
   return (
@@ -76,6 +77,9 @@ const Buy = () => {
         setLocaValue={setLocaValue}
         setDetailLoca={setdetailLoca}
         detailLoca={detailLoca}
+        setLocaOther={setLocaOther}
+        showLoca={showLoca}
+        setShowLoca={setShowLoca}
         // setLocaID={setLocaID}
       ></DeliveryAdrress>
       <RequestContent
@@ -89,8 +93,10 @@ const Buy = () => {
           reqContent={reqContent}
           productId={productId}
           locaValue={locaValue}
+          location={location}
           userpoint={userpoint}
           detailLoca={detailLoca}
+          locaOther={locaOther}
         ></PayComplete>
       </div>
     </div>

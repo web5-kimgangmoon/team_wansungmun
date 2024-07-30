@@ -10,6 +10,9 @@ interface IProps {
   setLocaValue: (str: string) => void;
   setDetailLoca: (str: string) => void;
   detailLoca: string;
+  setLocaOther: (str: any) => void;
+  showLoca: any;
+  setShowLoca: (str: any) => void;
 }
 
 const DeliveryAdrress = ({
@@ -18,6 +21,9 @@ const DeliveryAdrress = ({
   setLocaValue,
   setDetailLoca,
   detailLoca,
+  setLocaOther,
+  setShowLoca,
+  showLoca,
 }: IProps) => {
   let fulllocaArr: Array<[string | number, string]> = [];
   for (let i = 0; i < location.length; i++) {
@@ -31,11 +37,10 @@ const DeliveryAdrress = ({
   // const currenLocation = location.find(
   //   (item) => item.id.toString() === locaValue
   // );
-  const currenLocation = locaValue
-    ? `${location[+locaValue].location} ${location[+locaValue].locationDetail}`
-    : "";
+  // const currenLocation = locaValue
+  //   ? `${location[+locaValue].location} ${location[+locaValue].locationDetail}`
+  //   : "";
 
-  console.log(fulllocaArr);
   return (
     <div>
       <div className="px-2 font-black">배송지</div>
@@ -49,7 +54,7 @@ const DeliveryAdrress = ({
               setLocaValue(e.target.value);
             }}
           ></Dropdown>
-          <div>현재 설정된 배송지 :{currenLocation}</div>
+          <div>현재 설정된 배송지 :{/* {currenLocation} */}</div>
         </div>
         <div className="">
           <AddAddress
@@ -57,6 +62,7 @@ const DeliveryAdrress = ({
             setLocaValue={setLocaValue}
             setDetailLoca={setDetailLoca}
             detailLoca={detailLoca}
+            setLocaOther={setLocaOther}
           ></AddAddress>
         </div>
       </div>
