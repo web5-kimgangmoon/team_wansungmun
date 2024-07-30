@@ -5,6 +5,7 @@ interface IDelivery_log {
   purchaser_ID: number;
   lat: number;
   lng: number;
+  createdAt: Date;
 }
 
 const schema = new Schema<IDelivery_log>({
@@ -12,6 +13,7 @@ const schema = new Schema<IDelivery_log>({
   purchaser_ID: { type: Number, required: true },
   lat: { type: Number },
   lng: { type: Number },
+  createdAt: { type: Date },
 });
 
 const Delivery_log = model<IDelivery_log>("Delivery_log", schema);

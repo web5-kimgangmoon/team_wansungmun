@@ -4,86 +4,35 @@ import Item, { IProps as IItem } from "../Public/Body/ProductInfoItem";
 import MenuBar from "../Public/Footer/MenuBar";
 import SingleTextBox from "../Public/Header/singleTextBox";
 import bycle from "../../imgs/Kakao_logo.jpg";
+import useOrderList from "../../hooks/orderList/useOrderLIst";
+import { useNavigate } from "react-router-dom";
 
 const OrderListPage = () => {
-  const productList: IItem[] = [
-    {
+  const navigate = useNavigate();
+  const { data, isPending, isFetching } = useOrderList();
+  if (isPending || isFetching) return <div>로딩중</div>;
+  if (!data) return <div>데이터가 존재하지 않습니다</div>;
+  const productList: IItem[] = [];
+  for (let item of data.data) {
+    productList.push({
       bottomData: {
-        title: "중고자전거-싸게 파는중!!!",
-        score: 5,
-        reviewCount: 10,
-        writer: "나는야작성자",
-        src: bycle,
+        title: item.product.productName,
+        score: item.product.avarageScore,
+        reviewCount: item.product.reviewCount,
+        writer: item.product.nickName,
+        src: item.product.titleImg,
         pressBtnInfo: {
-          tradeListPath: "/",
-          move: "locationCheck",
-          onClick: undefined,
+          tradeListPath: `/orderDetail/${item.product.id}`,
+          move: item.product.tradeStatus == 2 ? "locationCheck" : "tradeCancel",
+          onClick: () => {
+            if (item.product.tradeStatus == 2)
+              navigate(`/locationCheck/${item.product.id}`);
+          },
         },
-        isHeartFull: false,
       },
-      topData: { state: "selling" },
-      path: undefined,
-      onClickAll: undefined,
-      onClickClose: undefined,
-    },
-    {
-      bottomData: {
-        title: "자전거 한 번만 쓰던겁니다~~~ 지금만",
-        score: 5,
-        reviewCount: 22,
-        writer: "아아아",
-        src: bycle,
-        pressBtnInfo: {
-          tradeListPath: "/",
-          move: "reviewWrite",
-          onClick: undefined,
-        },
-        isHeartFull: false,
-      },
-      topData: { state: "reviewed", date: new Date() },
-      path: undefined,
-      onClickAll: undefined,
-      onClickClose: undefined,
-    },
-    {
-      bottomData: {
-        title: "지금 놓치면 기회없어요!!!",
-        score: 3,
-        reviewCount: 26,
-        writer: "게살버거킹",
-        src: bycle,
-        pressBtnInfo: {
-          tradeListPath: "/",
-          move: "chating",
-          onClick: undefined,
-        },
-        isHeartFull: true,
-      },
-      topData: { state: "trading", date: new Date() },
-      path: undefined,
-      onClickAll: undefined,
-      onClickClose: undefined,
-    },
-    {
-      bottomData: {
-        title: "지금 놓치면 기회없어요!!!",
-        score: 3,
-        reviewCount: 26,
-        writer: "게살버거킹",
-        src: bycle,
-        pressBtnInfo: {
-          tradeListPath: "/",
-          move: "chating",
-          onClick: undefined,
-        },
-        isHeartFull: false,
-      },
-      topData: { state: "traded", date: new Date() },
-      path: undefined,
-      onClickAll: undefined,
-      onClickClose: undefined,
-    },
-  ];
+      topData: { state: item.product.tradeStatus == 2 ? "trading" : "traded" },
+    });
+  }
   return (
     <div>
       <Header />
@@ -113,6 +62,7 @@ const OrderListPage = () => {
             onClickClose={item.onClickClose}
           />
         ))}
+        <div className="py-2"></div>
       </CenterBody>
       <MenuBar />
     </div>
