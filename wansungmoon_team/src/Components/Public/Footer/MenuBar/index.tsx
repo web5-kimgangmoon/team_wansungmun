@@ -15,7 +15,7 @@ const MenuBar = ({ inactiveElement = -1 }: IProps): JSX.Element => {
     [home, "홈", "/"],
     [search, "검색", "/search"],
     [heart, "즐겨찾기", "/dib"],
-    ["orderList"],
+    ["/orderList"],
     [person, "내 정보", "/info"],
   ];
   const className = "sm:w-8 md:w-12 lg:w-20 xl:w-24";
@@ -33,7 +33,7 @@ const MenuBar = ({ inactiveElement = -1 }: IProps): JSX.Element => {
         <div className="w-full">
           <div className="py-3 flex w-full">
             {menuArr.map((item, index) =>
-              item[0] !== "orderList" ? (
+              item[0] !== "/orderList" ? (
                 <MenuWrapper
                   key={index}
                   className={className}

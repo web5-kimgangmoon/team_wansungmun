@@ -78,14 +78,23 @@ const mkCase = async () => {
     phoneNum: "01098765432",
     password: "1234qwer",
   });
+
+  const user3 = await db.User.create({
+    email: "test3@naver.com",
+    nickname: "test_user_3",
+    phoneNum: "01098465432",
+    password: "1234qwer",
+    authority: 2,
+  });
+
   const product = await (
     (await db.Category.findOne({ where: { id: 1 } })) as Category
   ).createProduct({
-    content: "ss",
+    content: "시험상품 1 예제입니다.",
     price: 0,
     titleImg:
       "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
-    productName: "네네",
+    productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
