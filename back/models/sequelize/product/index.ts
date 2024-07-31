@@ -134,7 +134,7 @@ class Product extends Model<
           type: DataTypes.FLOAT,
         },
         titleImg: {
-          type: new DataTypes.STRING(100),
+          type: new DataTypes.STRING(1000),
         },
         imgs: {
           type: new DataTypes.STRING(1000),

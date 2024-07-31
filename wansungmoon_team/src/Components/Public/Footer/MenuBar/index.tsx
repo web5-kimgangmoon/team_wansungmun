@@ -51,7 +51,7 @@ const MenuBar = ({ inactiveElement = -1 }: IProps): JSX.Element => {
                   fontClassName={fontClassName}
                   checkClassName={checkClassName}
                   positionClass={positionClass}
-                  path="orderList"
+                  path="/orderList"
                 />
               )
             )}

@@ -8,6 +8,7 @@ export const trade_receipt = async (req: Request, res: Response) => {
     const sell = await Product.update(
       {
         tradeStatus: 2,
+        deliveryUserId: 3,
       },
       { where: { id: req.body.productId } }
     );
@@ -21,6 +22,7 @@ export const trade_receipt = async (req: Request, res: Response) => {
       latitude: req.body.locaValue.latitude,
       longitude: req.body.locaValue.longitude,
     });
+    res.status(211).send;
   } catch (err) {
     console.error(err);
   }
