@@ -26,9 +26,11 @@ const Kakao_regist = () => {
         alert("패스워드는 8자 이상, 영문과 숫자를 조합해 입력해주세요");
       } else if (30 < nickname.length || nickname.length < 4) {
         alert("닉네임은 최소 4자 이상, 최대 30자 미만으로 입력해주세요");
-      } else if (!phonereg.test(phoneNum)) {
-        alert("입력하신 휴대폰 번호를 확인해주세요");
-      } else {
+      }
+      // else if (!phonereg.test(phoneNum)) {
+      //   alert("입력하신 휴대폰 번호를 확인해주세요");
+      // }
+      else {
         const data = await axios.post(
           "/api/regist",
           {
