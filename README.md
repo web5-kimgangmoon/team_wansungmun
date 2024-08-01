@@ -3,8 +3,10 @@
 <img src="./readme_src/readme1.PNG" />
 
 - github 주소: https://github.com/JiwanBang/team_wansungmun
-- TEST ID: test1@naver.com
-- TEST PW: 1234qwer
+- USER TEST ID: test1@naver.com
+- USER TEST PW: 1234qwer
+- 배송기사 TEST ID: test3@naver.com
+- 배송기사 TEST PW: 1234qwer
 
 ## 프로젝트 소개
 
@@ -37,6 +39,13 @@
 - 게시판: 글 작성, 사진/영상 등 업로드 가능, 회원에 대해 권한 부여, 포인트로 구매 설정 가능
 
 - 지도: 지도 API를 사용, 배달 인원의 위치 정보를 공유
+
+## 가동 방법
+
+- 프론트엔드: wansungmoon_team(node)
+- 백엔드: back(node)
+- mysql, mongod 실행
+- dotenv: REACT_APP_KAKAO_API, REACT_APP_KAKAO_JSKEY
 
 ## 1. 팀원 구성
 
