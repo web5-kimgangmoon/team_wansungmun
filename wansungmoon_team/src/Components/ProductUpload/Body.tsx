@@ -1,6 +1,6 @@
 import Button from "../Public/Body/Button";
 import CenterBody from "../Public/Body/CenterBody";
-import CheckNLabel from "../Public/Body/CheckBox/CheckNLabel";
+// import CheckNLabel from "../Public/Body/CheckBox/CheckNLabel";
 import Dropdown from "../Public/Body/Dropdown";
 import InputTextBox from "../Public/Body/InputBox";
 import InputText from "../Public/Body/InputBox/InputText";
@@ -14,7 +14,7 @@ import BoldLine from "../Public/Body/BoldLine";
 import KakaoMapLocation from "../Public/Body/KakaoMapLocationGetter";
 import useMapLocation from "../Public/Body/KakaoMapLocationGetter/hooks/useMapLocation";
 import useMapAddress from "../Public/Body/KakaoMapLocationGetter/hooks/useMapAddress";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReactModal from "react-modal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,11 @@ const Body = () => {
     address: string;
     isOpenModal: boolean;
   }>({ address: "거래희망장소", isOpenModal: false });
-  const { uploadedImg, setUploadedImg, onChangeImg } = useImgUpload(5);
+  const {
+    uploadedImg,
+    // setUploadedImg,
+    onChangeImg,
+  } = useImgUpload(5);
   const isDirectEnable = useSwap();
   const { mapLocation, setMapLocation } = useMapLocation();
   const { mapAddress, setMapAddress } = useMapAddress();
@@ -40,6 +44,7 @@ const Body = () => {
     const callCate = await axios.get("/api/category/uploadpage", {
       withCredentials: true,
     });
+    return callCate;
   };
   cateReq();
 

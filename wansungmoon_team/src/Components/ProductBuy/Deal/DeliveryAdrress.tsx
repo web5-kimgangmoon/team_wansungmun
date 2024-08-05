@@ -1,8 +1,5 @@
-import { AnyARecord } from "dns";
 import Dropdown from "../../Public/Body/Dropdown";
-import LongButton from "../../Public/Body/LongButton";
 import AddAddress from "../Modal/AddAddress";
-import { useState } from "react";
 
 interface IProps {
   location: Array<{ id: number; location: string; locationDetail: string }>;

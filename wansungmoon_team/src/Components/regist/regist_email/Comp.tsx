@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
 // import { ModalComp } from "./loca_modal/Comp";
@@ -10,7 +10,7 @@ const Regist_email = () => {
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const [phoneNum, setPhoneNum] = useState("");
-  const [location, setLocation] = useState("");
+  // const [location, setLocation] = useState("");
   const [detailloca, setDetailloca] = useState("");
   const navigate = useNavigate();
   const emailReg = /^[a-z0-9가-힣]+@[a-z]+\.[a-z]{2,3}$/;

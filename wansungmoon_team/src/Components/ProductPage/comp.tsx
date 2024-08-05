@@ -5,8 +5,8 @@ import ProductPageImg from "./ProductPageImg";
 import ProductPageMenu from "./ProductPageMenu";
 import ProductPageTitleLine from "./ProductPageTitleLine";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { write } from "fs";
+// import { useState } from "react";
+// import { write } from "fs";
 
 export interface IProps {
   category: string;
@@ -38,7 +38,7 @@ const Content = ({
   status,
 }: IProps) => {
   const navigate = useNavigate();
-  const Info = useLocation();
+  // const Info = useLocation();
 
   const onSubmit = async () => {
     // console.log("웨안되");

@@ -1,11 +1,11 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useRecoilState, useResetRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/logcheck";
 
 const LoginArea = () => {
-  const [logined, setLogined] = useState(false);
+  // const [logined, setLogined] = useState(false);
   const LoginBtn = () => {
     return (
       <Link to="/login">
@@ -61,6 +61,7 @@ const LoginArea = () => {
       }
     };
     loginCheck();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

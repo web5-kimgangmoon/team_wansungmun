@@ -1,6 +1,3 @@
-import Header from "../../Header";
-import MenuBar from "../../Public/Footer/MenuBar";
-import SingleTextBox from "../../Public/Header/singleTextBox";
 import LongButton from "../../Public/Body/LongButton";
 import { Link } from "react-router-dom";
 import { MouseEvent } from "react";
@@ -49,7 +46,7 @@ const ProductDetail = ({
         <div className="container p-2 border border-cusGray rounded-md">
           <div className="flex gap-5 items-center pb-2 border-b-2 border-etcWord">
             <div className="sm:w-12 sm:min-w-12 w-24 min-w-24">
-              <img src={src} className="w-full" />
+              <img src={src} alt="" className="w-full" />
             </div>
             <div className="grow flex flex-col gap-1 text-sm font-bold">
               <div className="whitespace-pre-wrap break-all">{title}</div>

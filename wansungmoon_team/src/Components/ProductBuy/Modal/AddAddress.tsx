@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Modal from "react-modal";
 import LongButton from "../../Public/Body/LongButton";
-import { useNavigate } from "react-router-dom";
 import LeftArrow from "./img/LeftArrow.png";
 import useMapLocation from "../../Public/Body/KakaoMapLocationGetter/hooks/useMapLocation";
 import KakaoMapLocationGetter from "../../Public/Body/KakaoMapLocationGetter";
@@ -37,7 +36,6 @@ export const AddAddress = ({
   const [modalOpen, setModalOpen] = useState(false);
   const { setMapLocation, mapLocation } = useMapLocation();
   const { setMapAddress, mapAddress } = useMapAddress();
-  const navigate = useNavigate();
   return (
     <div>
       <div>

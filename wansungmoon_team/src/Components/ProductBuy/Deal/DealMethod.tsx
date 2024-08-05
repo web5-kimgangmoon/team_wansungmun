@@ -1,7 +1,5 @@
 import Dropdown from "../../Public/Body/Dropdown";
 
-interface IProps {}
-
 const DealMethod = () => {
   return (
     <div className="m-2">

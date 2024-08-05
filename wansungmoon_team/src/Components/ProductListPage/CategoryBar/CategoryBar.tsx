@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Back from "./img/BackArrow.png";
 import Home from "./img/home.svg";
 

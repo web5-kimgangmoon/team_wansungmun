@@ -1,4 +1,5 @@
-import Comp, { IProps as IData } from "./comp";
+import Comp from // , { IProps as IData }
+"./comp";
 import { useParams } from "react-router-dom";
 import useProductDetail from "../../hooks/product/useProductDetail";
 

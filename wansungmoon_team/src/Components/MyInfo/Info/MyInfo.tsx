@@ -1,5 +1,3 @@
-interface IProps {}
-
 const MyInfo = () => {
   return (
     <div className="m-2">

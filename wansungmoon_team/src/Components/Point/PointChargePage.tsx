@@ -2,11 +2,9 @@ import { useState } from "react";
 import PointSelect from "./PointSelect";
 import LongButton from "../Public/Body/LongButton";
 
-interface IProps {}
-
 const PointChargePage = () => {
   const [bgColor, setBgcolor] = useState<number>(-1);
-  const [isClick, setIsClick] = useState(true);
+  // const [isClick, setIsClick] = useState(true);
   const ptprArr = [
     [10000, 11000],
     [20000, 21000],
@@ -25,7 +23,9 @@ const PointChargePage = () => {
         <div className="text-2xl font-bold p-2">0 원</div>
       </div>
       <div>
-        <div className="flex justify-center py-6 text-xl font-bold">충전 단위 선택</div>
+        <div className="flex justify-center py-6 text-xl font-bold">
+          충전 단위 선택
+        </div>
         <div className="px-5 font-bold">
           {ptprArr.map((item, idx) => (
             <PointSelect

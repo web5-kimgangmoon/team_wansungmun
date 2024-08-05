@@ -1,9 +1,8 @@
 import axios from "axios";
-import React, { FC, useEffect, useState } from "react";
+import React, { useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
-import MenuBar from "../../Public/Footer/MenuBar";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export interface LoginForm {
   email: string;
   password: string;

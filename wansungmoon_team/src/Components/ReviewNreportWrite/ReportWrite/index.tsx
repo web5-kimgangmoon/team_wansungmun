@@ -13,11 +13,10 @@ import RecommendList from "../recommendList/RecommendList";
 import { MouseEvent } from "react";
 
 const ReportWrite = () => {
-  const [textAreaData, setTextAreaData] = useState<string>("");
+  // const [textAreaData, setTextAreaData] = useState<string>("");
   const { uploadedImg, onChangeImg } = useImgUpload(5);
   const { recommendIndex, setRecommendIndex } = useRecommend();
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-
   return (
     <div>
       <div>
@@ -47,7 +46,7 @@ const ReportWrite = () => {
             placeholder="거래에 대한 솔직한 신고사유를 남겨주세요. 그리고 신고 사유항목에서 선택해 주세요."
             rows={10}
             onChange={(e) => {
-              setTextAreaData(e.target.value);
+              // setTextAreaData(e.target.value);
             }}
           />
         </div>

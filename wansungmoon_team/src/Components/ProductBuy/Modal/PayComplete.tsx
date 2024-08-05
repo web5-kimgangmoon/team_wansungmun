@@ -1,10 +1,8 @@
 import React from "react";
-import { useRef, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useState } from "react";
 import Modal from "react-modal";
 import LongButton from "../../Public/Body/LongButton";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Login from "../../Login";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 interface IProps {

@@ -1,4 +1,3 @@
-import { MouseEvent } from "react";
 import { Link } from "react-router-dom";
 interface IProps {
   src: string;
@@ -9,7 +8,7 @@ const Icon = ({ src, path }: IProps) => {
   return (
     <Link to={path}>
       <div className="p-2 w-10 h-10 rounded-full border border-cusGray bg-white">
-        <img src={src} className="w-full h-full" />
+        <img src={src} alt="face" className="w-full h-full" />
       </div>
     </Link>
   );

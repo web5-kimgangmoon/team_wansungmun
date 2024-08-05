@@ -1,5 +1,4 @@
 import { MouseEvent } from "react";
-import bycle from "../../imgs/Kakao_logo.jpg";
 import Comp from "./comp";
 import { useNavigate, useParams } from "react-router-dom";
 import useOrderListDetail from "../../../hooks/orderList/useOrderLIstDetail";

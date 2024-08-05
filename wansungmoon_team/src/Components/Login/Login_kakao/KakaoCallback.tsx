@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { isToken } from "typescript";
+// import { isToken } from "typescript";
 
 const KakaoCallback = () => {
   const navigate = useNavigate();
@@ -58,6 +58,7 @@ const KakaoCallback = () => {
       .catch((err) => {
         console.error(err);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <></>;

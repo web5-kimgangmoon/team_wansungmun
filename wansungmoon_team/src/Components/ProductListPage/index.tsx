@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import useCategoryProducts from "../../hooks/category/useCateProducts";
 import Comp, { DataTy } from "./Comp";
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 
 const ProductListPage = () => {
   let { categoryId } = useParams();

@@ -1,4 +1,3 @@
-import LongButton from "../../Public/Body/LongButton";
 import PointCharge from "../Modal/PointCharge";
 
 interface IProps {

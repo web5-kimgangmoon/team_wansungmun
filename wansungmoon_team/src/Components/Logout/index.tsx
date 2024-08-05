@@ -20,6 +20,7 @@ export const Logout = () => {
       }
     };
     logoutBtn();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return <div></div>;
 };

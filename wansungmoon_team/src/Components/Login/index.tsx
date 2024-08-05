@@ -3,7 +3,7 @@ import Comp from "./Comp";
 
 export interface IProps {}
 
-const Login: FC = ({}) => {
+const Login: FC = () => {
   return <Comp />;
 };
 

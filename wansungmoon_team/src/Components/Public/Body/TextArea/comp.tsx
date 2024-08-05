@@ -1,4 +1,4 @@
-import { ChangeEvent, SyntheticEvent } from "react";
+import { ChangeEvent } from "react";
 
 interface IProps {
   value?: string;

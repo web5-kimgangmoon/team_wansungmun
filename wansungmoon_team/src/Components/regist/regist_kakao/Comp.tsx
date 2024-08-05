@@ -1,22 +1,23 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
 // import { ModalComp } from "../regist_email/loca_modal/Comp";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 const Kakao_regist = () => {
   const [email, setEmail] = useState("");
+  setEmail("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const [phoneNum, setPhoneNum] = useState("");
-  const [location, setLocation] = useState("");
+  // const [location, setLocation] = useState("");
   const [detailloca, setDetailloca] = useState("");
   const userlocation = useLocation();
   const userInfo = { ...userlocation.state };
   const navigate = useNavigate();
   const pwreg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-  const phonereg = /^(01(0|1|[6-9])-[0-9]{3,4}-([0-9]{4}))$/;
+  // const phonereg = /^(01(0|1|[6-9])-[0-9]{3,4}-([0-9]{4}))$/;
 
   const onSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
     try {

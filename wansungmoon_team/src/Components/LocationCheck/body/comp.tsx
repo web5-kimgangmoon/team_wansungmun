@@ -1,9 +1,7 @@
-import SingleTextBox from "../../Public/Header/singleTextBox";
 import LocationChase from "../../Public/Body/KakaoMapLocationGetter/LocationChase";
 import Button from "../../Public/Body/Button";
 import LongButton from "../../Public/Body/LongButton";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import useAddress from "../../Public/Body/KakaoMapLocationGetter/hooks/LocationChase/useAddress";
 
 export interface IProps {

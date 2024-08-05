@@ -3,7 +3,6 @@ import CenterBody from "../Public/Body/CenterBody";
 import Item, { IProps as IItem } from "../Public/Body/ProductInfoItem";
 import MenuBar from "../Public/Footer/MenuBar";
 import SingleTextBox from "../Public/Header/singleTextBox";
-import bycle from "../../imgs/Kakao_logo.jpg";
 import useOrderList from "../../hooks/orderList/useOrderLIst";
 import { useNavigate } from "react-router-dom";
 

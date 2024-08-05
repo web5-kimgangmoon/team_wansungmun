@@ -1,5 +1,3 @@
-import { useState } from "react";
-import MyInfo from "./MyInfo";
 import Box from "../img/box.png";
 import Star from "../img/star.png";
 import list from "../img/list.png";
@@ -9,8 +7,6 @@ import Card from "../img/Card.png";
 import Car from "../img/car.png";
 import TabBtn from "./TabBtn";
 import { Link } from "react-router-dom";
-
-interface IProps {}
 
 const InfoTab = () => {
   // const [InfoMenuArr, setInfoMenuArr] = useState([

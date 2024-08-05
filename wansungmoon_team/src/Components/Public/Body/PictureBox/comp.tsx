@@ -32,7 +32,7 @@ const PictureBox = ({ idStr, onChange, data, limit }: IProps): JSX.Element => {
       <div className="flex gap-1 justify-center">
         {data.map((item, index) => (
           <div key={index} className="sm:w-12 w-24">
-            <img src={item.toString()} className="w-full" />
+            <img alt="" src={item.toString()} className="w-full" />
           </div>
         ))}
       </div>

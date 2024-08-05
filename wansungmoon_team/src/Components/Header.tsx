@@ -3,8 +3,6 @@ import Svg from "../svgs/Complete Moon Market";
 import LoginArea from "./LoginBtn/LoginBtn";
 import { Link } from "react-router-dom";
 
-interface IProps {}
-
 const Header = (): JSX.Element => {
   return (
     <div className="p-2">
