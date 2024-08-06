@@ -120,7 +120,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
       - name: Install Dependencies of Front
-        working-directory: ./query-test
+        working-directory: ./wansungmoon_team
         run: npm run build
 
       - name: Copy Files to EC2
