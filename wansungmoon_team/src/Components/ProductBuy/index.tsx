@@ -39,7 +39,7 @@ const Buy = () => {
   const [location, setLocation] = useState([]);
   const [detailLoca, setdetailLoca] = useState("");
   const [locaOther, setLocaOther] = useState({});
-  const [showLoca, setShowLoca] = useState("");
+  // const [showLoca, setShowLoca] = useState("");
 
   // isDBloca: true 면 location_list를 요청으로 보냄
   // isDBloca: false 면 직접 입력한 주소 및 주소, 경도를 직접 요청으로 보내도록
