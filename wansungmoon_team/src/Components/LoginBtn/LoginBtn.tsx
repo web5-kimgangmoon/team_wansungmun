@@ -45,7 +45,7 @@ const LoginArea = () => {
   useEffect(() => {
     const loginCheck = async () => {
       try {
-        const isLogin = await axios.get("api/logCheck", {
+        const isLogin = await axios.get("/api/logCheck", {
           withCredentials: true,
         });
         console.log(isLogin.data);

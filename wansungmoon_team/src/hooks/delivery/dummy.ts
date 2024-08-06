@@ -6,7 +6,7 @@ const useLocationSwitch = (deliveryId: number) => {
     mutationKey: ["location", "get", "stop", "delivery"],
     mutationFn: async () => {
       try {
-        const result = await axios.post("api/delivery/deliverySwitch", {
+        const result = await axios.post("/api/delivery/deliverySwitch", {
           withCredentials: true,
           params: { deliveryId },
         });
