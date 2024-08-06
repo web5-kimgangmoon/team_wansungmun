@@ -10,7 +10,7 @@ const ProductListPage = () => {
 
   const [isDirectCheck, setIsDirectCheck] = useState<boolean>(true);
   if (isPending || isFetching) return <div>로딩중</div>;
-  if (!data || !data.data || typeof data.data === "object")
+  if (!data || !data.data || !data.data.products)
     return <div>데이터가 존재하지 않습니다</div>;
   const itemArr: DataTy[] = [];
   for (let item of data.data.products) {
