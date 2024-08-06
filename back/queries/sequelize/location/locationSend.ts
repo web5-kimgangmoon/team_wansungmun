@@ -4,7 +4,7 @@ import db from "../../../models/sequelize";
 const locationSendQuery = async (number: number) => {
   try {
     if (Number.isNaN(number)) return undefined;
-    if (number == -1) return undefined;
+    if (number === -1) return undefined;
     const productInfo = await db.Product.findAll({
       where: {
         deliveryStatus: { [Op.or]: [0, 1] },

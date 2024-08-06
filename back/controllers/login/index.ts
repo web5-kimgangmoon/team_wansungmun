@@ -11,7 +11,7 @@ export const Login = async (req: Request, res: Response) => {
     if (!userInfo) {
       res.status(301).json({ error: "아이디 또는 비밀번호를 확인해주세요" });
       return;
-    } else if (userInfo.password == req.body.password) {
+    } else if (userInfo.password === req.body.password) {
       req.session;
       console.log("아이디: " + userInfo.id);
       req.session.isLogined = true;

@@ -1,7 +1,7 @@
 import Main from "./Main";
 import useCategory from "../../../hooks/category/useCategory";
 
-interface IProps {}
+// interface IProps {}
 
 const Container = () => {
   const { data, isFetching, isPending } = useCategory();

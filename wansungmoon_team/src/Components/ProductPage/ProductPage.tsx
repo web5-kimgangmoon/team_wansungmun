@@ -1,12 +1,12 @@
 import LongButton from "../Public/Body/LongButton";
-import ProductPageMenu from "./ProductPageMenu";
-import ProductPageContents from "./ProductPageContents";
-import ProductPageTitleLine from "./ProductPageTitleLine";
-import ProductPageImg from "./ProductPageImg";
-import Container from "./test";
+// import ProductPageMenu from "./ProductPageMenu";
+// import ProductPageContents from "./ProductPageContents";
+// import ProductPageTitleLine from "./ProductPageTitleLine";
+// import ProductPageImg from "./ProductPageImg";
+// import Container from "./test";
 import Content from "./ttest";
 
-interface IProps {}
+// interface IProps {}
 
 const ProductPage = () => {
   return (

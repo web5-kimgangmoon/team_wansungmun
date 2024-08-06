@@ -3,7 +3,7 @@ import db, { sequelize } from "../../../models/sequelize";
 
 const getProductDetailQuery = async (number: number) => {
   if (Number.isNaN(number)) return undefined;
-  if (number == -1) return undefined;
+  if (number === -1) return undefined;
   const productInfo = await db.Product.findOne({
     attributes: {
       include: [

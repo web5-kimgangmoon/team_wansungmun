@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import useCategoryProducts from "../../hooks/category/useCateProducts";
 import Comp, { DataTy } from "./Comp";
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 
 const ProductListPage = () => {
   let { categoryId } = useParams();
@@ -24,9 +24,9 @@ const ProductListPage = () => {
         src: item.titleImg as string,
         stateBtnInfo: {
           state:
-            item.tradeStatus == 1
+            item.tradeStatus === 1
               ? "selling"
-              : item.tradeStatus == 2
+              : item.tradeStatus === 2
               ? "trading"
               : "traded",
           isDirectTrade: item.isDirectTrade as boolean,

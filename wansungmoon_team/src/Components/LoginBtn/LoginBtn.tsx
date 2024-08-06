@@ -1,11 +1,11 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useRecoilState, useResetRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/logcheck";
 
 const LoginArea = () => {
-  const [logined, setLogined] = useState(false);
+  // const [logined, setLogined] = useState(false);
   const LoginBtn = () => {
     return (
       <Link to="/login">
@@ -49,7 +49,7 @@ const LoginArea = () => {
           withCredentials: true,
         });
         console.log(isLogin.data);
-        if (isLogin.status == 201) {
+        if (isLogin.status === 201) {
           console.log("로그인 성공");
           setUserState({ autority: isLogin.data.autority });
         } else {

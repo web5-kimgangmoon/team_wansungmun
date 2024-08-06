@@ -10,7 +10,7 @@ interface IPros {
 const ModalItem = ({ title, to, closeOnClick }: IPros) => {
   return (
     <div>
-      {to == "닫기" ? (
+      {to === "닫기" ? (
         <div onClick={closeOnClick} className="p-2 border-b border-cusGray">
           {title}
         </div>

@@ -1,8 +1,8 @@
-import Body from "../ProductUpload/Body";
-import MenuBar from "../Public/Footer/MenuBar";
+// import Body from "../ProductUpload/Body";
+// import MenuBar from "../Public/Footer/MenuBar";
 import OrderListContent from "./Body";
 
-interface IProps {}
+// interface IProps {}
 
 const OrderListPage = () => {
   return (

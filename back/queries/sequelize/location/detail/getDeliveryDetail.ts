@@ -4,7 +4,7 @@ import db, { sequelize } from "../../../../models/sequelize";
 const getDeliveryDetailQuery = async (userId: number, productId: number) => {
   try {
     if (Number.isNaN(userId) || Number.isNaN(productId)) return undefined;
-    if (userId == -1 || productId == -1) return undefined;
+    if (userId === -1 || productId === -1) return undefined;
     const productInfo = await db.Product.findOne({
       attributes: ["titleImg", "deliveryStatus"],
       where: {

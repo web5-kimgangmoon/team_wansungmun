@@ -1,10 +1,10 @@
-import React from "react";
-import { useRef, useState } from "react";
-import { useRecoilState } from "recoil";
+// import React from "react";
+import { useState } from "react";
+// import { useRecoilState } from "recoil";
 import Modal from "react-modal";
 import LongButton from "../../Public/Body/LongButton";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Login from "../../Login";
+import { useNavigate } from "react-router-dom";
+// import Login from "../../Login";
 import axios from "axios";
 
 interface IProps {
@@ -45,7 +45,7 @@ export const PayComplete = ({
   const onSubmit = async () => {
     if (userpoint - price < 0) {
       setCantbuy(true);
-    } else if (locaValue == "6") {
+    } else if (locaValue === "6") {
       const payComplete = await axios.post(
         "/api/trade/sellcomplete",
         {
@@ -57,7 +57,7 @@ export const PayComplete = ({
         },
         { withCredentials: true }
       );
-      if (payComplete.status == 211) {
+      if (payComplete.status === 211) {
         setModalOpen(true);
         setTimeout(() => navigate("/"), 1000);
       } else {
@@ -77,7 +77,7 @@ export const PayComplete = ({
         { withCredentials: true }
       );
 
-      if (payComplete.status == 211) {
+      if (payComplete.status === 211) {
         setModalOpen(true);
         setTimeout(() => navigate("/"), 1000);
       } else {

@@ -1,6 +1,5 @@
 import TopBox from "./TopBox";
 import BottomBox from "./BottomBox/index";
-import Svg from "../../../../imgs/Chevron-down.svg";
 import { MouseEvent } from "react";
 import { Link } from "react-router-dom";
 

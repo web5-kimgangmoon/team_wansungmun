@@ -3,16 +3,16 @@ interface IProps {
 }
 
 const MainItem = ({ children }: IProps) => {
-  const settings = {
-    dots: true,
-    // dotsClass:{},
-    infinite: true,
-    speed: 500,
-    slidesPerRow: 5,
-    // slidesToShow: 5,
-    // slidesToScroll: 2,
-    rows: 3,
-  };
+  // const settings = {
+  //   dots: true,
+  //   // dotsClass:{},
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesPerRow: 5,
+  //   // slidesToShow: 5,
+  //   // slidesToScroll: 2,
+  //   rows: 3,
+  // };
   return (
     <div className="w-[20%]">
       <div className="bg-cusGray w-[3rem] h-[3rem] rounded-xl"></div>

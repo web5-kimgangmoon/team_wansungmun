@@ -1,4 +1,4 @@
-interface IProps {}
+// interface IProps {}
 
 const MyInfo = () => {
   return (

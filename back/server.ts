@@ -29,7 +29,7 @@ const { server, io } = useSocket(app);
 
 app.set("port", process.env.PORT || 3080);
 app.use((req, res, next) => {
-  if (process.env.NODE_ENV == "deploy") morgan("combined")(req, res, next);
+  if (process.env.NODE_ENV === "deploy") morgan("combined")(req, res, next);
   else morgan("dev")(req, res, next);
 });
 

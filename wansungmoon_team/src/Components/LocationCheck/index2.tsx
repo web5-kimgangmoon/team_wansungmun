@@ -2,7 +2,7 @@ import MenuBar from "../Public/Footer/MenuBar";
 import Header from "../Header";
 import SingleTextBox from "../Public/Header/singleTextBox";
 import LocationChase from "../Public/Body/KakaoMapLocationGetter/LocationChase/index2";
-import getAddress from "../Public/Body/KakaoMapLocationGetter/hooks/LocationChase/useAddress";
+// import getAddress from "../Public/Body/KakaoMapLocationGetter/hooks/LocationChase/useAddress";
 import Button from "../Public/Body/Button";
 import LongButton from "../Public/Body/LongButton";
 import { useNavigate } from "react-router-dom";

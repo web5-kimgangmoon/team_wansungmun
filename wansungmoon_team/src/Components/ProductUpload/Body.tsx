@@ -1,6 +1,6 @@
 import Button from "../Public/Body/Button";
 import CenterBody from "../Public/Body/CenterBody";
-import CheckNLabel from "../Public/Body/CheckBox/CheckNLabel";
+// import CheckNLabel from "../Public/Body/CheckBox/CheckNLabel";
 import Dropdown from "../Public/Body/Dropdown";
 import InputTextBox from "../Public/Body/InputBox";
 import InputText from "../Public/Body/InputBox/InputText";
@@ -14,7 +14,7 @@ import BoldLine from "../Public/Body/BoldLine";
 import KakaoMapLocation from "../Public/Body/KakaoMapLocationGetter";
 import useMapLocation from "../Public/Body/KakaoMapLocationGetter/hooks/useMapLocation";
 import useMapAddress from "../Public/Body/KakaoMapLocationGetter/hooks/useMapAddress";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReactModal from "react-modal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,7 @@ const Body = () => {
     address: string;
     isOpenModal: boolean;
   }>({ address: "거래희망장소", isOpenModal: false });
-  const { uploadedImg, setUploadedImg, onChangeImg } = useImgUpload(5);
+  const { uploadedImg, onChangeImg } = useImgUpload(5);
   const isDirectEnable = useSwap();
   const { mapLocation, setMapLocation } = useMapLocation();
   const { mapAddress, setMapAddress } = useMapAddress();
@@ -37,7 +37,7 @@ const Body = () => {
   const navigate = useNavigate();
 
   const cateReq = async () => {
-    const callCate = await axios.get("/api/category/uploadpage", {
+    await axios.get("/api/category/uploadpage", {
       withCredentials: true,
     });
   };
@@ -54,7 +54,7 @@ const Body = () => {
         alert("카테고리를 선택해주세요!");
       } else if (!etcData.point) {
         alert("가격을 선택해주세요!");
-      } else if (mapAddress == "거래희망장소!") {
+      } else if (mapAddress === "거래희망장소!") {
         alert("거래 장소를 선택해주세요!");
       } else if (!etcData.title) {
         alert("제목을 입력해주세요!");
@@ -83,9 +83,9 @@ const Body = () => {
           data: formData,
           withCredentials: true,
         });
-        if (data.status == 302) {
+        if (data.status === 302) {
           alert("유저 정보를 찾을 수 없습니다");
-        } else if (data.status == 201) {
+        } else if (data.status === 201) {
           navigate("/");
         }
       }

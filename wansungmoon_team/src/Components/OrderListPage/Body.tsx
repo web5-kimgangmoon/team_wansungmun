@@ -1,7 +1,7 @@
 import SmallButton from "../Public/Body/SmallButton/SmallButton";
 import DealIng from "../Temp/DealIng";
 
-interface IProps {}
+// interface IProps {}
 
 const OrderListContent = () => {
   return (

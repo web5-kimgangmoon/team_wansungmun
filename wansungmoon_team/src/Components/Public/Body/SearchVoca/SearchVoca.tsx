@@ -1,18 +1,18 @@
 import { MouseEvent } from "react";
 
 interface IProps {
-  textColor: "white" | "black";
-  bgColor: "blue" | "gray" | "red" | "green" | "white";
-  isBorder?: boolean;
+  // textColor: "white" | "black";
+  // bgColor: "blue" | "gray" | "red" | "green" | "white";
+  // isBorder?: boolean;
   children: string;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
 const SearchVoca = ({
-  textColor,
-  bgColor,
+  // textColor,
+  // bgColor,
   children,
-  isBorder = false,
+  // isBorder = false,
   onClick,
 }: IProps): JSX.Element => {
   const textColorStorage = {
@@ -29,7 +29,7 @@ const SearchVoca = ({
   return (
     <div className="w-[5rem] h-[2rem] border rounded-3xl justify-between flex p-1">
       <div>{children}</div>
-      <div>X</div>
+      <div onClick={onClick}>X</div>
     </div>
   );
 };

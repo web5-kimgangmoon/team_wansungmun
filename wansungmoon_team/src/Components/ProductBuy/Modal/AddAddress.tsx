@@ -37,7 +37,8 @@ export const AddAddress = ({
   const [modalOpen, setModalOpen] = useState(false);
   const { setMapLocation, mapLocation } = useMapLocation();
   const { setMapAddress, mapAddress } = useMapAddress();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
   return (
     <div>
       <div>

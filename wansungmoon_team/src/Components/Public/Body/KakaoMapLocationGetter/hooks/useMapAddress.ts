@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useMapAddress = () => {
   const [mapAddress, setMapAddress] = useState<string>("");

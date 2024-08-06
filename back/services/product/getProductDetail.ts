@@ -10,7 +10,7 @@ const getProductDetail = async (req: Request, res: Response) => {
     // res.status(280).send(data);
     if (!req.session.user) {
       res.status(209).send(data);
-    } else if (req.session.user == data?.sellerId) {
+    } else if (req.session.user === data?.sellerId) {
       res.status(210).send(data);
     } else res.status(211).send(data);
   } catch (err) {

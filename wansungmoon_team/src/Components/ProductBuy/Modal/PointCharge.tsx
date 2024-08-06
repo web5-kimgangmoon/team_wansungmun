@@ -1,10 +1,10 @@
-import React from "react";
-import { useRef, useState } from "react";
-import { useRecoilState } from "recoil";
+// import React from "react";
+import { useState } from "react";
+// import { useRecoilState } from "recoil";
 import Modal from "react-modal";
 import LongButton from "../../Public/Body/LongButton";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Login from "../../Login";
+// import { useNavigate } from "react-router-dom";
+// import Login from "../../Login";
 
 const customStyles = {
   content: {
@@ -19,7 +19,7 @@ const customStyles = {
 
 export const PointCharge = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <div>
       <div>
@@ -34,7 +34,12 @@ export const PointCharge = () => {
         </LongButton>
       </div>
 
-      <Modal className="" style={customStyles} isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
+      <Modal
+        className=""
+        style={customStyles}
+        isOpen={modalOpen}
+        onRequestClose={() => setModalOpen(false)}
+      >
         <div>
           <div className="font-bold">고객정보</div>
           <div className="border-b mb-2">

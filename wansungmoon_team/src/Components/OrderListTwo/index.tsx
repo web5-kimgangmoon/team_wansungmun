@@ -3,7 +3,7 @@ import CenterBody from "../Public/Body/CenterBody";
 import Item, { IProps as IItem } from "../Public/Body/ProductInfoItem";
 import MenuBar from "../Public/Footer/MenuBar";
 import SingleTextBox from "../Public/Header/singleTextBox";
-import bycle from "../../imgs/Kakao_logo.jpg";
+// import bycle from "../../imgs/Kakao_logo.jpg";
 import useOrderList from "../../hooks/orderList/useOrderLIst";
 import { useNavigate } from "react-router-dom";
 
@@ -23,14 +23,15 @@ const OrderListPage = () => {
         src: item.product.titleImg,
         pressBtnInfo: {
           tradeListPath: `/orderDetail/${item.product.id}`,
-          move: item.product.tradeStatus == 2 ? "locationCheck" : "tradeCancel",
+          move:
+            item.product.tradeStatus === 2 ? "locationCheck" : "tradeCancel",
           onClick: () => {
-            if (item.product.tradeStatus == 2)
+            if (item.product.tradeStatus === 2)
               navigate(`/locationCheck/${item.product.id}`);
           },
         },
       },
-      topData: { state: item.product.tradeStatus == 2 ? "trading" : "traded" },
+      topData: { state: item.product.tradeStatus === 2 ? "trading" : "traded" },
     });
   }
   return (

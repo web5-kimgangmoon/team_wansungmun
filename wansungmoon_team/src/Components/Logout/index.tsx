@@ -10,7 +10,7 @@ export const Logout = () => {
         const sessionKill = await axios.get("/api/logout", {
           withCredentials: true,
         });
-        if (sessionKill.status == 201) {
+        if (sessionKill.status === 201) {
           navigate("/");
         } else {
           alert("로그아웃 명령이 정상적으로 실행되지 않았습니다");

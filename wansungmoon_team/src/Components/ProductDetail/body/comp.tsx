@@ -1,6 +1,3 @@
-import Header from "../../Header";
-import MenuBar from "../../Public/Footer/MenuBar";
-import SingleTextBox from "../../Public/Header/singleTextBox";
 import LongButton from "../../Public/Body/LongButton";
 import { Link } from "react-router-dom";
 import { MouseEvent } from "react";
@@ -39,7 +36,7 @@ const ProductDetail = ({
   const priceArr = price.toString().split("");
   let priceStr = priceArr
     .map((item, index) =>
-      (priceArr.length - index) % 3 == 0 ? "," + item : item
+      (priceArr.length - index) % 3 === 0 ? "," + item : item
     )
     .join("");
   if (priceStr.charAt(0) === ",") priceStr = priceStr.replace(",", "");

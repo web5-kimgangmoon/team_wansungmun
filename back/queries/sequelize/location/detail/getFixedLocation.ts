@@ -4,7 +4,7 @@ import db, { sequelize } from "../../../../models/sequelize";
 const getFixedLocation = async (userId: number, productId: number) => {
   try {
     if (Number.isNaN(userId) || Number.isNaN(productId)) return undefined;
-    if (userId == -1 || productId == -1) return undefined;
+    if (userId === -1 || productId === -1) return undefined;
     const destinationNStart = await db.TradeReceipt.findOne({
       where: { productId: productId, customerId: userId },
       include: {

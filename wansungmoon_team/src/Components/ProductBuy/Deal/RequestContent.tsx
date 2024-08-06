@@ -1,9 +1,9 @@
 interface IProps {
-  reqContent: string;
+  // reqContent: string;
   setReqContent: (str: string) => void;
 }
 
-const RequestContent = ({ reqContent, setReqContent }: IProps) => {
+const RequestContent = ({ setReqContent }: IProps) => {
   return (
     <div className="p-1 border-b">
       <div className="font-bold">거래 요청사항</div>

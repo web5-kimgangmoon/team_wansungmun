@@ -1,18 +1,9 @@
-import { Children } from "react";
-import Header from "./Components/Header";
 import ProductList from "./Components/ProductList";
 import ProductUpload from "./Components/ProductUpload";
-import MediumBtn from "./Components/Public/Body/MediumButton/MediumBtn";
-import SmallButton from "./Components/Public/Body/SmallButton/SmallButton";
-import SearchVoca from "./Components/Public/Body/SearchVoca/SearchVoca";
-import { Link, Route, Routes } from "react-router-dom";
-import Email from "./Components/Temp/Email";
-import KakaoBtn from "./Components/Temp/KakaoBtn";
+import { Route, Routes } from "react-router-dom";
 import Login from "./Components/Login";
 import Email_login from "./Components/Login/Login_Email/Comp";
 import Regist from "./Components/regist";
-import MenuBar from "./Components/Public/Footer/MenuBar";
-import List from "./Components/ProductList/Body";
 import ReviewWrite from "./Components/ReviewNreportWrite/ReviewWrite";
 import ReportWrite from "./Components/ReviewNreportWrite/ReportWrite";
 import OrderListPage from "./Components/OrderListTwo";
@@ -20,27 +11,20 @@ import OrderListPageSelled from "./Components/OrderListTwo/UserOrderList/SelledL
 import OrderListPageSelling from "./Components/OrderListTwo/UserOrderList/SellingList";
 import Dib from "./Components/OrderListTwo/Dib";
 import Regist_email from "./Components/regist/regist_email/Comp";
-import ProductPage from "./Components/ProductPage/ProductPage";
 import ReviewHistory from "./Components/ReviewHistory";
 import ProductDetail from "./Components/ProductDetail";
 import LocationCheck from "./Components/LocationCheck/index";
 import KakaoCallback from "./Components/Login/Login_kakao/KakaoCallback";
 import Kakao_regist from "./Components/regist/regist_kakao/Comp";
-import MultipleItems from "./Components/Main/Slide";
-import MultipleRows from "./Components/Main/Slide";
 import InfoPage from "./Components/MyInfo/comp";
 import Buy from "./Components/ProductBuy";
-import ProductPageContents from "./Components/ProductPage/ProductPageContents";
-import PayComplete from "./Components/ProductBuy/Modal/PayComplete";
 import { Logout } from "./Components/Logout";
 
 import ProductListPage from "./Components/ProductListPage";
 import ProductDetailP from "./Components/ProductPage/index";
 import MainPage from "./Components/Main/MainPage";
-import axios from "axios";
 import DeliveryListPage from "./Components/Delivery/index";
 import DeliveryDetail from "./Components/DeliveryDetail";
-import PointChargePage from "./Components/Point/PointChargePage";
 import PointPageMain from "./Components/Point/Comp";
 
 function App() {

@@ -5,7 +5,7 @@ interface IProps {
   bgColor: "blue" | "gray" | "red" | "green" | "white";
   isBorder?: boolean;
   children: string;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
 const SmallButton = ({
@@ -35,7 +35,7 @@ const SmallButton = ({
           bgColorStorage[bgColor] +
           `${isBorder ? " border border-cusGray" : ""}`
         }
-        // onClick={onClick}
+        onClick={onClick}
       >
         {children}
       </div>

@@ -23,7 +23,7 @@ const DeliveryListPage = () => {
           ? item.tradeReceipts[0].phone
           : "확인불가",
         isDeliverying:
-          item.deliveryStatus == 0 || item.deliveryStatus == 1 ? true : false,
+          item.deliveryStatus === 0 || item.deliveryStatus === 1 ? true : false,
       });
       // console.log(
       //   new Date(new Date(item.createdAt).getTime() - Date.now()).getTime() <

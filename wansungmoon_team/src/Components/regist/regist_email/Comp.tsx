@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import InputTextBox from "../../Public/Body/InputBox";
 import Button from "../../Public/Body/Button";
 // import { ModalComp } from "./loca_modal/Comp";
@@ -10,7 +10,6 @@ const Regist_email = () => {
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const [phoneNum, setPhoneNum] = useState("");
-  const [location, setLocation] = useState("");
   const [detailloca, setDetailloca] = useState("");
   const navigate = useNavigate();
   const emailReg = /^[a-z0-9가-힣]+@[a-z]+\.[a-z]{2,3}$/;
@@ -46,13 +45,13 @@ const Regist_email = () => {
           { withCredentials: true }
         );
         console.log(data.status);
-        if (data.status == 301) {
+        if (data.status === 301) {
           alert("이미 가입된 이메일입니다");
-        } else if (data.status == 302) {
+        } else if (data.status === 302) {
           alert("중복된 휴대폰 번호입니다");
-        } else if (data.status == 303) {
+        } else if (data.status === 303) {
           alert("중복된 닉네임입니다");
-        } else if (data.status == 201) {
+        } else if (data.status === 201) {
           navigate("/");
         }
       }

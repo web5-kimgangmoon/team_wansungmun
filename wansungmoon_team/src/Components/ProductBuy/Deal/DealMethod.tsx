@@ -1,6 +1,6 @@
 import Dropdown from "../../Public/Body/Dropdown";
 
-interface IProps {}
+// interface IProps {}
 
 const DealMethod = () => {
   return (

@@ -14,7 +14,7 @@ import Stars from "../Stars/Stars";
 import { MouseEvent } from "react";
 
 const ReviewWrite = () => {
-  const [textAreaData, setTextAreaData] = useState<string>("");
+  const [_, setTextAreaData] = useState<string>("");
   const { uploadedImg, onChangeImg } = useImgUpload(5);
   const { recommendIndex, setRecommendIndex } = useRecommend();
   const { score, setScore } = useScore();

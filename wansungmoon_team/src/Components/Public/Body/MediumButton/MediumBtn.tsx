@@ -5,7 +5,7 @@ interface IProps {
   bgColor: "blue" | "gray" | "red" | "green" | "white";
   isBorder?: boolean;
   children: string;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => {};
+  onClick?: (e: MouseEvent<HTMLDivElement>) => {};
 }
 
 const MediumBtn = ({
@@ -35,7 +35,7 @@ const MediumBtn = ({
           bgColorStorage[bgColor] +
           `${isBorder ? " border border-cusGray" : ""}`
         }
-        // onClick={onClick}
+        onClick={onClick}
       >
         {children}
       </div>

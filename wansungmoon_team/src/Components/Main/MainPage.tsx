@@ -4,7 +4,7 @@ import More from "../ProductList/More";
 import MenuBar from "../Public/Footer/MenuBar";
 import Main from "./Body";
 
-interface IProps {}
+// interface IProps {}
 
 const MainPage = () => {
   return (

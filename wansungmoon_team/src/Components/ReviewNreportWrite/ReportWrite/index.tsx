@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Svg from "../../../svgs/Check";
-import downSvg from "../../../svgs/Chevron-down";
+// import downSvg from "../../../svgs/Chevron-down";
 import Header from "../../Header";
 import LongButton from "../../Public/Body/LongButton";
 import PictureBox from "../../Public/Body/PictureBox";
@@ -13,7 +13,7 @@ import RecommendList from "../recommendList/RecommendList";
 import { MouseEvent } from "react";
 
 const ReportWrite = () => {
-  const [textAreaData, setTextAreaData] = useState<string>("");
+  const [_, setTextAreaData] = useState<string>("");
   const { uploadedImg, onChangeImg } = useImgUpload(5);
   const { recommendIndex, setRecommendIndex } = useRecommend();
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);

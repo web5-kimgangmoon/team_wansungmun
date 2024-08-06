@@ -7,9 +7,9 @@ export interface IProps {
 
 const DeliveryBtn = ({ deliveryStatus, onClick }: IProps) => {
   const LongButtonInfo: ["green" | "red" | "gray", "white" | "black", string] =
-    deliveryStatus == 0
+    deliveryStatus === 0
       ? ["gray", "black", "배송전"]
-      : deliveryStatus == 1
+      : deliveryStatus === 1
       ? ["green", "white", "배송완료"]
       : ["red", "white", "완료취소"];
   return (

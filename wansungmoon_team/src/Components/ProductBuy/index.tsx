@@ -1,4 +1,4 @@
-import LongButton from "../Public/Body/LongButton";
+// import LongButton from "../Public/Body/LongButton";
 import CategoryBar from "../ProductListPage/CategoryBar/CategoryBar";
 import ProductInfo from "./Deal/ProductInfo";
 import DealMethod from "./Deal/DealMethod";
@@ -6,33 +6,33 @@ import DeliveryAdrress from "./Deal/DeliveryAdrress";
 import RequestContent from "./Deal/RequestContent";
 import PointPayment from "./Deal/PointPayment";
 import PayComplete from "./Modal/PayComplete";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-interface IProps {
-  title: string;
-  sellerId: number;
-  src: string;
-  price: number;
-  userpoint: number;
-  phone: string;
-  location: Array<any>;
-  point: number;
-  locaOther: object;
-}
+// interface IProps {
+//   title: string;
+//   sellerId: number;
+//   src: string;
+//   price: number;
+//   userpoint: number;
+//   phone: string;
+//   location: Array<any>;
+//   point: number;
+//   locaOther: object;
+// }
 
 const Buy = () => {
   const info = useLocation();
   console.log(info);
-  const content = info.state.contents;
+  // const content = info.state.contents;
   const title = info.state.title;
-  const sellerId = info.state.sellerId;
+  // const sellerId = info.state.sellerId;
   const src = info.state.src;
   const price = info.state.price;
   const productId = info.state.productId;
   const [userpoint, setUserpoint] = useState<number>(21);
-  const [phone, setPhone] = useState("");
+  const [_, setPhone] = useState("");
   const [reqContent, setReqContent] = useState("");
 
   const [locaValue, setLocaValue] = useState("");
@@ -83,7 +83,7 @@ const Buy = () => {
         // setLocaID={setLocaID}
       ></DeliveryAdrress>
       <RequestContent
-        reqContent={reqContent}
+        // reqContent={reqContent}
         setReqContent={setReqContent}
       ></RequestContent>
       <PointPayment point={userpoint} price={price}></PointPayment>

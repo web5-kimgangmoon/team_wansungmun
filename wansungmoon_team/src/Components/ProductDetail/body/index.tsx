@@ -1,5 +1,4 @@
 import { MouseEvent } from "react";
-import bycle from "../../imgs/Kakao_logo.jpg";
 import Comp from "./comp";
 import { useNavigate, useParams } from "react-router-dom";
 import useOrderListDetail from "../../../hooks/orderList/useOrderLIstDetail";
@@ -40,7 +39,7 @@ const ProductDetail = () => {
     isReviewed: false,
     isPurchaser: true,
     isAbleDeliveryLocationCheck:
-      data.data.product.tradeStatus == 2 ? true : false,
+      data.data.product.tradeStatus === 2 ? true : false,
     clickPreviousPath: () => navigate(-1),
     onClickDeliveryCheck: () => {
       navigate(`/locationCheck/${data.data.product.id}`);

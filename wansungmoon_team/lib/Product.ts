@@ -5,9 +5,9 @@ export interface Product {
   getScore(): number;
 }
 
-export class Product implements Product {
-  private name: string;
-  private content: string;
-  private createdAt: string;
-  private score: number;
-}
+// export class Product implements Product {
+//   private name: string;
+//   private content: string;
+//   private createdAt: string;
+//   private score: number;
+// }

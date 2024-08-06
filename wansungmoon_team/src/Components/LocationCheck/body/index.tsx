@@ -30,7 +30,7 @@ const LocationCheck = () => {
         fixed.data.data.destination + " " + fixed.data.data.destinationDetail,
     },
     route:
-      log.data.data.info.length == 2
+      log.data.data.info.length === 2
         ? {
             lat: log.data.data.info[1].lat as number,
             lng: log.data.data.info[1].lng as number,

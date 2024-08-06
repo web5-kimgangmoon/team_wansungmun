@@ -14,9 +14,11 @@ export const Regist = async (req: Request, res: Response) => {
         ],
       },
     });
-    const isEmail = RegistInfo?.email == req.body.email ? true : false;
-    const isphoneNum = RegistInfo?.phoneNum == req.body.phoneNum ? true : false;
-    const isnickname = RegistInfo?.nickname == req.body.nickname ? true : false;
+    const isEmail = RegistInfo?.email === req.body.email ? true : false;
+    const isphoneNum =
+      RegistInfo?.phoneNum === req.body.phoneNum ? true : false;
+    const isnickname =
+      RegistInfo?.nickname === req.body.nickname ? true : false;
 
     console.log();
     if (isEmail) {

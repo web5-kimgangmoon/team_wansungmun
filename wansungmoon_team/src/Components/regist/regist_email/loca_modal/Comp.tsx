@@ -1,7 +1,7 @@
-import React from "react";
-import { useRef, useState } from "react";
-import Button from "../../../Public/Body/Button";
-import { useRecoilState } from "recoil";
+// import React from "react";
+import { useState } from "react";
+// import Button from "../../../Public/Body/Button";
+// import { useRecoilState } from "recoil";
 import Modal from "react-modal";
 export const ModalComp = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,6 +21,8 @@ export const ModalComp = () => {
     </div>
   );
 };
+
+export default ModalComp;
 
 //   return (
 //     <div>

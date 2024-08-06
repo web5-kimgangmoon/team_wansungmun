@@ -1,5 +1,4 @@
 import useKakaoLoader from "../hooks/useKakaoLoader";
-import { MouseEvent, useRef } from "react";
 import { useState } from "react";
 import Comp from "./Comp";
 
@@ -20,10 +19,7 @@ const KakaoMapLocationGetter = ({
   >(undefined);
   if (!initail) setInital(mapLocation);
 
-  const clickMarking = (
-    target: kakao.maps.Map,
-    e: kakao.maps.event.MouseEvent
-  ) => {
+  const clickMarking = (_: kakao.maps.Map, e: kakao.maps.event.MouseEvent) => {
     const geocoder = new kakao.maps.services.Geocoder();
     geocoder.coord2Address(
       e.latLng.getLng(),

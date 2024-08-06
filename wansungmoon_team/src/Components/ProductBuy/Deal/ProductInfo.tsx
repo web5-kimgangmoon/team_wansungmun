@@ -1,4 +1,4 @@
-import qwer from "../../ProductPage/img/qwer.png";
+// import qwer from "../../ProductPage/img/qwer.png";
 
 interface IProps {
   title: string;

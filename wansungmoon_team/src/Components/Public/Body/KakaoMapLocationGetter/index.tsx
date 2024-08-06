@@ -21,10 +21,7 @@ const KakaoMapLocationGetter = ({
   const changeIsEnableMarking = (e: MouseEvent<HTMLButtonElement>) => {
     setIsEnableMarking(!isEnableMarking);
   };
-  const clickMarking = (
-    target: kakao.maps.Map,
-    e: kakao.maps.event.MouseEvent
-  ) => {
+  const clickMarking = (_: kakao.maps.Map, e: kakao.maps.event.MouseEvent) => {
     console.log(kakao);
     if (!isEnableMarking) return;
     const geocoder = new kakao.maps.services.Geocoder();

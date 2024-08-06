@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { isToken } from "typescript";
+// import { isToken } from "typescript";
 
 const KakaoCallback = () => {
   const navigate = useNavigate();
@@ -44,10 +44,10 @@ const KakaoCallback = () => {
               )
               .then((res3) => {
                 console.log(res3);
-                if (res3.status == 203) {
+                if (res3.status === 203) {
                   console.log(res3.status);
                   navigate("/");
-                } else if (res3.status == 202) {
+                } else if (res3.status === 202) {
                   navigate("/regist/kakao", {
                     state: { email: res3.data },
                   });

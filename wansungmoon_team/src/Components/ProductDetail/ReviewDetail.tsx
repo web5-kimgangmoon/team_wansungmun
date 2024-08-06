@@ -35,7 +35,7 @@ const ReviewDetail = ({
   const priceArr = price.toString().split("");
   let priceStr = priceArr
     .map((item, index) =>
-      (priceArr.length - index) % 3 == 0 ? "," + item : item
+      (priceArr.length - index) % 3 === 0 ? "," + item : item
     )
     .join("");
   if (priceStr.charAt(0) === ",") priceStr = priceStr.replace(",", "");

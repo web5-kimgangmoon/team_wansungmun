@@ -4,7 +4,7 @@ import db, { sequelize } from "../../../../models/sequelize";
 const postDeliveryCompleteQuery = async (userId: number, productId: number) => {
   try {
     if (Number.isNaN(userId) || Number.isNaN(productId)) return undefined;
-    if (userId == -1 || productId == -1) return undefined;
+    if (userId === -1 || productId === -1) return undefined;
     const productInfo = await db.Product.findOne({
       where: {
         deliveryUserId: userId,
@@ -22,13 +22,13 @@ const postDeliveryCompleteQuery = async (userId: number, productId: number) => {
       },
     });
 
-    productInfo?.deliveryStatus == 1
+    productInfo?.deliveryStatus === 1
       ? await productInfo.update({
           deliveryStatus: 2,
           tradeStatus: 3,
           deletedAt: new Date(),
         })
-      : productInfo?.deliveryStatus == 2
+      : productInfo?.deliveryStatus === 2
       ? await productInfo.update({
           deliveryStatus: 1,
           tradeStatus: 2,

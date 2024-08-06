@@ -4,7 +4,7 @@ import db, { sequelize } from "../../../models/sequelize";
 const getOrderList = async (userId: number) => {
   try {
     if (Number.isNaN(userId)) return undefined;
-    if (userId == -1) return undefined;
+    if (userId === -1) return undefined;
     const orderList = await db.TradeReceipt.findAll({
       where: { customerId: userId },
       include: {

@@ -22,7 +22,7 @@ const chat = (io: Server) => {
     client.on("chat", (data) => {
       let now = [...client.rooms][0];
       console.log(now);
-      if (data.room != now) {
+      if (data.room !== now) {
         client.join(data.room);
         now = data.room;
       }
