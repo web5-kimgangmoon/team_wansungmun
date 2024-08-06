@@ -78,7 +78,7 @@ const Body = () => {
         formData.set("content", etcData.content);
         let data = await axios({
           method: "post",
-          url: "http://localhost:3080/api/upload/upload",
+          url: "/api/upload/upload",
 
           data: formData,
           withCredentials: true,
@@ -218,7 +218,7 @@ const Body = () => {
             try {
               let data = await axios({
                 method: "post",
-                url: "http://localhost:3080/api/upload/upload",
+                url: "/api/upload/upload",
                 // headers: {
                 //   "Content-type": "multipart/form-data",
                 // },
