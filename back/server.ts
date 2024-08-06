@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import cors from "cors";
 // import cookieParser from "cookie-parser";
-import multer from "multer";
+// import multer from "multer";
 import useSocket from "./socket/useSocket";
 import router from "./controllers/index";
 import { sequelize } from "./models/sequelize/index";
@@ -15,7 +15,7 @@ import mkCase from "./queries/testCase";
 dotenv.config();
 
 const app = express();
-const { server, io } = useSocket(app);
+const { server } = useSocket(app);
 
 app.set("port", process.env.PORT || 3080);
 app.use((req, res, next) => {
@@ -33,17 +33,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 // app.use(cookieParser(process.env.COOKIESECRET || "dksajdalsjd")); // 쿠키가 필요하다면
 
-const upload = (imgs: string) =>
-  multer({
-    storage: multer.diskStorage({
-      destination: (_, file, callback) => {
-        callback(null, "./uploads");
-      },
-      filename: (_, file, callback) => {
-        callback(null, `${Date.now}_${file.originalname}`);
-      },
-    }),
-  }).array(imgs);
+// const upload = (imgs: string) =>
+//   multer({
+//     storage: multer.diskStorage({
+//       destination: (_, file, callback) => {
+//         callback(null, "./uploads");
+//       },
+//       filename: (_, file, callback) => {
+//         callback(null, `${Date.now}_${file.originalname}`);
+//       },
+//     }),
+//   }).array(imgs);
 
 // app.post("/upload", upload("imgs"), (req,res) =>{
 //   res.send("ok");
@@ -105,6 +105,13 @@ const upload = (imgs: string) =>
 // })();
 
 const FileStore = fileStore(session);
+declare module "express-session" {
+  interface SessionData {
+    user: number;
+    isLogined: boolean;
+    nickName: string;
+  }
+}
 
 app.use(
   session({
