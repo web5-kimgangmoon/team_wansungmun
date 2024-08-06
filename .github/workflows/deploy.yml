@@ -121,6 +121,10 @@ jobs:
 
       - name: Install Dependencies of Front
         working-directory: ./wansungmoon_team
+        run: npm i
+
+      - name: Build Front
+        working-directory: ./wansungmoon_team
         run: npm run build
 
       - name: Copy Files to EC2
