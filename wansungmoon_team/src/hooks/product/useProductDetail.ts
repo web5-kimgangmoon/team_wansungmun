@@ -6,7 +6,7 @@ const useProductDetail = (productId: number) => {
     queryKey: ["product", "get", "detail"],
     queryFn: async () => {
       try {
-        const product = await axios.get("api/productInfo/detail", {
+        const product = await axios.get("/api/productInfo/detail", {
           withCredentials: true,
           params: { productId },
         });

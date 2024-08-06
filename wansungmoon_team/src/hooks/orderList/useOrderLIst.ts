@@ -6,7 +6,7 @@ const useOrderList = () => {
     queryKey: ["get", "orderList"],
     queryFn: async () => {
       try {
-        const product = await axios.get("api/orderList/get", {
+        const product = await axios.get("/api/orderList/get", {
           withCredentials: true,
         });
         return product;

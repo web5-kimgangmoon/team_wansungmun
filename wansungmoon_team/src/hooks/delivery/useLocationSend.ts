@@ -6,7 +6,7 @@ const useLocationSend = (lat: number, lng: number, isStart: boolean) => {
     queryKey: ["location", "post", "delivery"],
     queryFn: async () => {
       try {
-        const result = await axios("api/delivery/locationSend", {
+        const result = await axios("/api/delivery/locationSend", {
           method: "post",
           withCredentials: true,
           data: { lat, lng },

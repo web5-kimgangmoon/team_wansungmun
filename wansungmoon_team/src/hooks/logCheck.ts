@@ -6,7 +6,7 @@ const useLoginCheck = () => {
     mutationKey: ["loginCheck", "get"],
     mutationFn: async (number: number) => {
       try {
-        const isLogin = await axios.get("api/logCheck", {
+        const isLogin = await axios.get("/api/logCheck", {
           withCredentials: true,
         });
         return isLogin.data;

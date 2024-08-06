@@ -6,7 +6,7 @@ const useFixed = (productId: number) => {
     queryKey: ["getFixed", "locationCheck"],
     queryFn: async () => {
       try {
-        const product = await axios.get("api/locationCheck/getFixed", {
+        const product = await axios.get("/api/locationCheck/getFixed", {
           withCredentials: true,
           params: { productId },
         });

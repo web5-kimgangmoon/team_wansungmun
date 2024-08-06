@@ -6,7 +6,7 @@ const useLog = (productId: number) => {
     queryKey: ["locationCheck", "get", "log"],
     queryFn: async () => {
       try {
-        const result = await axios("api/locationCheck/get", {
+        const result = await axios("/api/locationCheck/get", {
           method: "get",
           withCredentials: true,
           params: { productId },

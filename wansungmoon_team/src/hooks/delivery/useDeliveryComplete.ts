@@ -6,7 +6,7 @@ const useDeliveryComplete = (productId: number) => {
     mutationKey: ["complete", "post", "delivery"],
     mutationFn: async () => {
       try {
-        const detail = await axios("api/delivery/deliveryComplete", {
+        const detail = await axios("/api/delivery/deliveryComplete", {
           method: "post",
           withCredentials: true,
           data: { productId },

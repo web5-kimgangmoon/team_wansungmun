@@ -6,7 +6,7 @@ const useCategoryProducts = (categoryId: number) => {
     queryKey: ["category", "product", "get"],
     queryFn: async () => {
       try {
-        const products = await axios.get("api/category/getProducts", {
+        const products = await axios.get("/api/category/getProducts", {
           withCredentials: true,
           params: { categoryId },
         });
