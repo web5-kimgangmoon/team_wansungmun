@@ -1,15 +1,13 @@
-import { Link, useNavigate } from "react-router-dom";
-import KakaoBtn from "../Temp/KakaoBtn";
-import Email from "../Temp/Email";
+import { Link } from "react-router-dom";
 import LongButton from "../Public/Body/LongButton";
 import MenuBar from "../Public/Footer/MenuBar";
 
 const Login = () => {
   const client_id = `${process.env.REACT_APP_KAKAO_API}`;
-  const navigate = useNavigate();
-  const url = new URL(
-    `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=http://localhost:3000/login/kakao&response_type=code`
-  );
+  // const navigate = useNavigate();
+  // const url = new URL(
+  //   `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=http://localhost:3000/login/kakao&response_type=code`
+  // );
   return (
     <div className="container">
       <ul className="flex flex-col gap-[1rem] min-h-[400px] justify-end">

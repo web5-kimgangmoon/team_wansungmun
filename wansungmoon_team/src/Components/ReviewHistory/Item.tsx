@@ -38,7 +38,7 @@ const Item = ({
         {srcs.map((item) =>
           item !== "" ? (
             <div className="sm:w-12 w-24">
-              <img src={item} className="w-full" />
+              <img src={item} className="w-full" alt="" />
             </div>
           ) : (
             ""

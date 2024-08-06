@@ -20,6 +20,6 @@ export const Logout = () => {
       }
     };
     logoutBtn();
-  }, []);
+  }, [navigate]);
   return <div></div>;
 };

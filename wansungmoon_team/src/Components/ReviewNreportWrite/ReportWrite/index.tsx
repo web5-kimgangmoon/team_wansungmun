@@ -13,7 +13,7 @@ import RecommendList from "../recommendList/RecommendList";
 import { MouseEvent } from "react";
 
 const ReportWrite = () => {
-  const [_, setTextAreaData] = useState<string>("");
+  const [text, setTextAreaData] = useState<string>("");
   const { uploadedImg, onChangeImg } = useImgUpload(5);
   const { recommendIndex, setRecommendIndex } = useRecommend();
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
@@ -49,6 +49,7 @@ const ReportWrite = () => {
             onChange={(e) => {
               setTextAreaData(e.target.value);
             }}
+            value={text}
           />
         </div>
         <div>

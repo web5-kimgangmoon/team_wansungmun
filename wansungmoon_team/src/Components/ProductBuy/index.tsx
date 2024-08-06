@@ -32,7 +32,7 @@ const Buy = () => {
   const price = info.state.price;
   const productId = info.state.productId;
   const [userpoint, setUserpoint] = useState<number>(21);
-  const [_, setPhone] = useState("");
+  // const [_, setPhone] = useState("");
   const [reqContent, setReqContent] = useState("");
 
   const [locaValue, setLocaValue] = useState("");
@@ -58,7 +58,7 @@ const Buy = () => {
       console.log(userInfo.data[0].locationList);
       setLocation(userInfo.data[0].locationList);
       setUserpoint(userInfo.data[0].point);
-      setPhone(userInfo.data[0].phone_num);
+      // setPhone(userInfo.data[0].phone_num);
     };
     ReqInfo();
   }, []);
@@ -73,13 +73,13 @@ const Buy = () => {
       <DealMethod></DealMethod>
       <DeliveryAdrress
         location={location}
-        locaValue={locaValue}
+        // locaValue={locaValue}
         setLocaValue={setLocaValue}
         setDetailLoca={setdetailLoca}
         detailLoca={detailLoca}
         setLocaOther={setLocaOther}
-        showLoca={showLoca}
-        setShowLoca={setShowLoca}
+        // showLoca={showLoca}
+        // setShowLoca={setShowLoca}
         // setLocaID={setLocaID}
       ></DeliveryAdrress>
       <RequestContent

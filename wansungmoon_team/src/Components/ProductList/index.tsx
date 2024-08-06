@@ -2,7 +2,7 @@ import Header from "../Header";
 import MenuBar from "../Public/Footer/MenuBar";
 import List from "./Body";
 
-interface IProps {}
+// interface IProps {}
 
 const ProductList = () => {
   return (

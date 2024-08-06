@@ -61,7 +61,7 @@ const LoginArea = () => {
       }
     };
     loginCheck();
-  }, []);
+  }, [setUserState]);
 
   return (
     <div>

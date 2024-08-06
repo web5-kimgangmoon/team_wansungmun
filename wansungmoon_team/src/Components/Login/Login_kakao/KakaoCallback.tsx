@@ -58,7 +58,7 @@ const KakaoCallback = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [navigate]);
 
   return <></>;
 };

@@ -1,30 +1,30 @@
-import { AnyARecord } from "dns";
+// import { AnyARecord } from "dns";
 import Dropdown from "../../Public/Body/Dropdown";
-import LongButton from "../../Public/Body/LongButton";
+// import LongButton from "../../Public/Body/LongButton";
 import AddAddress from "../Modal/AddAddress";
-import { useState } from "react";
+// import { useState } from "react";
 
 interface IProps {
   location: Array<{ id: number; location: string; locationDetail: string }>;
-  locaValue: string;
+  // locaValue: string;
   setLocaValue: (str: string) => void;
   setDetailLoca: (str: string) => void;
   detailLoca: string;
   setLocaOther: (str: any) => void;
-  showLoca: any;
-  setShowLoca: (str: any) => void;
+  // showLoca: any;
+  // setShowLoca: (str: any) => void;
 }
 
 const DeliveryAdrress = ({
   location,
-  locaValue,
+  // locaValue,
   setLocaValue,
   setDetailLoca,
   detailLoca,
   setLocaOther,
-  setShowLoca,
-  showLoca,
-}: IProps) => {
+}: // setShowLoca,
+// showLoca,
+IProps) => {
   let fulllocaArr: Array<[string | number, string]> = [];
   for (let i = 0; i < location.length; i++) {
     if (!location[i].location) continue;
@@ -58,7 +58,7 @@ const DeliveryAdrress = ({
         </div>
         <div className="">
           <AddAddress
-            locaValue={locaValue}
+            // locaValue={locaValue}
             setLocaValue={setLocaValue}
             setDetailLoca={setDetailLoca}
             detailLoca={detailLoca}

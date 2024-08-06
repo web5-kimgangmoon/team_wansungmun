@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Modal from "react-modal";
 import LongButton from "../../Public/Body/LongButton";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import LeftArrow from "./img/LeftArrow.png";
 import useMapLocation from "../../Public/Body/KakaoMapLocationGetter/hooks/useMapLocation";
 import KakaoMapLocationGetter from "../../Public/Body/KakaoMapLocationGetter";
@@ -9,7 +9,7 @@ import useMapAddress from "../../Public/Body/KakaoMapLocationGetter/hooks/useMap
 import InputBox from "../../Public/Body/InputBox";
 
 interface IProps {
-  locaValue: string;
+  // locaValue: string;
   setLocaValue: (str: string) => void;
   setDetailLoca: (str: string) => void;
   detailLoca: string;
@@ -28,7 +28,7 @@ const customStyles = {
 };
 
 export const AddAddress = ({
-  locaValue,
+  // locaValue,
   setLocaValue,
   setDetailLoca,
   detailLoca,

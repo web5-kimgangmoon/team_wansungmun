@@ -1,5 +1,5 @@
 import useKakaoLoader from "./hooks/useKakaoLoader";
-import { MouseEvent, useRef } from "react";
+import { MouseEvent } from "react";
 import { useState } from "react";
 import Comp from "./Comp";
 
