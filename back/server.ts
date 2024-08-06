@@ -6,21 +6,11 @@ import cors from "cors";
 import multer from "multer";
 import useSocket from "./socket/useSocket";
 import router from "./controllers/index";
-import db, { sequelize } from "./models/sequelize/index";
-import create_table_category from "./lib/create-table-category";
-import session, { Session, SessionData } from "express-session";
+import { sequelize } from "./models/sequelize/index";
+import session from "express-session";
 import fileStore from "session-file-store";
-import cookieParser from "cookie-parser";
 
-import test from "./queries/sequelize/product/getCateProducts";
 import mkCase from "./queries/testCase";
-import test2 from "./queries/sequelize/product/getProductDetail";
-import getDeliveryProductList from "./queries/sequelize/location/getDeliveryProductList";
-import locationSendQuery from "./queries/mongoose/location/locationSend";
-import locationGetQuery from "./queries/mongoose/location/getLocation";
-import getDeliveryDetailQuery from "./queries/sequelize/location/detail/getDeliveryDetail";
-import getOrderList from "./queries/sequelize/orderList/getOrderList";
-import getOrderDetail from "./queries/sequelize/orderList/detail/getOrderDetail";
 
 dotenv.config();
 
@@ -46,10 +36,10 @@ app.use(express.json());
 const upload = (imgs: string) =>
   multer({
     storage: multer.diskStorage({
-      destination: (req, file, callback) => {
+      destination: (_, file, callback) => {
         callback(null, "./uploads");
       },
-      filename: (req, file, callback) => {
+      filename: (_, file, callback) => {
         callback(null, `${Date.now}_${file.originalname}`);
       },
     }),

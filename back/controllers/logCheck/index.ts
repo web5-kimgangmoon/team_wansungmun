@@ -1,6 +1,5 @@
 import User from "../../models/sequelize/user";
-import { Request, Response, NextFunction } from "express";
-import index from "../../src/types/index";
+import { Request, Response } from "express";
 const logCheck = async (req: Request, res: Response) => {
   try {
     console.log("dddd");

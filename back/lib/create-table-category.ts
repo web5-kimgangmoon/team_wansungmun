@@ -1,7 +1,6 @@
-import db, { sequelize } from "../models/sequelize/index";
+import db from "../models/sequelize/index";
 
 async function create_table_category() {
-  const force = false;
   const cateTemp = [
     { cateImg: "예시", category: "디지털기기" },
     { cateImg: "예시", category: "유아동" },

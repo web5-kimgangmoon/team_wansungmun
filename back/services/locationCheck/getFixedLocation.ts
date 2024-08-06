@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import valueCheck from "../../lib/valueCheck";
-import get from "../../queries/sequelize/orderList/getOrderList";
 import getFixedLocationQuery from "../../queries/sequelize/location/detail/getFixedLocation";
 
 const getFixedLocation = async (req: Request, res: Response) => {

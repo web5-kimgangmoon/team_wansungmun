@@ -1,4 +1,3 @@
-import { Op } from "sequelize";
 import db from "../../../models/sequelize";
 
 const locationSendStateUpdateQuery = async (number: number) => {

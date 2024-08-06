@@ -1,11 +1,11 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import TradeReceipt from "../../models/sequelize/tradeReceipt";
 import Product from "../../models/sequelize/product";
 
 export const trade_receipt = async (req: Request, res: Response) => {
   console.log(req.body);
   try {
-    const sell = await Product.update(
+    await Product.update(
       {
         tradeStatus: 2,
         deliveryUserId: 3,
@@ -13,7 +13,7 @@ export const trade_receipt = async (req: Request, res: Response) => {
       { where: { id: req.body.productId } }
     );
     //   TradeReceipt.create();
-    const receipt = await TradeReceipt.create({
+    await TradeReceipt.create({
       customerId: req.session.user,
       productId: req.body.productId,
       tradeRequest: req.body.reqContent,

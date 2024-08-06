@@ -3,8 +3,6 @@ import User from "../../models/sequelize/user";
 
 export const Login = async (req: Request, res: Response) => {
   try {
-    const { userInput } = req.body;
-    console.log(req.body.email);
     const userInfo = await User.findOne({
       where: { email: req.body.email },
     });

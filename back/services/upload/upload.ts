@@ -1,15 +1,15 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import multer from "multer";
-import path from "path";
+// import path from "path";
 import Product from "../../models/sequelize/product";
 
 const uploadMulter = (imgs: string) =>
   multer({
     storage: multer.diskStorage({
-      destination: (req, file, callback) => {
+      destination: (_, __, callback) => {
         callback(null, "./uploads");
       },
-      filename: (req, file, callback) => {
+      filename: (_, file, callback) => {
         callback(null, `${Date.now()}_${file.originalname}`);
       },
     }),
@@ -45,7 +45,7 @@ const upload = async (req: Request, res: Response) => {
         price: req.body.price,
         content: req.body.content,
         imgs: imgstr,
-        titleImg: "http://localhost:3080/api/upload/getImg?imgName=" + titleImg,
+        titleImg: "/api/upload/getImg?imgName=" + titleImg,
       });
       res.status(201).send();
     }

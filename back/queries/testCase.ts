@@ -1,6 +1,5 @@
 import db from "../models/sequelize";
 import Category from "../models/sequelize/category";
-import Product from "../models/sequelize/product";
 
 const mkCase = async () => {
   const titleArr = [
@@ -40,8 +39,7 @@ const mkCase = async () => {
   // });
   for (let i = 1; i < 22; i++) {
     await db.Category.create({
-      cateImg:
-        "http://localhost:3080/api/upload/getImg?imgName=" + `${i}` + ".png",
+      cateImg: "/api/upload/getImg?imgName=" + `${i}` + ".png",
       category: titleArr[i - 1] ? titleArr[i - 1] : `${i}`,
     });
   }
@@ -52,35 +50,35 @@ const mkCase = async () => {
     password: "1234qwer",
   });
 
-  const loca1 = await user1.createLocation({
+  await user1.createLocation({
     location: "서울시 어쩌구 어딘가로",
     locationDetail: "천마아파트 307동 42호",
     latitude: 30,
     longitude: 30,
   });
 
-  const loca2 = await user1.createLocation({
+  await user1.createLocation({
     location: "대전광역시 어쩌구 어딘가로",
     locationDetail: "성심당 귤시루케이크",
     latitude: 30,
     longitude: 30,
   });
 
-  const loca3 = await user1.createLocation({
+  await user1.createLocation({
     location: "부산광역시 어쩌구 어딘가로",
     locationDetail: "이재모피자 오븐스파게티",
     latitude: 30,
     longitude: 30,
   });
 
-  const user2 = await db.User.create({
+  await db.User.create({
     email: "test2@naver.com",
     nickname: "test_user_2",
     phoneNum: "01098765432",
     password: "1234qwer",
   });
 
-  const user3 = await db.User.create({
+  await db.User.create({
     email: "test3@naver.com",
     nickname: "test_user_3",
     phoneNum: "01098465432",
@@ -88,157 +86,144 @@ const mkCase = async () => {
     authority: 2,
   });
 
-  const product = await (
+  await (
     (await db.Category.findOne({ where: { id: 1 } })) as Category
   ).createProduct({
     content: "시험상품 1 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
   });
 
-  const product2 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
     isDirectTrade: true,
   });
-
-  const product3 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
     isDirectTrade: true,
   });
-  const product4 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
     isDirectTrade: true,
   });
-  const product25 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
     isDirectTrade: true,
   });
-  const product26 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
     isDirectTrade: true,
   });
-  const product27 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
     isDirectTrade: true,
   });
-  const product28 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
     isDirectTrade: true,
   });
-  const product29 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
     isDirectTrade: true,
   });
-  const product299 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
     isDirectTrade: true,
   });
-  const product2999 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
     sellerId: 2,
     isDirectTrade: true,
   });
-  const product211 = await (
+  await (
     (await db.Category.findOne({ where: { id: 3 } })) as Category
   ).createProduct({
     content: "시험상품 3 예제입니다.",
     price: 0,
-    titleImg:
-      "http://localhost:3080/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
+    titleImg: "/api/upload/getImg?imgName=1721212550783_Slice 7 (5).png",
     productName: "시험상품 1",
     tradeLocation: "ss",
     deliveryUserId: 1,
