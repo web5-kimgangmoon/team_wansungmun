@@ -13,7 +13,7 @@ const MainPage = () => {
       <Main></Main>
       {/* <More></More>
       <List></List> */}
-      <div className="pt-4"></div>
+      <div className="py-4"></div>
       <MenuBar></MenuBar>
     </div>
   );
