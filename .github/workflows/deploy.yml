@@ -136,8 +136,8 @@ jobs:
 
       - name: Make .env
         run: |
-          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} `
-            echo ${{ secrets.REACT_APP_KAKAOKEY }} > .env`
+          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
+            echo ${{ secrets.REACT_APP_KAKAOKEY }} > .env'
 
       - name: Restart Nginx
         run: ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} 'sudo service nginx restart'
