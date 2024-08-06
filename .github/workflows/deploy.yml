@@ -123,26 +123,6 @@ jobs:
         working-directory: ./wansungmoon_team
         run: echo ${{ secrets.REACT_APP_KAKAOKEY }} >> .env
 
-      - name: MysqlConfig setting
-        working-directory: ./wansungmoon_team
-        run: |
-          cd models/sequelize
-          mkdir config
-          cd config
-          touch config.json
-          vi config.json
-          i
-          {
-            "development": {
-              "username": "tester",
-              "password": "1234qwer",
-              "host": "127.0.0.1",
-              "dialect": "mysql",
-              "database": "test"
-            }
-          }
-          :wq
-
       - name: Install Dependencies of Front
         working-directory: ./wansungmoon_team
         run: npm i
@@ -184,6 +164,26 @@ jobs:
 
       - name: Add SSH known hosts
         run: ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+      - name: MysqlConfig setting
+        working-directory: ./back
+        run: |
+          cd models/sequelize
+          mkdir config
+          cd config
+          touch config.json
+          vi config.json
+          i
+          {
+            "development": {
+              "username": "tester",
+              "password": "1234qwer",
+              "host": "127.0.0.1",
+              "dialect": "mysql",
+              "database": "test"
+            }
+          }
+          :wq
 
       - name: Install Dependencies of Back
         working-directory: ./back
