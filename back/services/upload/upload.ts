@@ -7,7 +7,7 @@ const uploadMulter = (imgs: string) =>
   multer({
     storage: multer.diskStorage({
       destination: (_, __, callback) => {
-        callback(null, "./uploads");
+        callback(null, "/uploads");
       },
       filename: (_, file, callback) => {
         callback(null, `${Date.now()}_${file.originalname}`);

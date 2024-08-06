@@ -10,7 +10,17 @@ const LocationCheck = () => {
   const fixed = useFixed(valueCheck(productId));
   if (log.isPending || log.isFetching || fixed.isFetching || fixed.isPending)
     return <div>로딩중</div>;
-  if (!log.data || !fixed.data || !log.data.data || !fixed.data.data)
+  if (
+    !log.data ||
+    !fixed.data ||
+    !log.data.data ||
+    !fixed.data.data ||
+    !log.data.data.firstLog[0] ||
+    !log.data.data.info[0] ||
+    !log.data.data.product ||
+    !log.data.data.destination ||
+    !log.data.data.destinationDetail
+  )
     return <div>데이터가 존재하지 않습니다</div>;
   console.log(log.data.data.firstLog[0].createdAt);
   const data: ILocationInfo = {
