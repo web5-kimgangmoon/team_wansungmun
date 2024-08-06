@@ -203,7 +203,6 @@ jobs:
           }
 
           nvm use --lts
-
           npm install -g pm2
           pm2 stop all
           pm2 start /var/www/backend/server.js --name backend'
