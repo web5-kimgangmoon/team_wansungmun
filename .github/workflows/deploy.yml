@@ -169,15 +169,28 @@ jobs:
         working-directory: ./back
         run: npm i
 
+      - name: make mysqlConfig
+        run: |
+          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
+            rm -rf /var/www/backend
+            mkdir /var/www/backend
+            cd /var/www/backend
+            mkdir models
+            cd models
+            mkdir sequelize
+            cd sequelize
+            mkdir config
+            cd config
+            ${{ secrets.SERVER_MYSQL_CONFIG }}
+            cd /'
+
       - name: Build Back
         working-directory: ./back
         run: npx tsc
 
       - name: Copy Files to EC2
         run: |
-          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
-            rm -rf /var/www/backend
-            mkdir /var/www/backend'
+
           rsync -avz -e "ssh" ./server/build/ ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/backend
           rsync -avz -e "ssh" ./server/package.json ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/backend/package.json
           ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
@@ -191,8 +204,8 @@ jobs:
 
           cd /var/www/backend
           npm i --production
-          ${{ secrets.SERVER_ENV }}
-          ${{ secrets.SERVER_MYSQL_CONFIG }}'
+          ${{ secrets.SERVER_ENV }}'
+
       - name: Start Server
         run: |
           ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
