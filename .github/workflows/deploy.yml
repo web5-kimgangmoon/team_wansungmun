@@ -174,7 +174,8 @@ jobs:
         run: |
           ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
             rm -rf /var/www/backend
-            mkdir /var/www/backend'
+            mkdir /var/www/backend
+            mkdir /var/www/backend/upload'
           rsync -avz -e "ssh" ./back/build/ ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/backend
           rsync -avz -e "ssh" ./back/package.json ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/backend/package.json
           rsync -avz -e "ssh" ./back/upload/ ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/backend/upload
