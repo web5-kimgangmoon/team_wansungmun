@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 import multer from "multer";
-// import path from "path";
+import path from "path";
 import Product from "../../models/sequelize/product";
 
 const uploadMulter = (imgs: string) =>
   multer({
     storage: multer.diskStorage({
       destination: (_, __, callback) => {
-        callback(null, "/uploads");
+        callback(null, path.join(__dirname, "../../uploads"));
       },
       filename: (_, file, callback) => {
         callback(null, `${Date.now()}_${file.originalname}`);
