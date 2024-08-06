@@ -40,7 +40,8 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "user_session/**"
+      "user_session/**",
+      "./uploads"
     ]
   }
 }
