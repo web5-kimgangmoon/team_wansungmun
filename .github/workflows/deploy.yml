@@ -123,6 +123,9 @@ jobs:
         working-directory: ./wansungmoon_team
         run: npm i
 
+      - name: .env setting
+        run: echo ${{ secrets.REACT_APP_KAKAOKEY }} >> .env
+
       - name: Build Front
         working-directory: ./wansungmoon_team
         run: npm run build
@@ -132,8 +135,7 @@ jobs:
           ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
             rm -rf /var/www/front
             mkdir /var/www/front
-            cd /var/www/front
-            echo ${{ secrets.REACT_APP_KAKAOKEY }} >> .env'
+            cd /var/www/front'
           rsync -avz -e "ssh" ./wansungmoon_team/build/ ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/front
 
       - name: Restart Nginx
