@@ -119,12 +119,12 @@ jobs:
       - name: Add SSH known hosts
         run: ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
+      - name: .env setting
+        run: echo ${{ secrets.REACT_APP_KAKAOKEY }} >> .env
+
       - name: Install Dependencies of Front
         working-directory: ./wansungmoon_team
         run: npm i
-
-      - name: .env setting
-        run: echo ${{ secrets.REACT_APP_KAKAOKEY }} >> .env
 
       - name: Build Front
         working-directory: ./wansungmoon_team

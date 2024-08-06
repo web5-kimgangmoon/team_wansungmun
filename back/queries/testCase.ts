@@ -25,10 +25,10 @@ const mkCase = async () => {
     "기타 중고물품",
     "삽니다",
   ];
-  const cate1 = await db.Category.create({
-    cateImg: "아아아",
-    category: "히히히",
-  });
+  // const cate1 = await db.Category.create({
+  //   cateImg: "아아아",
+  //   category: "히히히",
+  // });
   // const cate2 = await db.Category.create({
   //   cateImg: "나는2야",
   //   category: "나는2야",
