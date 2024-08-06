@@ -8,7 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3080";
+// axios.defaults.baseURL = "http://localhost:3080";
 axios.defaults.validateStatus = (status) => {
   if (status === 301) return true;
   else if (status === 302) return true;
