@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "modelTest": "nodemon ./documents/test/test.ts",
-    "start": "nodemon server.ts || server.js"
+    "start": "nodemon server.ts || node server.js"
   },
   "author": "",
   "license": "ISC",
