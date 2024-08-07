@@ -11,7 +11,7 @@ const KakaoCallback = () => {
     // const code = params.get("code");
     const grant_type = "authorization_code";
     const client_id = `${process.env.REACT_APP_KAKAO_API}`;
-    const REDIRECT_URI = "http://localhost:3000/login/kakao";
+    const REDIRECT_URI = `http://${process.env.REACT_APP_HOST}:3000/login/kakao`;
     axios
       .post(
         `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=${REDIRECT_URI}&code=${code}`,
