@@ -17,7 +17,7 @@ const Login = () => {
             bgColor="yellow"
             onClick={() => {
               // eslint-disable-next-line no-restricted-globals
-              location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=http://localhost:3000/login/kakao&response_type=code`;
+              location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=http://l${process.env.REACT_APP_KAKAO_API}:3000/login/kakao&response_type=code`;
             }}
           >
             카카오로 계속하기
