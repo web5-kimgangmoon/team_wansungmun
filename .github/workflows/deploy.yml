@@ -3,7 +3,7 @@ name: Deploy Project
 on:
   push:
     branches:
-      - tester
+      - main
 
 jobs:
   test_node:
