@@ -3,6 +3,8 @@
 <img src="./readme_src/readme1.PNG" />
 
 - 원본 github 주소: https://github.com/JiwanBang/team_wansungmun
+- 문서주소: https://drive.google.com/drive/folders/1nL3Nc0LFbylXlpJZ4ZbBobId3Tdt8ka_?usp=sharing
+-
 - USER TEST ID: test1@naver.com
 - USER TEST PW: 1234qwer
 - 배송기사 TEST ID: test3@naver.com
@@ -90,7 +92,7 @@
 - wansungmoon_team/src/Components/Public/ProductInfoItem
 - wansungmoon_team/src/Components/Public/TextArea
 - wansungmoon_team/src/Components/Public/Footer
-- wansungmoon_team/src/Components/Public/Header(로고는 다른 조원이 다른 폴더에 조원이 만들었다.)
+- wansungmoon_team/src/Components/Public/Header(로고가 있는 헤더는 다른 조원이 다른 폴더에 만들었다.)
 - wansungmoon_team/src/Components/Public/kakaoMapLocationGetter
 
 #### 실시간 배송 추적 기능(delivery, locationCheck)
@@ -117,7 +119,7 @@
 
 배달원의 물품 상세 페이지(프런트 컴포넌트는 다른 조원이 제작)
 
-- wansungmoon_team/src/Components/DeliveryDetail/index(컴포넌트는 다른 조원이 제작해둔 것 사용)
+- wansungmoon_team/src/Components/DeliveryDetail/index(컴포넌트는 다른 조원이 제작)
 - back/queries/sequelize/location/detail/getDeliveryDetail
 - back/services/delivery/detail/getDeliveryDetail
 - wansungmoon_team/src/hooks/delivery/useDeliveryDetail
@@ -148,7 +150,7 @@
 
 - back/controllers/Category
 
-메인페이지(컴포넌트는 다른조원이)
+메인페이지(컴포넌트는 다른조원이 제작)
 
 - wansungmoon_team/src/Components/Main/Body/index
 - back/sequelize/category/getCategory
@@ -181,37 +183,69 @@
 
 ### Front
 
-<div style="disply:flex">
+<div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
 <div style="display:flex; justify-content:center; width:5rem; padding:0.5rem; border-radius:0.5rem; background-color:black">
-<img src="./readme_src/wordmark_dark.svg" />
+<img src="./readme_src/react_logo.svg" />
+</div>
+<div style="display:flex; justify-content:center; width:5rem;background-color:white; border-radius:0.5rem; align-items:center;">
+<img src="./readme_src/typescript_logo.svg"/>
+</div>
+<div style="display:flex; justify-content:center; width:5rem;background-color:black; border-radius:0.5rem; align-items:center;">
+<img src="./readme_src/react_kako_logo.png"/>
+</div>
+<div style="display:flex; justify-content:center; width:5rem;padding:0.5rem;background-color:black; border-radius:0.5rem; align-items:center;">
+<img src="./readme_src/axios_logo.svg"/>
+</div>
+<div style="display:flex; justify-content:center; width:5rem;padding:0.5rem;background-color:black; border-radius:0.5rem; align-items:center;">
+<img src="./readme_src/react-router-color-inverted.svg"/>
+</div>
+<div style="display:flex; justify-content:center; width:5rem;padding:0.5rem;background-color:black; border-radius:0.5rem; align-items:center;">
+<img src="./readme_src/tailwind-css_logo.svg"/>
+</div>
+<div style="display:flex; justify-content:center; width:5rem;padding:0.5rem;background-color:black; border-radius:0.5rem; align-items:center;">
+<img src="./readme_src/recoil_logo.svg"/>
 </div>
 </div>
-- React, typescript 환경에서 개발
-
-- axios, react-kakao-map, react-router-dom, tailwindcss, recoil 라이브러리 사용
-
-- 카카오 로그인 API, 카카오 지도 API
 
 ### Backend
 
-- typescript, nodeJS
+<div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+<div style="display:flex; justify-content:center; width:5rem;background-color:white; border-radius:0.5rem; align-items:center;">
+<img src="./readme_src/typescript_logo.svg"/>
+</div>
+<div style="display:flex; justify-content:center; width:5rem; padding:0.5rem;background-color:black; border-radius:0.5rem; align-items:center;">
+<img src="./readme_src/nodejsLight_logo.svg"/>
+</div>
+<div style="display:flex; justify-content:center; padding:0.5rem;background-color:black; border-radius:0.5rem; align-items:center;">
+<div style="width:3rem"><img src="./readme_src/sequelize_logo.svg"/></div>
+<div style="font-size:bold; color:#3b76c3; padding-left:0.5rem; font-size:1.2rem;">Sequelize</div>
+</div>
+<div style="display:flex; justify-content:center; padding:0.5rem; background-color:black; border-radius:0.5rem; align-items:center;">
+<div style="width:5rem;"><img src="./readme_src/mongoose_logo.png"/></div>
+<div style="padding-left:0.2rem; font-size:1.2rem; color:#800;">mongoose</div>
+</div>
+</div>
 
-- mysql2, cors, mongoose, multer, express-session, session-file-store 라이브러리 사용
+## DATABASE
 
-### DATABASE
+<div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+<div style="display:flex; justify-content:center; width:5rem;background-color:white; border-radius:0.5rem; align-items:center;">
+<img src="./readme_src/mysql_logo.svg"/>
+</div>
+<div style="display:flex; justify-content:center; width:5rem; padding:0.5rem; background-color:white; border-radius:0.5rem; align-items:center;">
+<img src="./readme_src/MongoDB_Fores-Green_logo.svg"/>
+</div>
+</div>
 
-- 회원 정보, 게시글 등 정보 전반을 저장하기 위해 mysql 사용
-- 실시간 위치 추적 로그를 위해 mongoDB 사용
+## 협업 툴
 
-### 협업 툴
+- <a href="https://github.com/JiwanBang/team_wansungmun">github</a>
 
-- discord, 카카오톡, github
+- <a href="https://docs.google.com/spreadsheets/d/1YYTHFA4z5n_9RmOORPQNLY4iAA3rs3uAcLll98YYpOQ/edit?gid=1151140447#gid=1151140447">구글 스프레드시트</a>
 
-- <a href="https://docs.google.com/spreadsheets/d/1YYTHFA4z5n_9RmOORPQNLY4iAA3rs3uAcLll98YYpOQ/edit?gid=1151140447#gid=1151140447">구글 스프레드시트</a>: 진행사항 체크리스트, 이슈 체크리스트, api 문서 작성
+- <a href="https://drive.google.com/drive/folders/16peHCoF_gTmYik9AmuTj2WVmXGPeQQDG">구글 공유 드라이브</a>
 
-- <a href="https://drive.google.com/drive/folders/16peHCoF_gTmYik9AmuTj2WVmXGPeQQDG">구글 공유 드라이브</a>: 스크럼 및 회의록, 피드백 사항 문서 저장
-
-- <a href="https://www.figma.com/design/lhPuCmiYz7lx87LLq2kwbA/team_wansungmun?node-id=0-1">디자인: </a> 피그마를 통해 UI 초안 작성
+- <a href="https://www.figma.com/design/lhPuCmiYz7lx87LLq2kwbA/team_wansungmun?node-id=0-1">figma</a>
 
 - <a href="https://app.diagrams.net/#G18p2nr8EsjUGMysP9U5TyHFSIbiR54iRz#%7B%22pageId%22%3A%22R2lEEEUBdFMjLlhIrx00%22%7D">drawio ERD</a>
 
