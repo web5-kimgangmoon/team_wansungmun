@@ -2,7 +2,7 @@
 
 <img src="./readme_src/readme1.PNG" />
 
-- github 주소: https://github.com/JiwanBang/team_wansungmun
+- 원본 github 주소: https://github.com/JiwanBang/team_wansungmun
 - USER TEST ID: test1@naver.com
 - USER TEST PW: 1234qwer
 - 배송기사 TEST ID: test3@naver.com
@@ -97,9 +97,14 @@
 
 ### Front
 
+<div style="disply:flex">
+<div style="display:flex; justify-content:center; width:5rem; padding:0.5rem; border-radius:0.5rem; background-color:black">
+<img src="./readme_src/wordmark_dark.svg" />
+</div>
+</div>
 - React, typescript 환경에서 개발
 
-- axios, cors, react-kakao-map, react-router-dom, tailwindcss, recoil 라이브러리 사용
+- axios, react-kakao-map, react-router-dom, tailwindcss, recoil 라이브러리 사용
 
 - 카카오 로그인 API, 카카오 지도 API
 
@@ -107,7 +112,7 @@
 
 - typescript, nodeJS
 
-- mysql2, mongoose, multer, express-session, session-file-store 라이브러리 사용
+- mysql2, cors, mongoose, multer, express-session, session-file-store 라이브러리 사용
 
 ### DATABASE
 
