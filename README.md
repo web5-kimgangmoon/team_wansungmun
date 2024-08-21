@@ -58,42 +58,126 @@
 
 - 피그마 UI 초안 작성 및 공통적으로 사용하는 컴포넌트 제작
 
-### 박성민: 프론트엔드
-
-- 피그마 UI 레퍼런스 참조
-- 상단 헤더, 하단 메뉴바 컴포넌트 제작
-- 공통 컴포넌트 전반 제작
-- 메인페이지 프론트엔드
-- 내정보페이지 프론트엔드
-- 충전페이지 프론트엔드
-- 상품페이지 프론트엔드
-- 구매페이지 프론트엔드, 배송지 선택 모달창
-- 배달 기사 페이지 프론트엔드, 배달 상품 상세 확인 프론트엔드
-- 관리자페이지 프론트엔드
-
 ### 김강문: 프론트엔드/백엔드
 
-- 주문 내역, 주문 상세 페이지 백엔드
-- 공통 컴포넌트 전반 제작
-- 지도 API 구현 및 실시간 배송 추적 기능
-- 시퀄라이즈 모델 제작
-- 유저 거래 내역에서 배송 추적 정보 받아오기
-- 상품 페이지 백엔드
-- 메인페이지 백엔드
-- 배송 기사 페이지 백엔드
-- 몽고DB 환경 구축
+#### 주문 내역
 
-### 방지완: 일정 관리 및 문서 작성, 프론트엔드 및 백엔드
+- wansungmoon_team/src/Components/OrderListTwo/index
+- back/controllers/orderList/index
+- back/qureies/sequelize/orderList/getOrderList
+- wansungmoon_team/src/hooks/orderList/userorderList
 
-- API 문서, ERD, sequence-diagram, flow chart 작성
-- 구글 문서를 이용한 회의록 작성, 피드백 기록, 스프레드시트를 통한 진행사항 체크리스트, 이슈 체크리스트 작성
-- 이메일 로그인 및 회원가입 프론트엔드, 백엔드
-- 카카오 로그인 API를 이용한 oauth 로그인, 회원가입 프론트엔드, 백엔드
-- 로그인 및 로그인 체크 백엔드
-- 상품 등록 페이지 백엔드
-- 상품 구매 페이지 백엔드
+#### 주문 상세 페이지
 
-## 3. 작업 환경
+- wansungmoon_team/src/Components/ProductDetail/body
+- wansungmoon_team/src/Components/ProductDetail/index
+- back/qureies/sequelize/orderList/detail/getOrderListDetail
+- wansungmoon_team/src/hooks/orderList/userorderListDetail
+
+#### 공통 컴포넌트 전반 제작, 지도 api 이용
+
+- wansungmoon_team/src/Components/BottomIcons
+- wansungmoon_team/src/Components/Public/BoldLine
+- wansungmoon_team/src/Components/Public/Button
+- wansungmoon_team/src/Components/Public/CenterBody
+- wansungmoon_team/src/Components/Public/CheckBox
+- wansungmoon_team/src/Components/Public/dropDown
+- wansungmoon_team/src/Components/Public/ImgModal
+- wansungmoon_team/src/Components/Public/LongButton
+- wansungmoon_team/src/Components/Public/checkBox
+- wansungmoon_team/src/Components/Public/clickButton
+- wansungmoon_team/src/Components/Public/PictureBox
+- wansungmoon_team/src/Components/Public/ProductInfoItem
+- wansungmoon_team/src/Components/Public/TextArea
+- wansungmoon_team/src/Components/Public/Footer
+- wansungmoon_team/src/Components/Public/Header(로고는 다른 조원이 다른 폴더에 조원이 만들었다.)
+- wansungmoon_team/src/Components/Public/kakaoMapLocationGetter
+
+#### 실시간 배송 추적 기능(delivery, locationCheck)
+
+백엔드의 router
+
+- back/controllers/delivery
+- back/controllers/locationCheck
+
+배달원의 물품 리스트페이지(프런트 컴포넌트는 다른 조원이 제작)
+
+- wansungmoon_team/src/Components/Delivery/index
+- back/services/dellivery/getDeliveryProductList
+- back/querires/sequelize/locationSend
+- wansungmoon_team/src/hooks/delivery/useDeliveryList
+
+배달원의 물품 리스트페이지(위치 정보 서버로 전달)
+
+- back/querires/sequelize/location/locationSend
+- back/queries/mongoose/location/locationSend
+- back/querires/sequelize/location/locationSendStateUpdate
+- back/services/delivery/locationSend
+- wansungmoon_team/src/hooks/delivery/useLocationSend
+
+배달원의 물품 상세 페이지(프런트 컴포넌트는 다른 조원이 제작)
+
+- wansungmoon_team/src/Components/DeliveryDetail/index(컴포넌트는 다른 조원이 제작해둔 것 사용)
+- back/queries/sequelize/location/detail/getDeliveryDetail
+- back/services/delivery/detail/getDeliveryDetail
+- wansungmoon_team/src/hooks/delivery/useDeliveryDetail
+
+배달원의 물품 상세 페이지(배달완료 요청)
+
+- back/queries/sequelize/location/detail/postDeliveryComplete
+- back/services/delivery/detail/postDeliveryComplete
+- wansungmoon_team/src/hooks/delivery/useDeliveryComplete
+
+고객의 택배 위치 체크(프런트, 백)
+
+- wansungmoon_team/src/Components/LocationCheck
+- back/queries/mongoose/location/getLocation
+- back/services/locationCheck/getLocation
+- wansungmoon_team/src/hooks/locationCheck/useLog
+- back/queries/sequelize/location/detail/getFixedLocation
+- back/services/locationCheck/getFixedLocation
+- wansungmoon_team/src/hooks/locationCheck/useFixed
+
+#### 시퀄라이즈 모델 제작, 몽고DB 환경 구축
+
+- back/models(프로젝트 중 팀원이 일부 수정)
+
+#### 상품리스트, 메인페이지
+
+백엔드의 라우터(다른 팀원이 추후 /uploadpage 경로 추가)
+
+- back/controllers/Category
+
+메인페이지(컴포넌트는 다른조원이)
+
+- wansungmoon_team/src/Components/Main/Body/index
+- back/sequelize/category/getCategory
+- back/service/category/getCategory
+- wansungmoon_team/src/hooks/category/useCategory
+
+카테고리 상품 리스트(프런트, 백)
+
+- wansungmoon_team/src/Components/ProductListPage/Comp
+- wansungmoon_team/src/Components/ProductListPage/index
+- back/sequelize/product/getCateProduct
+- back/category/getProduct
+- wansungmoon_team/src/hooks/category/useCateProduct
+
+#### 상품상세 페이지
+
+백엔드의 라우터
+
+- back/controllers/productInfo
+
+상품상세 페이지(프런트, 백)
+
+- wansungmoon_team/src/Components/ProductDeatil/body
+- wansungmoon_team/src/Components/ProductDetail/index
+- back/product/getProductDetail
+- back/sequelize/product/getProductDeatil
+- wansungmoon_team/src/hooks/product/useProductDetail
+
+## 스택
 
 ### Front
 
