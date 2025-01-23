@@ -25,7 +25,11 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    origin: [/http:\/\/localhost:*/, /https:\/\/127.0.0.1:*/],
+    origin: [
+      /http:\/\/localhost:*/,
+      /https:\/\/127.0.0.1:*/,
+      /https:\/\/teamproject2.clashcrash.com/,
+    ],
     credentials: true, // 쿠키가 있다면
   })
 );
