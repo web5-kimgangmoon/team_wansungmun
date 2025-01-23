@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 
 // axios.defaults.baseURL = "http://localhost:3080";
+axios.defaults.baseURL = "https://teamproject2server.clashcrash.com";
 axios.defaults.validateStatus = (status) => {
   if (status === 301) return true;
   else if (status === 302) return true;
