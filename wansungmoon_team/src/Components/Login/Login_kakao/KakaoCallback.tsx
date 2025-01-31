@@ -60,7 +60,7 @@ const KakaoCallback = () => {
       });
   }, [navigate]);
 
-  return <></>;
+  return <div></div>;
 };
 
 export default KakaoCallback;
