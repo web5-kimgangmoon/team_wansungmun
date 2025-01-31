@@ -17,7 +17,7 @@ dotenv.config();
 const app = express();
 const { server } = useSocket(app);
 
-app.set("port", process.env.PORT || 3080);
+app.set("port", process.env.PORT || 3081);
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === "deploy") morgan("combined")(req, res, next);
   else morgan("dev")(req, res, next);

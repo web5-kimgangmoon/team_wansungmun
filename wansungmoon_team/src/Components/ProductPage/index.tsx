@@ -36,7 +36,11 @@ const Content = () => {
       price={data.data.price}
       score={data.data.averageScore ? data.data.avarageScore : 0}
       reviewCount={data.data.reviewCount}
-      src={data.data.titleImg}
+      src={
+        process.env.REACT_APP_HOST
+          ? process.env.REACT_APP_HOST + data.data.titleImg
+          : data.data.titleImg
+      }
     />
   );
 };
