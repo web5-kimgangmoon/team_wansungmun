@@ -76,9 +76,9 @@ jobs:
       - name: Copy Files to EC2
         run: |
           ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
-            rm -rf /var/www/backend
-            mkdir /var/www/backend
-            mkdir /var/www/backend/uploads'
+            rm -rf /var/www/teamproject2
+            mkdir /var/www/teamproject2
+            mkdir /var/www/teamproject2/uploads'
           rsync -avz -e "ssh" ./back/build/ ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/teamproject2/
           rsync -avz -e "ssh" ./back/package.json ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/teamproject2/package.json
           rsync -avz -e "ssh" ./back/uploads/ ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/var/www/teamproject2/uploads
@@ -105,5 +105,5 @@ jobs:
 
           nvm use --lts
           npm install -g pm2
-          pm2 stop all
-          pm2 start /var/www/teamproject2/server.js --name teamproject2'
+          pm2 stop teamproject2
+          pm2 start /var/www/teamproject2/index.js --name teamproject2'
