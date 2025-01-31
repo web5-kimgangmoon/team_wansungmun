@@ -32,7 +32,14 @@ const MainList = ({ cateArr }: IProps) => {
             <Link to={`/productList/${item.id}`}>
               <div className="flex flex-col items-center text-center">
                 <div className="w-[3rem] h-[3rem] rounded-xl">
-                  <img src={item.cateImg} alt="이미지" />
+                  <img
+                    src={
+                      process.env.REACT_APP_HOST
+                        ? process.env.REACT_APP_HOST + item.cateImg
+                        : item.cateImg
+                    }
+                    alt="이미지"
+                  />
                 </div>
                 <div className="text-xs font-bold">{item.category}</div>
               </div>
