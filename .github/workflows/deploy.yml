@@ -31,6 +31,7 @@ jobs:
           echo REACT_APP_KAKAOKEY=${{ secrets.REACT_APP_KAKAOKEY }} >> .env
           echo REACT_APP_KAKAO_API=${{ secrets.REACT_APP_KAKAO_API }} >> .env
           echo "REACT_APP_HOST=${{ secrets.REACT_APP_HOST }}" >> .env
+          echo "REACT_APP_SERVER=${{ secrets.REACT_APP_SERVER }}" >> .env
 
       - name: Install Dependencies of Front
         working-directory: ./wansungmoon_team

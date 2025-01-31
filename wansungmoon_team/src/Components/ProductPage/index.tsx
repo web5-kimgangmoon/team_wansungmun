@@ -37,8 +37,8 @@ const Content = () => {
       score={data.data.averageScore ? data.data.avarageScore : 0}
       reviewCount={data.data.reviewCount}
       src={
-        process.env.REACT_APP_HOST
-          ? process.env.REACT_APP_HOST + data.data.titleImg
+        process.env.REACT_APP_SERVER
+          ? process.env.REACT_APP_SERVER + data.data.titleImg
           : data.data.titleImg
       }
     />
