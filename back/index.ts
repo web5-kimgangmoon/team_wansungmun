@@ -33,6 +33,32 @@ app.use(
     credentials: true, // 쿠키가 있다면
   })
 );
+
+const FileStore = fileStore(session);
+declare module "express-session" {
+  interface SessionData {
+    user: number;
+    isLogined: boolean;
+    nickName: string;
+  }
+}
+
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: "project",
+    name: "user",
+    store: new FileStore({
+      reapInterval: 1000,
+      path: "./user_session",
+    }),
+    cookie: {
+      maxAge: 20 * 60 * 1000,
+    },
+  })
+);
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 // app.use(cookieParser(process.env.COOKIESECRET || "dksajdalsjd")); // 쿠키가 필요하다면
@@ -107,31 +133,6 @@ app.use(express.json());
 //   //   console.log(data?.user);
 //   // });
 // })();
-
-const FileStore = fileStore(session);
-declare module "express-session" {
-  interface SessionData {
-    user: number;
-    isLogined: boolean;
-    nickName: string;
-  }
-}
-
-app.use(
-  session({
-    resave: false,
-    saveUninitialized: false,
-    secret: "project",
-    name: "user",
-    store: new FileStore({
-      reapInterval: 1000,
-      path: "./user_session",
-    }),
-    cookie: {
-      maxAge: 20 * 60 * 1000,
-    },
-  })
-);
 
 (async () => {
   await sequelize.sync({ force: true });
