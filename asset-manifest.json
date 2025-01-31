@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.0f760ad9.css",
-    "main.js": "/static/js/main.48d93238.js",
+    "main.js": "/static/js/main.4f97f64a.js",
     "static/js/453.f014ca4f.chunk.js": "/static/js/453.f014ca4f.chunk.js",
     "static/media/Map-Marker-Pin-Free-PNG-Image.png": "/static/media/Map-Marker-Pin-Free-PNG-Image.acfdadc9136396e63b5d.png",
     "static/media/Kakao_logo.jpg": "/static/media/Kakao_logo.02a5af6571ea776963d0.jpg",
@@ -20,11 +20,11 @@
     "static/media/detailBtn.svg": "/static/media/detailBtn.dd26bac30e254e0193115120fb087de2.svg",
     "static/media/Chevron-down.svg": "/static/media/Chevron-down.f2690e8a25d62bf4a1b27e6e257fea19.svg",
     "main.0f760ad9.css.map": "/static/css/main.0f760ad9.css.map",
-    "main.48d93238.js.map": "/static/js/main.48d93238.js.map",
+    "main.4f97f64a.js.map": "/static/js/main.4f97f64a.js.map",
     "453.f014ca4f.chunk.js.map": "/static/js/453.f014ca4f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0f760ad9.css",
-    "static/js/main.48d93238.js"
+    "static/js/main.4f97f64a.js"
   ]
 }
