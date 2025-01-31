@@ -20,8 +20,8 @@ const OrderListPage = () => {
         score: item.product.avarageScore,
         reviewCount: item.product.reviewCount,
         writer: item.product.nickName,
-        src: process.env.REACT_APP_HOST
-          ? process.env.REACT_APP_HOST + item.product.titleImg
+        src: process.env.REACT_APP_SERVER
+          ? process.env.REACT_APP_SERVER + item.product.titleImg
           : item.product.titleImg,
         pressBtnInfo: {
           tradeListPath: `/orderDetail/${item.product.id}`,

@@ -23,8 +23,8 @@ const DeliveryDetail = () => {
         request: data.data.tradeReceipts[0].trade_request,
       }}
       detailPic={{
-        titleImg: process.env.REACT_APP_HOST
-          ? process.env.REACT_APP_HOST + data.data.titleImg
+        titleImg: process.env.REACT_APP_SERVER
+          ? process.env.REACT_APP_SERVER + data.data.titleImg
           : data.data.titleImg,
       }}
       deliveryBtn={{
