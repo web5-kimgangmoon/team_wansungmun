@@ -34,8 +34,8 @@ const MainList = ({ cateArr }: IProps) => {
                 <div className="w-[3rem] h-[3rem] rounded-xl">
                   <img
                     src={
-                      process.env.REACT_APP_HOST
-                        ? process.env.REACT_APP_HOST + item.cateImg
+                      process.env.REACT_APP_SERVER
+                        ? process.env.REACT_APP_SERVER + item.cateImg
                         : item.cateImg
                     }
                     alt="이미지"

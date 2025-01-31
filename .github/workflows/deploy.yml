@@ -106,5 +106,5 @@ jobs:
 
           nvm use --lts
           npm install -g pm2
-          pm2 stop teamproject2
+          pm2 delete teamproject2
           pm2 start /var/www/teamproject2/index.js --name teamproject2'
