@@ -30,7 +30,9 @@ const ProductDetail = () => {
   if (!data || !data.data)
     return <div className="container">데이터가 없거나 구매자가 아닙니다</div>;
   const info: IComp = {
-    src: data.data.product.titleImg,
+    src: process.env.REACT_APP_HOST
+      ? process.env.REACT_APP_HOST + data.data.product.titleImg
+      : data.data.product.titleImg,
     title: data.data.product.productName,
     price: data.data.product.price,
     category: data.data.product.category,

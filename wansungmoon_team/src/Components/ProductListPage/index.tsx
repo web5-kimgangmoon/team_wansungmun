@@ -22,7 +22,9 @@ const ProductListPage = () => {
         score: item.avarageScore ? (item.averageScore as number) : 0,
         reviewCount: item.reviewCount as number,
         writer: item.nickName as string,
-        src: item.titleImg as string,
+        src: process.env.REACT_APP_HOST
+          ? ((process.env.REACT_APP_HOST + item.titleImg) as string)
+          : (item.titleImg as string),
         stateBtnInfo: {
           state:
             item.tradeStatus === 1

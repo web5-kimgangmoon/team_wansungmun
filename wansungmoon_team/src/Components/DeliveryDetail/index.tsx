@@ -22,7 +22,11 @@ const DeliveryDetail = () => {
         phone: data.data.tradeReceipts[0].phone_num,
         request: data.data.tradeReceipts[0].trade_request,
       }}
-      detailPic={{ titleImg: data.data.titleImg }}
+      detailPic={{
+        titleImg: process.env.REACT_APP_HOST
+          ? process.env.REACT_APP_HOST + data.data.titleImg
+          : data.data.titleImg,
+      }}
       deliveryBtn={{
         deliveryStatus: data.data.deliveryStatus,
         onClick:
