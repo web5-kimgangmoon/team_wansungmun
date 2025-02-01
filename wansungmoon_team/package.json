@@ -1,7 +1,7 @@
 {
   "name": "wansungmoon_team",
   "version": "0.1.0",
-  "homepage": "https://web5-kimgangmoon.github.io/team_wansungmun/",
+  "homepage": "https://web5-kimgangmoon.github.io/team_wansungmun/build/",
   "private": true,
   "dependencies": {
     "@tanstack/react-query": "^5.51.1",

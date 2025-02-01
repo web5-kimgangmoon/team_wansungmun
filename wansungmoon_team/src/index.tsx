@@ -32,7 +32,7 @@ const queryClient = new QueryClient({
 });
 root.render(
   // <React.StrictMode>
-  <BrowserRouter basename="https://web5-kimgangmoon.github.io/team_wansungmun/">
+  <BrowserRouter basename="https://web5-kimgangmoon.github.io/team_wansungmun/build/">
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
         <App />
