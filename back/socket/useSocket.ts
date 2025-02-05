@@ -7,7 +7,7 @@ const useSocket = (app: Express) => {
   const server = createServer(app);
   const io = new Server(server, {
     cors: {
-      origin: [/http:\/\/localhost:*/, /http:\/\/127.0.0.1:*/],
+      origin: [/http:\/\/localhost:*/, /http:\/\/127.0.0.1:*/, /https:\/\/teamproject2.clashcrash.com/],
     },
   });
   chat(io);
