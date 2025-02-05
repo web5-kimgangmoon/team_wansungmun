@@ -12,7 +12,8 @@ import fileStore from "session-file-store";
 
 import mkCase from "./queries/testCase";
 
-dotenv.config({ path: `${__dirname}/.env` });
+// dotenv.config({ path: `${__dirname}/.env` });
+dotenv.config();
 
 const app = express();
 const { server } = useSocket(app);
@@ -47,7 +48,8 @@ app.use(
     name: "user",
     store: new FileStore({
       reapInterval: 1000,
-      path: `${__dirname}/user_session`,
+      // path: `${__dirname}/user_session`,
+      path: "./user_session",
     }),
     cookie: {
       maxAge: 20 * 60 * 1000,
