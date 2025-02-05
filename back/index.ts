@@ -17,12 +17,6 @@ dotenv.config({ path: `${__dirname}/.env` });
 const app = express();
 const { server } = useSocket(app);
 
-app.set("port", process.env.PORT || 3081);
-app.use((req, res, next) => {
-  if (process.env.NODE_ENV === "deploy") morgan("combined")(req, res, next);
-  else morgan("dev")(req, res, next);
-});
-
 app.use(
   cors({
     origin: [
@@ -33,6 +27,8 @@ app.use(
     credentials: true, // 쿠키가 있다면
   })
 );
+
+app.set("port", process.env.PORT || 3081);
 
 const FileStore = fileStore(session);
 declare module "express-session" {
@@ -58,6 +54,11 @@ app.use(
     },
   })
 );
+
+app.use((req, res, next) => {
+  if (process.env.NODE_ENV === "deploy") morgan("combined")(req, res, next);
+  else morgan("dev")(req, res, next);
+});
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
