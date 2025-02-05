@@ -12,8 +12,6 @@ import fileStore from "session-file-store";
 
 import mkCase from "./queries/testCase";
 
-const __dirname = import.meta.dirname;
-
 dotenv.config({ path: `${__dirname}/.env` });
 
 const app = express();
