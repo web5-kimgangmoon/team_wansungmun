@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "team2Root",
+    "username": "team2",
     "password": "1234qwer",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "database": "team2"
+    "database": "teamproject2"
   }
 }
